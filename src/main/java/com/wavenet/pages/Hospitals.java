@@ -24,10 +24,10 @@ public class Hospitals {
     }
 
     public void click_on_Hospitals() throws Throwable {
-        WebElement hospitalsBtn = driver.findElement(By.xpath("//body/app-root[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/app-sidenav[1]/mat-nav-list[1]/div[1]/mat-accordion[1]/app-menu-panel[3]/mat-expansion-panel[1]"));
-        JavascriptExecutor je = (JavascriptExecutor) driver;
-        je.executeScript("arguments[0].scrollIntoView();", hospitalsBtn);
-        Thread.sleep(3000);
+        WebElement hospitalsBtn = driver.findElement(By.xpath("//*[@id=\"mat-expansion-panel-header-26\"]/span[1]/mat-panel-title/span"));
+      //  JavascriptExecutor je = (JavascriptExecutor) driver;
+     //   je.executeScript("arguments[0].scrollIntoView();", hospitalsBtn);
+     //   Thread.sleep(3000);
         hospitalsBtn.click();
     }
 

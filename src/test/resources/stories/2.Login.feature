@@ -126,7 +126,7 @@ Feature: DDH Log in
     Given Open the browser and launch the application
     When Enter for login as 'suneth'
     And Enter for password as'Test@123'
-    And Click on the sign in button
+    And Click on the signin button
     Then Navigate to the home page
 
 
