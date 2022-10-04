@@ -22,7 +22,7 @@ Feature: Recall Manager
      And Click on the signin button
 
      And Click on Follow up care
-     And Click on All Recalls
+     And Click on Recalls
      And Click on Sync Recalls
      And Validate in Sync
 

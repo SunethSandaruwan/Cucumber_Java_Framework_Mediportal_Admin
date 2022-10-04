@@ -1,14 +1,5 @@
 Feature: DDH Detailed Registration
 
-  Scenario:TestCase 1564: Verification of Successful Log in
-    Given Open the browser and launch the application
-    When Click on Log In Drop down
-    And Click on LogIn Button
-    And Enter Mobile Number for login as '+94772222230'
-    And Enter Password for login as 'Password@123'
-    And Click on Sign In Button
-    Then Redirect to next page
-
 # TestCase 1320: Verification of Mandatory Fields
 #  Scenario:TestCase 1320: Verification of Mandatory Fields
 #    Given Open the browser and launch the application

@@ -107,6 +107,7 @@ public class Login {
     public void click_on_the_signin_button() throws Throwable {
         WebElement loginBtn = driver.findElement(By.xpath("//span[contains(text(),'Sign in')]"));
         loginBtn.click();
+        Thread.sleep(3000);
     }
     public void navigate_to_the_home_page() throws Throwable {
         boolean status = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav[1]/div/app-sidenav/mat-nav-list/h2/img")).isDisplayed();

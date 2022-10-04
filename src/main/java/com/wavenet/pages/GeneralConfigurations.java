@@ -1,5 +1,6 @@
 package com.wavenet.pages;
 
+import com.sun.tools.internal.xjc.Driver;
 import com.wavenet.util.Config;
 import com.wavenet.util.InitializeDriver;
 import org.junit.Assert;
@@ -30,32 +31,36 @@ public class GeneralConfigurations {
     }
     public void click_on_Hospital() throws Throwable{
         Thread.sleep(5000);
-        WebElement ClickHospital = driver.findElement(By.xpath("//*[@id=\"mat-expansion-panel-header-9\"]/span[1]/mat-panel-title/span"));
+        //to the scroll on application
+        //JavascriptExecutor js = (JavascriptExecutor) driver;
+       // js.executeScript("window.scrollBY(0.350)","");
+        WebElement ClickHospital = driver.findElement(By.xpath("//span[contains(text() ,' Institute')]"));
+       // WebElement ClickHospital = driver.findElement(By.xpath("//*[@id=\"mat-expansion-panel-header-8\"]/span[1]/mat-panel-title/span"));
         ClickHospital.click();
         //Scroll down in web page
-        js.executeScript("argument[0].scrollIntoView();", ClickHospital);
+       // js.executeScript("argument[0].scrollIntoView();", ClickHospital);
 
     }
     public void click_on_Business_Hours() throws Throwable{
         Thread.sleep(5000);
-        WebElement ClickBusinessHours = driver.findElement(By.xpath("//span[contains(text(),'Business Hours')]"));
+        WebElement ClickBusinessHours = driver.findElement(By.xpath("//*[@id=\"cdk-accordion-child-8\"]/div/app-menu-panel[1]/span/mat-list-item/span/span[3]"));
         ClickBusinessHours.click();
     }
     public void verify_the_General_Configurations() throws  Throwable{
         Thread.sleep(5000);
-        boolean VGConfigurations = driver.findElement(By.xpath("//h1[contains(text(),'General Configurations')]")).isDisplayed();
+        boolean VGConfigurations = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/business-hours-selector/div/div/div[1]/h1")).isDisplayed();
         Assert.assertEquals(true,VGConfigurations);
         System.out.println("Verify Configurations");
     }
     public void click_on_the_General_Configurations_Search_Hospital_Field() throws Throwable{
         Thread.sleep(5000);
-        WebElement SearchHospitalField = driver.findElement(By.xpath("//input[@id='mat-input-1']"));
+        WebElement SearchHospitalField = driver.findElement(By.xpath("//*[@id=\"mat-input-3\"]"));
         SearchHospitalField.click();
     }
     public void select_or_Enter_Hospital_Name(String HospitalName) throws Throwable{
         Thread.sleep(5000);
-        WebElement EnterHospitalName = driver.findElement(By.xpath("//input[@id='mat-input-1']"));
-        EnterHospitalName.sendKeys("KOKO");
+        WebElement EnterHospitalName = driver.findElement(By.xpath("//*[@id=\"mat-input-3\"]"));
+        EnterHospitalName.sendKeys("Main surgery");
     }
     public void select_the_x_Operations_Radio_Button() throws Throwable{
         Thread.sleep(5000);

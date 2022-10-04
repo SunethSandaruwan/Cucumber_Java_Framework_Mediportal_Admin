@@ -48,11 +48,11 @@ public class HospitalLocationsSteps {
 
     }
 
-//-----------------------------Testcase: 7761-----------------------------------
+    //-----------------------------Testcase: 7761-----------------------------------
     @Given("^Verify the Hospital Locations page title$")
     public void verify_the_Hospital_Locations_page_title() throws Throwable {
         // Insert in homePage
-      homePage.verify_the_Hospital_Locations_page_title();
+        homePage.verify_the_Hospital_Locations_page_title();
 
     }
 
@@ -69,5 +69,48 @@ public class HospitalLocationsSteps {
     @Given("^Click on Hospital delete Button$")
     public void click_on_Hospital_delete_Button() throws Throwable {
 
+    }
+
+
+//----------------------DDH-7691------------------------
+
+    @When("^Click on Institute Location Create New Button$")
+    public void click_on_Institute_Location_Create_New_Button() throws Throwable {
+        hospitalLocations.click_on_Institute_Location_Create_New_Button();
+    }
+
+    @When("^Click on Create Location and Select Institute '(.*?)'$")
+    public void click_on_Create_Location_and_Select_Institute(String InstituteName) throws Throwable {
+        hospitalLocations.click_on_Create_Location_and_Select_Institute(InstituteName);
+    }
+
+    @When("^Enter new Location in Create Location '(.*?)'$")
+    public void enter_new_Location_in_Create_Location(String InstituteLocation) throws Throwable {
+        hospitalLocations.enter_new_Location_in_Create_Location(InstituteLocation);
+    }
+
+    @When("^Enter new Location code in Create Location '(.*?)'$")
+    public void enter_new_Location_code_in_Create_Location(String InstituteLocationCode) throws Throwable {
+        hospitalLocations.enter_new_Location_code_in_Create_Location(InstituteLocationCode);
+    }
+
+    @When("^Select the utilization in Dropdown $")
+    public void select_the_utilization_in_Dropdown( ) throws Throwable {
+        hospitalLocations.select_the_utilization_in_Dropdown();
+    }
+
+    @When("^Enter Create Location Description '(.*?)'$")
+    public void enter_Create_Location_Description(String LocationDescription) throws Throwable {
+        hospitalLocations.enter_Create_Location_Description(LocationDescription);
+    }
+
+    @When("^Click on Create Location Save Button$")
+    public void click_on_Create_Location_Save_Button() throws Throwable {
+        hospitalLocations.click_on_Create_Location_Save_Button();
+    }
+
+    @Then("^Verify the Display as success message as Institute Location$")
+    public void verify_the_Display_as_success_message_as_Institute_Location() throws Throwable {
+        hospitalLocations.verify_the_Display_as_success_message_as_Institute_Location();
     }
 }

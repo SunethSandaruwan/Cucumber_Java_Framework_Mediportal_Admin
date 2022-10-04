@@ -65,22 +65,22 @@ public class MyDoctor {
      }
      //Click on Assign button
      public void click_on_Assign_Doctor_Button () throws Throwable{
-        WebElement Assignbtn = driver.findElement(By.xpath(""));
+        WebElement Assignbtn = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/manage-doctors-selector/div/button/span[1]"));
         Assignbtn.click();
      }
      //Select the un assigend Doctor name in gred
     public void select_the_unassigned_Doctor_Name () throws Throwable{
-        WebElement SelectUnassignedDoctor = driver.findElement(By.xpath(""));
+        WebElement SelectUnassignedDoctor = driver.findElement(By.xpath("//*[@id=\"mat-input-158\"]"));
         SelectUnassignedDoctor.click();
     }
     //Select the Click on save button
     public void click_on_Save_Button () throws Throwable{
-        WebElement ClickSaveBtn = driver.findElement(By.xpath(""));
+        WebElement ClickSaveBtn = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/manage-doctors-selector/mat-sidenav-container[3]/mat-sidenav/div/div/div[2]/form/div[5]/button/span[2]"));
         ClickSaveBtn.click();
     }
     //Click on cancel button
     public void click_on_Cancel_button () throws Throwable{
-        WebElement ClickCancelBtn = driver.findElement(By.xpath(""));
+        WebElement ClickCancelBtn = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/manage-doctors-selector/mat-sidenav-container[3]/mat-sidenav/div/div/div[2]/form/div[5]/button/span[1]"));
         ClickCancelBtn.click();
     }
     //Verify the assign doctor name in Hospital

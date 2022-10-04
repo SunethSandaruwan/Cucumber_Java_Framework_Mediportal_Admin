@@ -24,10 +24,8 @@ public class Hospitals {
     }
 
     public void click_on_Hospitals() throws Throwable {
-        WebElement hospitalsBtn = driver.findElement(By.xpath("//*[@id=\"mat-expansion-panel-header-26\"]/span[1]/mat-panel-title/span"));
-      //  JavascriptExecutor je = (JavascriptExecutor) driver;
-     //   je.executeScript("arguments[0].scrollIntoView();", hospitalsBtn);
-     //   Thread.sleep(3000);
+        Thread.sleep(5000);
+        WebElement hospitalsBtn = driver.findElement(By.xpath("//*[@id=\"mat-expansion-panel-header-19\"]/span[1]/mat-panel-title/span"));
         hospitalsBtn.click();
     }
 

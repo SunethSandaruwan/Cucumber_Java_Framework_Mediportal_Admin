@@ -109,17 +109,6 @@ Feature: DDH Log in
     And Click on Register button
     Then Direct to the sign up submission page
 
-# TestCase 1564: Verification of Successful Log In
-  Scenario:TestCase 1564: Verification of Successful Log in
-    Given Open the browser and launch the application
-    When Click on Log In Drop down
-    And Click on LogIn Button
-    And Enter Mobile Number for login as '+94772222230'
-    And Enter Password for login as 'Password@123'
-    And Click on Sign In Button
-    Then Redirect to next page
-#    And Click on Logout button
-
   #--------------BAB--------------
   #loging in to the BAP project in registered user
   Scenario: Verification of successful log In

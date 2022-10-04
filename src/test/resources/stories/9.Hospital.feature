@@ -129,3 +129,27 @@ Feature: DDH Hospitals
     And Enter hospital name as '.*'
     And Enter hospital code as '.*'
     And Click on Save Button
+
+    #TestCase : BAP 887 Hospital Profile Delete - verify confirmation message
+  Scenario: BAP 887 Hospital Profile Delete - verify confirmation message
+    Given Open the browser and launch the application
+    And Wait  some time
+    When Enter for login as 'suneth'
+    And Enter for password as'Test@123'
+    And Click on the signin button
+
+   #Given Open the browser and launch the application
+    And Click on Hospitals
+    And Click on All hospitals
+    And Click on Add new hospitals
+ #   And Verify Add Hospital title
+    And Select organization group as 'Automation Test'
+    And Click on Next button
+  #  And Select Language in dropdown
+    And Enter hospital name as 'Automation Test 01'
+    And Enter hospital code as '000876'
+    And Click on Save Button
+
+    And Click on Hospital delete Button
+    When Verify Delete conformation message
+    And Click on Hospital delete Button
