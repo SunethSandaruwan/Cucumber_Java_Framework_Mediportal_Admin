@@ -2,6 +2,7 @@ package com.wavenet.pages;
 
 import com.wavenet.util.Config;
 import com.wavenet.util.InitializeDriver;
+import cucumber.api.java.en.When;
 import org.junit.Assert;
 import java.util.List;
 import org.openqa.selenium.By;
@@ -86,7 +87,10 @@ public class MyDoctor {
     //Verify the assign doctor name in Hospital
     public void verify_the_Assign_Doctor_name_in_Hospital() throws Throwable{
         WebElement VerifyAssign  =  driver.findElement(By.xpath(""));
-
-
+    }
+    //Verify the check spelling should be correct
+    public void check_spelling_should_be_correct() throws Throwable {
+        boolean MyDoctorsSpellingCheck = driver.findElement(By.xpath("//span[normalize-space()='My doctors']")).isDisplayed();
+        Assert.assertEquals(true,MyDoctorsSpellingCheck);
     }
 }

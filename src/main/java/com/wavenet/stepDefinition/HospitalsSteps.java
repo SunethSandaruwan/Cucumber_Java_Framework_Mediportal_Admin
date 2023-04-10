@@ -4,6 +4,7 @@ package com.wavenet.stepDefinition;
 import com.wavenet.pages.Hospitals;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class HospitalsSteps {
     private Hospitals hospitals = new Hospitals();
@@ -218,5 +219,15 @@ public class HospitalsSteps {
     @Then("^Click on multi previous button$")
     public void click_on_multi_previous_button() throws Throwable {
         hospitals.click_on_multi_previous_button();
+    }
+
+    @When("^Click on Institutes delete Button in All Institutes Page$")
+    public void click_on_Institutes_delete_Button_in_All_Institutes_Page() throws Throwable {
+        hospitals.click_on_Institutes_delete_Button_in_All_Institutes_Page();
+    }
+
+    @When("^Verify Delete conformation message$")
+    public void verify_Delete_conformation_message() throws Throwable {
+        hospitals.verify_Delete_conformation_message();
     }
 }

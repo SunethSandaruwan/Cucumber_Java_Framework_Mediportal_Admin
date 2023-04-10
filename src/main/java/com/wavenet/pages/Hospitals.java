@@ -8,6 +8,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -25,12 +26,14 @@ public class Hospitals {
 
     public void click_on_Hospitals() throws Throwable {
         Thread.sleep(5000);
-        WebElement hospitalsBtn = driver.findElement(By.xpath("//*[@id=\"mat-expansion-panel-header-19\"]/span[1]/mat-panel-title/span"));
-        hospitalsBtn.click();
+        WebElement hospitalsElement = driver.findElement(By.xpath("//body/app-root[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/app-sidenav[1]/mat-nav-list[1]/div[1]/mat-accordion[1]/app-menu-panel[4]/mat-expansion-panel[1]"));
+        // WebElement hospitalsBtn = driver.findElement(By.xpath("//span[normalize-space()='Institute']"));
+       // WebElement hospitalsBtn = driver.findElement(By.xpath("//*[@id=\"mat-expansion-panel-header-19\"]/span[1]/mat-panel-title/span"));
+        hospitalsElement.click();
     }
 
     public void click_on_All_hospitals() throws Throwable {
-        WebElement allHospitalsBtn = driver.findElement(By.xpath("//body/app-root[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/app-sidenav[1]/mat-nav-list[1]/div[1]/mat-accordion[1]/app-menu-panel[3]/mat-expansion-panel[1]/div[1]/div[1]/app-menu-panel[1]/span[1]/mat-list-item[1]"));
+        WebElement allHospitalsBtn = driver.findElement(By.xpath("//span[normalize-space()='All institutes']"));
         allHospitalsBtn.click();
     }
 
@@ -322,4 +325,21 @@ public class Hospitals {
         Thread.sleep(2000);
         multiPreviousBtn.click();
     }
+    public void verify_Delete_conformation_message() throws Throwable {
+        WebElement VerifyDeleteConformationMessage = driver.findElement(By.xpath("//h3[text()='Are you sure you want to Delete?']"));
+        Alert DeleteConformation = driver.switchTo().alert();
+        System.out.println(DeleteConformation.getText());
+        Thread.sleep(2000);
+        DeleteConformation.accept();
+        Thread.sleep(2000);
+
+        WebElement ClickOnDeleteVerificationPopUPButton = driver.findElement(By.xpath("//span[text()='Delete']"));
+        ClickOnDeleteVerificationPopUPButton.click();
+    }
+
+    public void click_on_Institutes_delete_Button_in_All_Institutes_Page() throws Throwable {
+        WebElement ClickOnInstitutesDeleteButton = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/all-hospitals-selector/div[3]/div[3]/table/tbody/tr[1]/td[2]/button[3]/span[1]/mat-icon"));
+        ClickOnInstitutesDeleteButton.click();
+    }
+
 }

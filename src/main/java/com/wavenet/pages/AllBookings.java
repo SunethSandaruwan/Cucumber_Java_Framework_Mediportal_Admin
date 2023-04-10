@@ -20,7 +20,22 @@ public class AllBookings {
     
     private Config config = new Config();
     String url = config.getUrl();
-    
+
+    private By AllBookingsInstituteSearch = By.xpath("//input[@data-placeholder=\"Search Institute\"]");
+    private By PersonalDetailsTitle = By.xpath("//h4[contains(text(), 'Personal Details')][1]");
+    private By PatientName = By.xpath("//label[@class='ng-tns-c171-48'][normalize-space()='Patient Name']");
+    private By PhoneNo = By.xpath("//label[@class='ng-tns-c171-48'][normalize-space()='Phone No']");
+    private By EmailAddress = By.xpath("//label[@class='ng-tns-c171-48'][normalize-space()='Email address']");
+    private By Address = By.xpath("//label[@class='ng-tns-c171-48'][normalize-space()='Address']");
+    private By DateOfBirth = By.xpath("//label[@class='ng-tns-c171-50'][normalize-space()='Date of birth']");
+    // Patient personal details data Validating
+    private By PatientNameValue = By.xpath("//p[@class='ng-tns-c171-50'][contains(text(),'Test')]");
+    private By PhoneNoValue = By.xpath("//p[@class='ng-tns-c171-50'][normalize-space()='+61235467842']");
+    private By EmailAddressValue = By.xpath("//p[@class='ng-tns-c171-50'][normalize-space()='ema@gmail.com']");
+    private By AddressValue = By.xpath("//p[@class='ng-tns-c171-50'][normalize-space()='1234']");
+    private By DateOfBirthValue = By.xpath("//p[@class='ng-tns-c171-48'][normalize-space()='1936-01-28']");
+
+
     public AllBookings(){
         driver = InitializeDriver.getInstance().getDriver();
         wait = new WebDriverWait(driver,30);
@@ -35,7 +50,7 @@ public class AllBookings {
 
     public void click_on_Bookings() throws Throwable {
         Thread.sleep(3000);
-        WebElement ClickBookingsBtn = driver.findElement(By.xpath("//span[normalize-space()='Bookings']"));
+        WebElement ClickBookingsBtn = driver.findElement(By.xpath("//span[normalize-space()='All Bookings']"));
         ClickBookingsBtn.click();
     }
     public void verify_the_All_Bookings_page_title() throws Throwable {
@@ -70,6 +85,38 @@ public class AllBookings {
     public void verify_All_of_Text_fields_in_Update_Refunds() throws Throwable {
 
     }
-    
-    
+    //BAP-426
+    public void select_All_Booking_Search_Institute(String SearchInstitute) throws Throwable {
+        WebElement ClickOnSearchInstitute = driver.findElement(By.xpath("//input[@placeholder=\"Search Institute\"]"));
+        ClickOnSearchInstitute.sendKeys(SearchInstitute);
+        WebElement ClickOnFirstResultsInList = driver.findElement(By.xpath("//span[normalize-space()='Asiri Hospital Automation Data']"));
+        ClickOnFirstResultsInList.click();
+    }
+    //BAP-426
+    public void click_on_All_Booking_page_first_Booking_Appointments_Action_column_view_button() throws Throwable {
+        WebElement ClickOnViewButton = driver.findElement(By.xpath(""));
+        ClickOnViewButton.click();
+    }
+    //BAP-426
+    public void check_View_Booking_Details_Appointment_details() throws Throwable {
+
+    }
+    //BAP-426
+    public void click_on_View_Booking_Details_Close_Button() throws Throwable {
+
+
+    }
+
+    //------------------------------Test Data Excell ------------------------------
+
+    public void userFillsTheInstituteNameFromGivenSheetNameAndRowNumber(String AllBookingsInstituteSearchName) throws Throwable {
+        driver.findElement(AllBookingsInstituteSearch).sendKeys(AllBookingsInstituteSearchName);
+    }
+
+    public void verify_All_fields_to_be_available_under_patient_details() throws Throwable {
+
+
+    }
+
+
 }

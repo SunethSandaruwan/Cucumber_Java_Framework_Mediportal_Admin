@@ -4,7 +4,7 @@ Feature: Recall Manager
   Scenario: Test case 1688 Verify records syncing properly
     Given Open the browser and launch the application
     And Wait  some time
-    When Enter for login as 'suneth'
+    When Enter for login as 'AdminUser1'
     And Enter for password as'Test@123'
     And Click on the signin button
     And Click on Follow up care

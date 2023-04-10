@@ -116,7 +116,7 @@ Feature: DDH Hospitals
   Scenario: TestCase BAP 815 Hospital Profile Create When trying to validating in requires field for full name
     Given Open the browser and launch the application
     And Wait  some time
-    When Enter for login as 'suneth'
+    When Enter for login as 'AdminUser3'
     And Enter for password as'Test@123'
     And Click on the signin button
 
@@ -134,7 +134,7 @@ Feature: DDH Hospitals
   Scenario: BAP 887 Hospital Profile Delete - verify confirmation message
     Given Open the browser and launch the application
     And Wait  some time
-    When Enter for login as 'suneth'
+    When Enter for login as 'AdminUser1'
     And Enter for password as'Test@123'
     And Click on the signin button
 
@@ -150,6 +150,6 @@ Feature: DDH Hospitals
     And Enter hospital code as '000876'
     And Click on Save Button
 
-    And Click on Hospital delete Button
+    And Click on Institutes delete Button in All Institutes Page
     When Verify Delete conformation message
     And Click on Hospital delete Button

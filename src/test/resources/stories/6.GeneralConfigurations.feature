@@ -4,7 +4,7 @@ Feature: General Configurations
   Scenario: Testcase 7620: Verify that Business Hour Option (Radio button) are available
     Given Open the browser and launch the application
     And Wait  some time
-    When Enter for login as 'sunethNew'
+    When Enter for login as 'AdminUser3'
     And Enter for password as'Test@123'
     And Click on the signin button
     And Click on Configuration

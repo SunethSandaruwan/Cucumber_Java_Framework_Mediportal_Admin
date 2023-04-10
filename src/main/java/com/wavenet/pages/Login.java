@@ -24,6 +24,9 @@ public class Login {
 
     int a3 = 3;
 
+    private By UserName = By.xpath("//input[contains(@formcontrolname, 'userName')]");
+    private By Password = By.xpath("//input[contains(@formcontrolname, 'password')]");
+
     public Login() {
         driver = InitializeDriver.getInstance().getDriver();
         wait = new WebDriverWait(driver, 30);
@@ -46,6 +49,18 @@ public class Login {
         pwdField.sendKeys(password);
     }
 
+    //------------------------- Excell Test Data Testing ------------------------------------------
+
+    public void user_fills_the_Admin_Username_from_given_sheetName_and_rowNumber(String UserNameId) throws Throwable {
+        driver.findElement(UserName).sendKeys(UserNameId);
+
+    }
+
+    public void user_filers_the_Admin_Password_form_given_sheetName_and_rowNumber(String PasswordId) throws Throwable {
+        driver.findElement(Password).sendKeys(PasswordId);
+    }
+
+    //-------------------------------------------------------------------------------------------
     public void redirect_to_next_page() throws Throwable {
         driver.manage().timeouts().implicitlyWait(a3, TimeUnit.SECONDS);
 //        WebElement menuBtn = driver.findElement(By.xpath("//body/app-root[1]/app-top-navbar[1]/div[1]/nav[1]/div[1]/ul[1]/li[1]"));

@@ -59,5 +59,10 @@ public class MyDoctors {
 
     }
 
+    @When("^Check spelling should be correct$")
+    public void check_spelling_should_be_correct() throws Throwable {
+        mydoctor.check_spelling_should_be_correct();
+    }
+
 
 }

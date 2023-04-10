@@ -14,10 +14,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class HomePage {
 
     public static WebDriver driver;
-
     private WebDriverWait wait;
-
     private JavascriptExecutor executor;
+
+    //Element and Locators in Class methods
+    private By HomePageTitle = By.id("");
 
     public HomePage(){
         driver = InitializeDriver.getInstance().getDriver();
@@ -34,4 +35,15 @@ public class HomePage {
             System.out.println("Test Failed");
         }
     }
+    public void verify_the_Home_page_title() throws Throwable {
+         String HomePageExpectedTitle = "MediPortal Dashboard";
+         String actualHomepageTitle = driver.getTitle();
+         if (actualHomepageTitle.contentEquals(HomePageExpectedTitle)) {
+             System.out.println("Test Passed");
+         }
+         else {
+             System.out.println("Test Fails");
+         }
+    }
+
 }
