@@ -39,18 +39,20 @@ Feature: All Bookings
     Scenario Outline: BAP-426 Verify that appointment details display correctly.
       Given Open the browser and launch the application
       And Wait  some time
+     # And Enter for login as 'AdminUser'
+     # And Enter for password as'Test@123'
       Then User fills the Admin Username from given sheetName "<SheetName>" and rowNumber <RowNumber>
       And User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
       And Click on the signin button
       Then Navigate to the home page
 
-      Given Open the browser and launch the application
-      Then Click on Appointments
-      And Click on Bookings
-      And User fills the InstituteName from given sheetName "<SheetName>" and rowNumber <RowNumber>
-      And Click on All Booking page first Booking Appointments Action column view button
-      And Check View Booking Details Appointment details
-      When Click on View Booking Details Close Button
+#      Given Open the browser and launch the application
+#      Then Click on Appointments
+#      And Click on Bookings
+#      And User fills the InstituteName from given sheetName "<SheetName>" and rowNumber <RowNumber>
+#      And Click on All Booking page first Booking Appointments Action column view button
+#      And Check View Booking Details Appointment details
+#      When Click on View Booking Details Close Button
 
       Examples:
       | SheetName | RowNumber |

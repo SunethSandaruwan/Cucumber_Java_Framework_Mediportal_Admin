@@ -5,8 +5,10 @@ Feature: Finance
 
     Given Open the browser and launch the application
       And Wait  some time
-      Then User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
-      And User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
+      When Enter for login as 'AdminUser'
+      And Enter for password as'Test@123'
+     # Then User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
+     # And User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
       And Click on the signin button
       Then Navigate to the home page
 
@@ -32,8 +34,10 @@ Feature: Finance
 
     Given Open the browser and launch the application
     And Wait  some time
-    Then User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
-    And User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
+    When Enter for login as 'AdminUser'
+    And Enter for password as'Test@123'
+    #Then User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
+    #And User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
     And Click on the signin button
     Then Navigate to the home page
 
@@ -62,8 +66,10 @@ Feature: Finance
 
       Given Open the browser and launch the application
       And Wait  some time
-      Then User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
-      And User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
+      When Enter for login as 'AdminUser'
+      And Enter for password as'Test@123'
+     # Then User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
+     # And User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
       And Click on the signin button
       Then Navigate to the home page
 
@@ -84,6 +90,7 @@ Feature: Finance
       And Check on Previous Year (Weekly)
       Then Verify the Billed Trend Chart Title
       Then Check on Total Billed Title
+      When Driver Close
 
 
 
@@ -117,3 +124,9 @@ Feature: Finance
           | SheetName | RowNumber |
           | LoginDetails          |   0       |
           | BookAppointment       |   0       |
+
+        Scenario: Verify the Finance Dashboard Sync button
+
+          Given Open the browser and launch the application
+          And Wait  some time
+          And
