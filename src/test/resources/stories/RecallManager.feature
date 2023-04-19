@@ -4,7 +4,7 @@ Feature: Recall Manager
   Scenario: Test case 1688 Verify records syncing properly
     Given Open the browser and launch the application
     And Wait  some time
-    When Enter for login as 'AdminUser1'
+    When Enter for login as 'AdminUser'
     And Enter for password as'Test@123'
     And Click on the signin button
     And Click on Follow up care
@@ -17,7 +17,7 @@ Feature: Recall Manager
    Scenario: Test case 1032 The validation of the client database data in fetching recall manager screen
      Given Open the browser and launch the application
      And Wait  some time
-     When Enter for login as 'suneth'
+     When Enter for login as 'AdminUser'
      And Enter for password as'Test@123'
      And Click on the signin button
 
@@ -25,4 +25,24 @@ Feature: Recall Manager
      And Click on Recalls
      And Click on Sync Recalls
      And Validate in Sync
+
+     #Verify the Recall manager all element
+    Scenario: Verify the Recall manager page all element
+      Given Open the browser and launch the application
+      And Wait  some time
+      When Enter for login as 'AdminUser'
+      And Enter for password as'Test@123'
+      And Click on the signin button
+
+
+
+     #Verify the Recall manager medical center search option
+     Scenario: Verify the Search medical center
+       Given Open the browser and launch the application
+       And Wait  some time
+       When Enter for login as 'AdminUser'
+       And Enter for password as'Test@123'
+       And Click on the signin button
+
+       And Select Recall Manager search Medical Center
 

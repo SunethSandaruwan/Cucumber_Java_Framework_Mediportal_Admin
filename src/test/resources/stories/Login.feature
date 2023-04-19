@@ -117,6 +117,7 @@ Feature: DDH Log in
     And Enter for password as'Test@123'
     And Click on the signin button
     Then Navigate to the home page
+    Then Driver Close
 
 
 

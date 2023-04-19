@@ -1,21 +1,22 @@
 Feature: All Bookings
-#
-#  # TestCase 401: Verify that search option is available
-#  Scenario: TestCase 401: Verify that search option is available
-#    Given Open the browser and launch the application
-#    Then Wait  some time
-#    And Enter for login as 'AdminUser4'
-#    And Enter for password as'Test@123'
-#    And Click on the signin button
-#    Then Navigate to the home page
-#
-#    Given Open the browser and launch the application
-#    Then Wait  some time
-#    And Click on Appointments
-#    And Click on Bookings
-#    And Verify the All Bookings page title
-#    Then Verify that display in keyword and date ranges text field
-#
+
+  # TestCase 401: Verify that search option is available
+  Scenario: TestCase 401: Verify that search option is available
+    Given Open the browser and launch the application
+    Then Wait  some time
+    And Enter for login as 'AdminUser'
+    And Enter for password as'Test@123'
+    And Click on the signin button
+    Then Navigate to the home page
+
+    Given Open the browser and launch the application
+    Then Wait  some time
+    And Click on Appointments
+    And Click on Bookings
+    And Verify the All Bookings page title
+    Then Verify that display in keyword and date ranges text field
+    Then Driver Close
+
 #    #TestCase 7556: Verify the UI of the Booking View with Update Refund info
 #  Scenario: TestCase 7556: Verify the UI of the Booking View with Update Refund info
 #    Given Open the browser and launch the application
@@ -36,13 +37,14 @@ Feature: All Bookings
 #    And Verify All of Text fields in Update Refunds
 #
     #TestCase 426: Verify that appointment details display correctly
-    Scenario Outline: BAP-426 Verify that appointment details display correctly.
+    Scenario: BAP-426 Verify that appointment details display correctly.
+   # Scenario Outline: BAP-426 Verify that appointment details display correctly.
       Given Open the browser and launch the application
       And Wait  some time
-     # And Enter for login as 'AdminUser'
-     # And Enter for password as'Test@123'
-      Then User fills the Admin Username from given sheetName "<SheetName>" and rowNumber <RowNumber>
-      And User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
+      And Enter for login as 'AdminUser'
+      And Enter for password as'Test@123'
+     # Then User fills the Admin Username from given sheetName "<SheetName>" and rowNumber <RowNumber>
+     # And User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
       And Click on the signin button
       Then Navigate to the home page
 
@@ -54,10 +56,10 @@ Feature: All Bookings
 #      And Check View Booking Details Appointment details
 #      When Click on View Booking Details Close Button
 
-      Examples:
-      | SheetName | RowNumber |
-      | LoginDetails          |   0       |
-      | BookAppointment       |   0       |
+#      Examples:
+#      | SheetName | RowNumber |
+#      | LoginDetails          |   0       |
+#      | BookAppointment       |   0       |
 #
 #
 #     #TestCase 425: Verify that patient details display correctly
@@ -82,8 +84,4 @@ Feature: All Bookings
 #      | SheetName | RowNumber |
 #      | LoginDetails          |   0       |
 #      | BookAppointment       |   0       |
-#
-#
-#
-#
-#
+
