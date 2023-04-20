@@ -47,6 +47,7 @@ Feature: All Bookings
      # And User filers the Admin Password form given sheetName "<SheetName>" and rowNumber <RowNumber>
       And Click on the signin button
       Then Navigate to the home page
+      Then Driver Close
 
 #      Given Open the browser and launch the application
 #      Then Click on Appointments
