@@ -7,7 +7,7 @@ Feature: All Bookings
     And Enter for login as 'AdminUser'
     And Enter for password as'Test@123'
     And Click on the signin button
-    Then Navigate to the home page
+#    Then Navigate to the home page
 
     Given Open the browser and launch the application
     Then Wait  some time

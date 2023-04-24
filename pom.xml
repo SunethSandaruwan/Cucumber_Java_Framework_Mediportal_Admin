@@ -9,7 +9,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <build>
+
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -26,7 +28,9 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-                <!--
+
+
+                <!--////////////////
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-surefire-plugin</artifactId>
@@ -37,7 +41,9 @@
                                 </suiteXmlFiles>
                             </configuration>
                         </plugin>
-                  -->
+                  //////////////-->
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -48,7 +54,7 @@
             </plugin>
 
 
-            <!--
+            <!--////////////////////////////
                         <plugin>
                             <groupId>net.masterthought</groupId>
                             <artifactId>maven-cucumber-reporting</artifactId>
@@ -72,7 +78,9 @@
                                 </execution>
                             </executions>
                         </plugin>
-                        -->
+                       ////////////////////// -->
+
+
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
@@ -92,8 +100,7 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- -->
+                    <!-->
                         <plugin>
                             <groupId>tech.grasshopper</groupId>
                             <artifactId>cucumber-pdf-plugin</artifactId>
@@ -111,13 +118,16 @@
                                 <cucumberJsonReportDirectory>target/cucumber-reports/</cucumberJsonReportDirectory>
                                 <cucumberPdfReportDirectory>pdf-report</cucumberPdfReportDirectory>
                                 <strictCucumber6Behavior>true</strictCucumber6Behavior>
+                                <cucumberJsonReportDirectory>${project.build.directory}/json-report</cucumberJsonReportDirectory>
                             </configuration>
                         </plugin>
 
-                    </plugins>
-                </build>
+                        -->
+        </plugins>
+    </build>
 
                 <dependencies>
+
                     <dependency>
                         <groupId>info.cukes</groupId>
                         <artifactId>cucumber-java</artifactId>
@@ -146,7 +156,10 @@
                         <artifactId>selenium-java</artifactId>
                         <version>3.141.59</version>
                     </dependency>
-                    <!--
+
+
+
+                    <!--//////////////////////////////////////////////////////
                     <dependency>
                         <groupId>junit</groupId>
                         <artifactId>junit</artifactId>
@@ -159,21 +172,22 @@
                        <artifactId>junit</artifactId>
                        <version>RELEASE</version>
                        <scope>compile</scope>
-                   </dependency> -->
+                   </dependency> ///////////////////////-->
+
 
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-core</artifactId>
             <version>1.2.6</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.3.0</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.mkolisnyk/cucumber-runner PDF-->
+
         <dependency>
             <groupId>com.github.mkolisnyk</groupId>
             <artifactId>cucumber-runner</artifactId>
@@ -184,12 +198,17 @@
             <artifactId>webdrivermanager</artifactId>
             <version>4.3.1</version>
         </dependency>
-        <!--<dependency>
+
+
+        <!--/////////////////<dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
-        </dependency> -->
+        </dependency> ////////////////-->
+
+
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -197,11 +216,13 @@
             <scope>compile</scope>
         </dependency>
 
-        <!--        <dependency>-->
+        <!--//////////////        <dependency>-->
         <!--            <groupId>io.cucumber</groupId>-->
         <!--            <artifactId>cucumber-java</artifactId>-->
         <!--            <version>5.7.0</version>-->
-        <!--        </dependency>-->
+        <!--//////////////        </dependency>-->
+
+
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
@@ -222,14 +243,57 @@
             <type>maven-plugin</type>
         </dependency>
 
+                    <dependency>
+                        <groupId>net.masterthought</groupId>
+                        <artifactId>maven-cucumber-reporting</artifactId>
+                        <version>4.5.0</version>
+                    </dependency>
 
+
+
+      <!--New Dependency -->
+                    <!--
+
+                    <dependency>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                        <version>4.13.2</version>
+                        <scope>test</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>io.rest-assured</groupId>
+                        <artifactId>rest-assured</artifactId>
+                        <version>4.4.0</version>
+                        <scope>test</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.masterthought</groupId>
+                        <artifactId>cucumber-reporting</artifactId>
+                        <version>5.6.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.maven</groupId>
+                        <artifactId>maven-plugin-api</artifactId>
+                        <version>3.8.3</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>io.cucumber</groupId>
+                        <artifactId>cucumber-java</artifactId>
+                        <version>6.9.1</version>
+                    </dependency>
+                    <dependency>
+                    <groupId>io.cucumber</groupId>
+                    <artifactId>cucumber-junit</artifactId>
+                    <version>6.9.1</version>
+                    </dependency>
+        -->
 
 
 
     </dependencies>
-    <!-- <properties>
+    <!--///////////// <properties>
          <maven.compiler.source>8</maven.compiler.source>
          <maven.compiler.target>8</maven.compiler.target>
-     </properties> -->
+     </properties> ////////////////-->
 
 </project>
