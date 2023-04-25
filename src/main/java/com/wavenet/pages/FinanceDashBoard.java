@@ -23,10 +23,10 @@ public class FinanceDashBoard {
     private Config config = new Config();
     String url = config.getUrl();
 
-    private By FinanceMainMenu = By.xpath("//span[text()=\" Finance\"]"); //Finance Main menu xpath locator Xpath
+    private By FinanceMainMenu = By.xpath("//span[normalize-space()='Finance']"); //Finance Main menu xpath locator Xpath
     private By FinanceDashBoard = By.xpath("//span[text()=\"Finance Dashboard\"]"); //Click on Finance Main menu and get Dropdown in Finance Dashboard Xpath
-    private By MedicalCenterListBox = By.xpath("//div[@role='listbox']"); //Select medical center in Finance Dashboard Xpath
-    private By LebFinanceDashboard = By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/app-finance/section/div/h1"); //Finance Dashboard top of label name Xpath
+    private By MedicalCenterListBox = By.xpath("//div[@class='mat-form-field-infix ng-tns-c68-53']"); //Select medical center in Finance Dashboard Xpath
+    private By LebFinanceDashboard = By.xpath("//span[normalize-space()='Finance Dashboard']"); //Finance Dashboard top of label name Xpath
 
     //Finance Dashboard Today financial details Xpath
     private By TodayLabel = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[1]/div/div[1]/div/span[text()=\"Today\"]"); //Today label Xpath

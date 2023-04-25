@@ -25,7 +25,7 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         plugin= {"pretty", "html:target/cucumber-reports", "json:target/cucumber-reports/cucumber.json"},
-        features = {"src/test/resources/stories/BillingSummary.feature"},
+        features = {"src/test/resources/stories"},
         glue = {"com.wavenet.stepDefinition"},
         strict = true
         //    tags = "@regression"
@@ -33,14 +33,8 @@ import org.junit.runner.RunWith;
 
 public class TestRunner {
 
-}
 
-//@CucumberOptions(
- //       features = {"src/test/resource/features"},
- //       glue = {"stepdefs"},
- //       plugin = {"json:target/cucumber.json"})
-//public class TestRunner {
-//}
+}
 
 //@RunWith(Cucumber.class)
 //@CucumberOptions(features="src/test/resources/stories/",glue={"com.wavenet.stepDefinition"},plugin = { "pretty", "html:target/cucumber-reports/cucumber.html","json:target/cucumber-reports/cucumber.json"},

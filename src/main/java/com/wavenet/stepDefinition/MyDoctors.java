@@ -18,6 +18,7 @@ public class MyDoctors {
     public void click_on_Doctors() throws Throwable {
         mydoctor.click_on_Doctors();
     }
+
     //Click on My Doctors
     @When("^Click on My Doctors$")
     public void click_on_My_Doctors() throws Throwable {
@@ -64,5 +65,31 @@ public class MyDoctors {
         mydoctor.check_spelling_should_be_correct();
     }
 
+    @Then("^Click on Schedule$")
+    public void click_on_Schedule() throws Throwable {
 
-}
+    }
+
+        @Then("^Verify Doctor Schedule$")
+        public void verify_Doctor_Schedule () throws Throwable {
+
+        }
+
+        @Then("^Select Institute in Search bar$")
+        public void select_Institute_in_Search_bar () throws Throwable {
+
+        }
+
+        @Then("^Click on Add schedule$")
+        public void click_on_Add_schedule () throws Throwable {
+
+        }
+
+        @Then("^Verify Institute search bar$")
+        public void verify_Institute_search_bar () throws Throwable {
+
+
+        }
+
+
+    }

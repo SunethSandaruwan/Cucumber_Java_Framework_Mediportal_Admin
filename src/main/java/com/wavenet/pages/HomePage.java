@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.sql.Driver;
+
 
 public class HomePage {
 
@@ -45,5 +47,9 @@ public class HomePage {
              System.out.println("Test Fails");
          }
     }
+    public void driver_Quit() throws Throwable {
+        driver_Quit();
+    }
+
 
 }

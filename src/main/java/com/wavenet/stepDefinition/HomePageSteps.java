@@ -14,5 +14,10 @@ public class HomePageSteps {
     public void verify_the_homepage_title() throws Throwable {
 
     }
+    @Then("^Driver Quit$")
+    public void driver_Quit() throws Throwable {
+        driver_Quit();
+
+    }
 
 }

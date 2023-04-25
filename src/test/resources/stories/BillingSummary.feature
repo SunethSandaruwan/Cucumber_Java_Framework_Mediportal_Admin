@@ -25,6 +25,41 @@ Feature: Billing Summary
     And Driver Close
 
 
+    #Verify the Billing summary medical center drop down
+#    Scenario: Select medical center in billing summary dropdown
+#      And Open the browser and launch the application
+#      And Wait  some time
+#      When Enter for login as 'AdminUser'
+#      And Enter for password as'Test@123'
+#      And Click on the signin button
+#
+#      Then Open the browser and launch the application
+#      And Wait  some time
+#      And Verify the Home page title
+#      And Click on Finance main menu
+#      And Click on Billing Summary
+#      And Verify the Finance Billing Summary Title
+#      And Verify the Medical Center Dropdown
+#      And Select Billing Summary Medical Center
+#      And Verify the refresh Data in Billing Summary Table
+#      Then Driver Close
+
+      #Verify the practitioner Search Box
+#    Scenario: Verify the practitioner Search Box
+#      And Open the browser and launch the application
+#      And Wait  some time
+#      When Enter for login as 'AdminUser'
+#      And Enter for password as'Test@123'
+#      And Click on the signin button
+#
+#      Then Open the browser and launch the application
+#      And Wait  some time
+#      And Verify the Home page title
+#      And Click on Finance main menu
+#      And Click on Billing Summary
+#      And Verify the Finance Billing Summary Title
+
+
 
 
 

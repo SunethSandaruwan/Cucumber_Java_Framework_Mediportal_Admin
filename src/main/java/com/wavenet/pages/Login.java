@@ -130,8 +130,7 @@ public class Login {
     }
 
     public void driver_Close() throws Throwable{
-       // driver.close(); //closes the browser
-        driver.quit();
+        driver.close(); //closes the browser
     }
 
 }
