@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class BillingSummary {
 
     public static WebDriver driver;
@@ -54,6 +56,7 @@ public class BillingSummary {
         executor = (JavascriptExecutor) driver;
     }
     public void click_on_Billing_Summary() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement ClickBillingSummary = driver.findElement(By.xpath("//span[normalize-space()='Billing Summary']"));
         ClickBillingSummary.click();
     }

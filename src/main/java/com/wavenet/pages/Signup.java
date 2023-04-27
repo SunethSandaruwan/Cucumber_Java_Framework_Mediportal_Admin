@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,12 +28,13 @@ public class Signup {
     }
 
         public void loadURL(String url) throws InterruptedException {
-
+            driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
             String URL = driver.getCurrentUrl();
             driver.get(url);
     }
 
     public void click_on_Log_In_Drop_Down() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         Thread.sleep(3000);
         WebElement logInBtn = driver.findElement(By.xpath("//button[@id='button-basic']"));
         logInBtn.click();
@@ -40,78 +42,93 @@ public class Signup {
 
 
     public void click_on_Sign_In_Button() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement signInBtn = driver.findElement(By.xpath("//input[@id='kc-login']"));
         signInBtn.click();
     }
 
     public void direct_to_the_sign_in_and_sign_up_page() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         Thread.sleep(3000);
         WebElement btn = driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-top-navbar[1]/div[1]/nav[1]/div[1]/button[1]"));
         Assert.assertEquals(true,btn.isDisplayed());
     }
 
     public void click_on_Register_Button() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement registerBtn = driver.findElement(By.xpath("//a[normalize-space()='Register']"));
         registerBtn.click();
     }
 
     public void enter_First_Name(String firstName) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement firstNameField = driver.findElement(By.xpath("//input[@id='firstName']"));
         firstNameField.sendKeys(firstName);
     }
 
     public void enter_Last_Name(String lastName) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement lastNameField = driver.findElement(By.xpath("//input[@id='lastName']"));
         lastNameField.sendKeys(lastName);
     }
 
     public void enter_Email(String email) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement emailField = driver.findElement(By.xpath("//input[@id='email']"));
         emailField.sendKeys(email);
     }
 
     public void click_on_drop_down_of_country_codes() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         Thread.sleep(2000);
         WebElement country = driver.findElement(By.xpath("//div[@class='iti__arrow']"));
         country.click();
     }
 
     public void select_the_country_from_the_drop_down() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         Thread.sleep(1000);
         WebElement dropDownCountry = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[4]/div[1]/div[1]/div[1]/ul[1]/li[209]/span[1]"));
         dropDownCountry.click();
     }
     public void enter_Mobile_Number_for_sign_up(String mobileNumber) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement MobileNoField = driver.findElement(By.xpath("//input[@id='username']"));
         MobileNoField.sendKeys(mobileNumber);
     }
 
     public void enter_Password_for_sign_up(String pwd) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement MobileNoField = driver.findElement(By.xpath("//input[@id='password']"));
         MobileNoField.sendKeys(pwd);
     }
 
     public void reenter_password(String pwd) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement confirmPwd = driver.findElement(By.xpath("//input[@id='password-confirm']"));
         confirmPwd.sendKeys(pwd);
     }
 
     public void enter_National_Identification_Number(String idNo) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement NIC = driver.findElement(By.xpath("//input[@id='nationalId']"));
         NIC.sendKeys(idNo);
     }
 
     public void click_on_RegisterButton() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement register = driver.findElement(By.xpath("//button[@type='button']"));
         register.click();
     }
 
     public void field_for_SMS_code_is_visible() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement register = driver.findElement(By.xpath("//input[@id='code']"));
         Assert.assertEquals(true,register.isDisplayed());
     }
 
     public void direct_to_the_sign_up_submission_page() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement register = driver.findElement(By.xpath("//h1[@id='kc-page-title']"));
         Assert.assertEquals(true,register.isDisplayed());
     }
@@ -119,31 +136,37 @@ public class Signup {
 //    test case 4
 
     public void display_Please_specify_first_name(String firstName) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement displayFirstName = driver.findElement(By.xpath("//span[@id='input-error-firstname']"));
         Assert.assertEquals(firstName, displayFirstName.getText());
     }
 
     public void display_Please_specify_last_name(String lastName) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement displayLastName = driver.findElement(By.xpath("//span[@id='input-error-lastname']"));
         Assert.assertEquals(lastName, displayLastName.getText());
     }
 
     public void display_Please_specify_email(String email) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement displayEmail = driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(3) > div:nth-child(3) > div:nth-child(1) > span:nth-child(4)"));
         Assert.assertEquals(email, displayEmail.getText());
     }
 
     public void display_Please_specify_mobile_number(String mobileNumber) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement displayMobileNumber = driver.findElement(By.xpath("//div[@class='dh-field mobile-number']//span[@id='input-error-username']"));
         Assert.assertEquals(mobileNumber, displayMobileNumber.getText());
     }
 
     public void display_Please_specify_password(String pwd) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement displayPassword = driver.findElement(By.xpath("//span[@id='input-error-password']"));
         Assert.assertEquals(pwd, displayPassword.getText());
     }
 
     public void display_MISSING_NATIONALID(String nic) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement displayMissingNationalId = driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > form:nth-child(3) > div:nth-child(7) > div:nth-child(1) > span:nth-child(4)"));
         Assert.assertEquals(nic, displayMissingNationalId.getText());
     }
@@ -151,6 +174,7 @@ public class Signup {
     //    test case 5
 
     public void enter_Invalid_Email(String email) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         WebElement emailField = driver.findElement(By.xpath("//input[@id='email']"));
         emailField.sendKeys(email);
     }

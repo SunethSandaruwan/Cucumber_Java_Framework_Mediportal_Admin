@@ -20,4 +20,9 @@ public class HomePageSteps {
 
     }
 
+    @Given("^Wait some time ImplicitlyWait$")
+    public void wait_some_time_ImplicitlyWait() throws Throwable {
+
+    }
+
 }
