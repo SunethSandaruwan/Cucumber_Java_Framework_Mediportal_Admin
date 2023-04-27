@@ -7,102 +7,75 @@ import java.util.Properties;
 
 public class Config {
 
-    private String osVersion;
-    private String url;
-    private String CompName;
-    private String CusEmail;
-    private String WNRoleName;
-    private String NewRegistryCred;
-    private String NewRegistryName;
-    private String NewRegistryUname;
-    private String NewRegistryPassword;
-    private String NewRegistryCertificate;
+    private String loginUrl;
+    private String adminUser;
+    private String adminPassword;
+    private String composeUrl;
+    private String composeUsername;
+    private String composePassword;
 
-    public Config() {
+    public Config(){
         try {
-
-            InputStream input = new FileInputStream(System.getProperty("user.dir") + "/config.properties");
+            InputStream input = new FileInputStream(System.getProperty("user.dir")+"/config.properties");
             Properties prop = new Properties();
-            // load a properties file
             prop.load(input);
-            // get the property value and print it out
+            this.setLoginUrl(prop.getProperty("loginUrl"));
+            this.setAdminUser(prop.getProperty("adminUser"));
+            this.setAdminPassowrd(prop.getProperty("adminPassword"));
+            this.setComposeUrl(prop.getProperty("composeUrl"));
+            this.setComposeUsername(prop.getProperty("composeUsername"));
+            this.setComposePassword(prop.getProperty("composePassword"));
 
-            this.setUrl(prop.getProperty("url"));
-            this.setOsVersion(prop.getProperty("osversion"));
-            this.setCompName(prop.getProperty("CompanyName"));
-            this.setCusEmail(prop.getProperty("CustomerEmail"));
-            this.setWNRoleName(prop.getProperty("WNRoleName"));
-            this.setNewRegistryCred(prop.getProperty("NewRegistryCred"));
-            this.setNewRegistryName(prop.getProperty("NewRegistryName"));
-            this.setNewRegistryUname(prop.getProperty("NewRegistryUname"));
-            this.setNewRegistryPassword(prop.getProperty("NewRegistryPassword"));
-            this.setNewRegistryCertificate(prop.getProperty("NewRegistryCertificate"));
-
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
         }
-
     }
 
-    public String getOsVersion() {
-        return osVersion;
+    public String getLoginUrl(){
+        return loginUrl;
     }
 
-    public void setOsVersion(String osVersion) {
-        this.osVersion = osVersion;
+    public void setLoginUrl(String loginUrl){
+        this.loginUrl = loginUrl;
     }
 
-    public String getWNRoleName() {
-        return WNRoleName;
+    public String getAdminUser(){
+        return adminUser;
     }
 
-    public void setWNRoleName(String WNRoleName) {
-        this.WNRoleName = WNRoleName;
+    public void setAdminUser(String adminUser){
+        this.adminUser = adminUser;
     }
 
-    public String getCompName() {
-        return CompName;
+    public String getAdminPassword(){
+        return adminPassword;
     }
 
-    public void setCompName(String compName) {
-        this.CompName = compName;
+    public void setAdminPassowrd(String adminPassword){
+        this.adminPassword = adminPassword;
     }
 
-    public String getCusEmail() {
-        return CusEmail;
+    public String getComposeUrl(){
+        return composeUrl;
     }
 
-    public void setCusEmail(String cusEmail) {
-        this.CusEmail = cusEmail;
+    public void setComposeUrl(String composeUrl){
+        this.composeUrl = composeUrl;
     }
 
-    public String getUrl() {
-        return url;
+    public String getComposeUsername(){
+        return composeUsername;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setComposeUsername(String composeUsername){
+        this.composeUsername = composeUsername;
     }
 
-    public String getNewRegistryCred() { return NewRegistryCred; }
+    public String getComposePassword(){
+        return composePassword;
+    }
 
-    public void setNewRegistryCred(String NewRegistryCred) {this.NewRegistryCred = NewRegistryCred;}
-
-    public String getNewRegistryName() { return NewRegistryName; }
-
-    public void setNewRegistryName(String NewRegistryName) {this.NewRegistryName = NewRegistryName;}
-
-    public String getNewRegistryUname() {return NewRegistryUname;}
-
-    public void setNewRegistryUname(String NewRegistryUname) {this.NewRegistryUname = NewRegistryUname;}
-
-    public String getNewRegistryPassword() {return NewRegistryPassword;}
-
-    public void setNewRegistryPassword(String NewRegistryPassword) {this.NewRegistryPassword = NewRegistryPassword;}
-
-    public String getNewRegistryCertificate() {return NewRegistryCertificate;}
-
-    public void setNewRegistryCertificate(String NewRegistryCertificate) {this.NewRegistryCertificate = NewRegistryCertificate;}
-
+    public void setComposePassword(String composePassword){
+        this.composePassword = composePassword;
+    }
 }
