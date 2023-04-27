@@ -2,183 +2,137 @@ package com.wavenet.stepDefinition;
 
 import com.wavenet.pages.Login;
 import com.wavenet.util.Config;
+import com.wavenet.util.ExcelReader;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class LoginSteps {
+import java.util.List;
+import java.util.Map;
 
+
+public class LoginSteps {
     private Login login = new Login();
     private Config config = new Config();
+    String url = config.getUrl();
 
-    String loginUrl = config.getLoginUrl();
-    String adminUser = config.getAdminUser();
-    String adminPassword = config.getAdminPassword();
-    String composeUrl = config.getComposeUrl();
-    String composeUsername = config.getComposeUsername();
-    String composePassword = config.getComposePassword();
 
-    @Given("^Open the browser and launch the application$")
-    public void Open_the_browser_and_launch_the_application() throws Throwable
-    {
-        login.loadUrl(loginUrl);
+    @And("^Click on LogIn Button$")
+    public void click_on_LogIn_Button() throws Throwable {
+        login.click_on_LogIn_Button();
     }
 
-    @When("^Enter a valid email and valid password$")
-    public void enter_valid_username_and_valid_password() throws Throwable
-    {
-        login.enterLoginData(adminUser,adminPassword);
+    @Given("^Enter Mobile Number for login as '(.*?)'$")
+    public void enter_Mobile_Number_for_login(String mobileNo) throws Throwable {
+        login.enter_Mobile_Number_for_login(mobileNo);
     }
 
-    @When("^Enter a invalid email '(.*?)' and valid password '(.*?)'$")
-    public void enter_invalid_username_and_valid_password(String username, String password) throws Throwable
-    {
-        login.enterLoginData(username,password);
+    @Given("^Enter Password for login as '(.*?)'$")
+    public void enter_Password_for_login(String password) throws Throwable {
+        login.enter_Password_for_login(password);
     }
 
-    @When("^Click SignIn$")
-    public void click_SignIn() throws Throwable
-    {
-        login.clickSignIn();
+    //-----------------------------------Login Updating -----------------------------
+
+    @Then("^User fills the Admin Username from given sheetName \"([^\"]*)\" and rowNumber (\\d+)$")
+    public void user_fills_the_Admin_Username_from_given_sheetName_and_rowNumber(String SheetName, int RowNumber) throws Throwable {
+
+        ExcelReader reader = new ExcelReader();
+        List<Map<String, String>> testData = reader.getData("./resources/Files/TestDataFile.xlsx",SheetName);
+
+        String UserNameId = testData.get(RowNumber).get("UserName");
+
+        login.user_fills_the_Admin_Username_from_given_sheetName_and_rowNumber(UserNameId);
+
+
     }
 
-    @And("^Click on Compose$")
-    public void click_compose() throws Throwable
-    {
-        login.clickCompose();
+    @Then("^User filers the Admin Password form given sheetName \"([^\"]*)\" and rowNumber (\\d+)$")
+    public void user_filers_the_Admin_Password_form_given_sheetName_and_rowNumber(String SheetName, int RowNumber) throws Throwable {
+
+        ExcelReader reader = new ExcelReader();
+        List<Map<String, String>> testData = reader.getData("./resources/Files/TestDataFile.xlsx",SheetName);
+
+        String PasswordId = testData.get(RowNumber).get("Password");
+
+        login.user_filers_the_Admin_Password_form_given_sheetName_and_rowNumber(PasswordId);
+
     }
 
-    @And("^Load the Compose Home Page$")
-    public void load_the_compose_home_page() throws Throwable
-    {
-        login.loadComposeHomePage();
+    //----------------------------------------------------------------------------------
+
+    @Then("^Redirect to next page$")
+    public void redirect_to_next_page() throws Throwable {
+        login.redirect_to_next_page();
     }
 
-    @Then("^Load the CAM Admin Home Page$")
-    public void load_The_CAM_Admin_Home_Page() throws Throwable
-    {
-        login.verifySuccessfulLogin();
+    @Given("^Enter Invalid Mobile Number$")
+    public void enter_Invalid_Mobile_Number() throws Throwable {
+        login.enter_Invalid_Mobile_Number();
     }
 
-    @Then("^Verify Error Message$")
-    public void verify_Error_Message() throws Throwable
-    {
-        login.verifyUnsuccessfulLogin();
+
+
+    @Then("^Display toast as '(.*?)'$")
+    public void display_toast_as_Invalid_mobile_number_or_password(String toast) throws Throwable {
+        login.display_toast_as_Invalid_mobile_number_or_password(toast);
     }
 
-    @When("^Enter a valid email '(.*?)' and invalid password '(.*?)'$")
-    public void enter_valid_username_and_invalid_password(String username, String password) throws Throwable
-    {
-        login.enterLoginData(username,password);
+    @Then("^Check whether the password is masked$")
+    public void check_whether_the_password_is_masked() throws Throwable {
+        login.check_whether_the_password_is_masked();
     }
 
-    @Then("^Verification of Error Message$")
-    public void verification_of_Error_Message() throws Throwable
-    {
-        login.verifyErrorMessage();
+    @Given("^Click on Forgot Password button$")
+    public void click_on_Forgot_Password_button() throws Throwable {
+        login.click_on_Forgot_Password_button();
     }
 
-    @When("^Enter a invalid email '(.*?)' and invalid password '(.*?)'$")
-    public void enter_invalid_username_and_invalid_password(String username, String password) throws Throwable
-    {
-        login.enterLoginData(username,password);
+    @Then("^Redirect to forgot password page$")
+    public void redirect_to_forgot_password_page() throws Throwable {
+        login.redirect_to_forgot_password_page();
     }
 
-    @When("^Enter empty username '(.*?)' and password '(.*?)'$")
-    public void enter_empty_username_and_password(String username, String password) throws Throwable
-    {
-        login.enterLoginData(username,password);
+    @Given("^Click on Register button$")
+    public void click_on_Register_button() throws Throwable {
+        login.click_on_Register_button();
     }
 
-    @Then("^Verify Error Popup$")
-    public void verify_error_popup() throws Throwable
-    {
-        login.verifyErrorPopup();
+
+    @Given("^Click on Logout button$")
+    public void click_on_Logout_button() throws Throwable {
+        login.click_on_Logout_button();
     }
 
-    @When("^Enter username '(.*?)' and empty password (.*?)$")
-    public void enter_username_and_empty_password(String username, String password) throws Throwable
-    {
-        login.enterLoginData(username,password);
+    //------------------BAP Project---------------
+    @When("^Enter for login as '(.*?)'$")
+    public void enter_for_login_as_suneth(String name) throws Throwable {
+        login.enter_for_log_in_as_suneth(name);
     }
 
-    @When("^Enter empty username '(.*?)' and empty password '(.*?)'$")
-    public void enter_empty_username_and_empty_password(String username, String password) throws Throwable
-    {
-        login.enterLoginData(username,password);
+    @When("^Enter for password as'(.*?)'$")
+    public void enter_for_password_as_Test(String password) throws Throwable {
+        login.enter_for_password_as_Test(password);
+
     }
 
-    @When("^Enter username '(.*?)' and empty password$")
-    public void enter_username_and_empty_password(String username) throws Throwable
-    {
-        login.enterLoginUsername(username);
+    @When("^Click on the signin button$")
+    public void click_on_the_signin_button() throws Throwable {
+        login.click_on_the_signin_button();
     }
 
-    @Given("^Open the browser and launch the compose login page$")
-    public void Open_the_browser_and_launch_compose_login_page() throws Throwable
-    {
-        login.loadComposeLogin(composeUrl);
+    @Then("^Navigate to the home page$")
+    public void navigate_to_the_home_page() throws Throwable {
+        login.navigate_to_the_home_page();
     }
-
-    @When("^Enter a valid email and valid password in compose login page$")
-    public void enter_valid_username_and_valid_password_in_compose_login() throws Throwable
-    {
-        login.enterComposeLoginData(composeUsername,composePassword);
+    @Given("^Driver Close$")
+    public void driver_Close() throws Throwable {
+        login.driver_Close();
     }
-
-    @When("^Click Log In Button$")
-    public void click_LogIn() throws Throwable
-    {
-        login.clickLogIn();
-    }
-
-    @When("^Enter a invalid email '(.*?)' and valid password '(.*?)' in compose login page$")
-    public void enter_invalid_username_and_valid_password_in_compose_login(String username, String password) throws Throwable
-    {
-        login.enterComposeLoginData(username,password);
-    }
-
-    @Then("^Verify Error Message in Compose Login Page$")
-    public void verify_error_message_in_compose_login_page()
-    {
-        login.verifyErrorMessageInLogin();
-    }
-
-    @When("^Enter a valid email '(.*?)' and invalid password '(.*?)' in compose login page$")
-    public void enter_valid_username_and_invalid_password_in_compose_login(String username, String password) throws Throwable
-    {
-        login.enterComposeLoginData(username,password);
-    }
-
-    @When("^Enter a invalid email '(.*?)' and invalid password '(.*?)' in compose login page$")
-    public void enter_invalid_username_and_invalid_password_in_compose_login(String username, String password) throws Throwable
-    {
-        login.enterComposeLoginData(username,password);
-    }
-
-    @When("^Enter empty username '(.*?)' and password '(.*?)' in compose login page$")
-    public void enter_empty_username_and_password_in_compose_login(String username, String password) throws Throwable
-    {
-        login.enterComposeLoginData(username,password);
-    }
-
-    @Then("^Verify LogIn Button is Disabled$")
-    public void verify_login_button_is_disabled()
-    {
-        login.checkLoginButton();
-    }
-
-    @When("^Enter username '(.*?)' and password empty '(.*?)' in compose login page$")
-    public void enter_username_and_empty_password_in_compose_login(String username, String password) throws Throwable
-    {
-        login.enterComposeLoginData(username,password);
-    }
-
-    @When("^Enter username empty '(.*?)' and password empty '(.*?)' in compose login page$")
-    public void enter_empty_username_and_empty_password_in_compose_login(String username, String password) throws Throwable
-    {
-        login.enterComposeLoginData(username,password);
-    }
-
 }
+
+
+
+
