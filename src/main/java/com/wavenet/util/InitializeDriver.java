@@ -33,7 +33,7 @@ public class InitializeDriver {
         switch (osVersion) {
             case "windows":
                 String userDir = System.getProperty("user.dir");
-                //System.setProperty("webdriver.chrome.driver",userDir + "/src/main/resources/Drivers/chromedriver.exe");
+               // System.setProperty("webdriver.chrome.driver",userDir + "/src/main/resources/Drivers/chromedriver.exe");
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
 //                chromeOptions.addArguments("----headless");

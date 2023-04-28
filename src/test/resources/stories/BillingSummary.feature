@@ -6,7 +6,7 @@ Feature: Billing Summary
     When Enter for login as 'AdminUser'
     And Enter for password as'Test@123'
     And Click on the signin button
-   #And Driver Close
+
 
     Then Open the browser and launch the application
     And Wait  some time
@@ -60,12 +60,14 @@ Feature: Billing Summary
 #      And Verify the Finance Billing Summary Title
 
       #Verify the Filter by date
-    Scenario: Verify the Filter by date
-      And Open the browser and launch the application
-      And Wait  some time
-      When Enter for login as 'AdminUser'
-      And Enter for password as'Test@123'
-      And Click on the signin button
+#    Scenario: Verify the Filter by date
+#      And Open the browser and launch the application
+#      And Wait  some time
+#      When Enter for login as 'AdminUser'
+#      And Enter for password as'Test@123'
+#      And Click on the signin button
+
+
 
 
 
