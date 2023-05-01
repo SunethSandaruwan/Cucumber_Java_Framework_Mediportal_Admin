@@ -1,136 +1,140 @@
 package com.wavenet.pages;
 
-
-import com.wavenet.util.Config;
 import com.wavenet.util.InitializeDriver;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class Login {
     public static WebDriver driver;
-    private WebDriverWait wait;
-    private JavascriptExecutor executor;
-    private Config config = new Config();
-    String url = config.getUrl();
 
-
-    int a3 = 3;
-
-    private By UserName = By.xpath("//input[contains(@formcontrolname, 'userName')]");
-    private By Password = By.xpath("//input[contains(@formcontrolname, 'password')]");
-
-    public Login() {
+    public Login(){
         driver = InitializeDriver.getInstance().getDriver();
-        wait = new WebDriverWait(driver, 30);
-        executor = (JavascriptExecutor) driver;
     }
 
-    public void click_on_LogIn_Button() throws Throwable {
-        Thread.sleep(3000);
-        WebElement loginBtn = driver.findElement(By.xpath("//a[contains(text(),'Login')]"));
-        loginBtn.click();
+    public void loadUrl(String loginUrl){
+        try {
+            driver.get(loginUrl);
+            driver.manage().window().maximize();
+
+        } catch (UnhandledAlertException f) {
+
+            try {
+
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+
+            } catch (NoAlertPresentException e) {
+
+                e.printStackTrace();
+
+            }
+
+        }
     }
 
-    public void enter_Mobile_Number_for_login(String mobileNo) throws Throwable {
-        WebElement mobileNoField = driver.findElement(By.xpath("//input[@id='username']"));
-        mobileNoField.sendKeys(mobileNo);
+    public void enterLoginData(String username,String password){
+        WebElement elementUsername = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'userName')]"));
+        elementUsername.sendKeys(username);
+        WebElement elementPassword = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'password')]"));
+        elementPassword.sendKeys(password);
     }
 
-    public void enter_Password_for_login(String password) throws Throwable {
-        WebElement pwdField = driver.findElement(By.xpath("//input[@id='password']"));
-        pwdField.sendKeys(password);
+    public void clickSignIn(){
+        driver.findElement(By.xpath("//span[@class='mat-button-wrapper']")).click();
     }
 
-    //------------------------- Excell Test Data Testing ------------------------------------------
+    public void clickCompose() throws InterruptedException {
 
-    public void user_fills_the_Admin_Username_from_given_sheetName_and_rowNumber(String UserNameId) throws Throwable {
-        driver.findElement(UserName).sendKeys(UserNameId);
-
+        Thread.sleep(7000);
+        WebElement element = driver.findElement(By.xpath("//body/div[1]/div[2]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]"));
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click()", element);
     }
 
-    public void user_filers_the_Admin_Password_form_given_sheetName_and_rowNumber(String PasswordId) throws Throwable {
-        driver.findElement(Password).sendKeys(PasswordId);
+    public void verifySuccessfulLogin(){
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        WebElement verifyLocation = driver.findElement(By.xpath("//body/div[1]/div[2]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]"));
+        verifyLocation.isDisplayed();
     }
 
-    //-------------------------------------------------------------------------------------------
-    public void redirect_to_next_page() throws Throwable {
-        driver.manage().timeouts().implicitlyWait(a3, TimeUnit.SECONDS);
-//        WebElement menuBtn = driver.findElement(By.xpath("//body/app-root[1]/app-top-navbar[1]/div[1]/nav[1]/div[1]/ul[1]/li[1]"));
-//        menuBtn.click();
-        Thread.sleep(1000);
-        WebElement mobileNoBtn = driver.findElement(By.xpath("//h1[contains(text(),'Lorem ipsum dolor sit amet, consectetur.')]"));
-        Assert.assertEquals(true,mobileNoBtn.isDisplayed());
+    public void verifyUnsuccessfulLogin(){
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebElement verifyMessage = driver.findElement(By.xpath("//*[contains(text(),'We cannot find an account with this username, please check and try again')]"));
+        Assert.assertEquals(true, verifyMessage.isDisplayed());
     }
 
-    public void enter_Invalid_Mobile_Number() throws Throwable {
-        WebElement MobileNoField = driver.findElement(By.xpath("//input[@id='username']"));
-        MobileNoField.sendKeys("0712222222");
+    public void verifyErrorMessage(){
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebElement verifyMessage = driver.findElement(By.xpath("//*[contains(text(),'Invalid Password')]"));
+        Assert.assertEquals(true, verifyMessage.isDisplayed());
     }
 
-
-    public void display_toast_as_Invalid_mobile_number_or_password(String toast) throws Throwable {
-        WebElement validationText1 = driver.findElement(By.xpath("//span[@id='input-error']"));
-        Assert.assertEquals(toast, validationText1.getText());
+    public void verifyErrorPopup(){
+        WebElement verifyMessage = driver.findElement(By.xpath("//*[contains(text(),'* This field is required')]"));
+        Assert.assertEquals(true, verifyMessage.isDisplayed());
     }
 
-    public void check_whether_the_password_is_masked() throws Throwable {
-        WebElement pwdField = driver.findElement(By.xpath("//input[@id='password']"));
-        Assert.assertEquals("password", pwdField.getAttribute("type"));
+    public void enterLoginUsername(String username){
+        WebElement elementUsername = driver.findElement(By.name("user_id_log"));
+        elementUsername.sendKeys(username);
     }
 
+    public void loadComposeLogin(String composeUrl)
+    {
+        try {
 
-    public void click_on_Forgot_Password_button() throws Throwable {
-        WebElement forgotPwd = driver.findElement(By.xpath("//a[normalize-space()='Forgot Password?']"));
-        forgotPwd.click();
-    }
+            driver.get(composeUrl);
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-    public void redirect_to_forgot_password_page() throws Throwable {
-        WebElement forgotPwd = driver.findElement(By.xpath("//h1[@id='kc-page-title']"));
-        Assert.assertEquals(true,forgotPwd.isDisplayed());
-    }
+        } catch (UnhandledAlertException f) {
 
-    public void click_on_Register_button() throws Throwable {
-        WebElement registerBtn = driver.findElement(By.xpath(" //a[normalize-space()='Register']"));
-        registerBtn.click();
-    }
+            try {
 
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
 
-    public void click_on_Logout_button() throws Throwable {
-        Thread.sleep(3000);
-        WebElement logInBtn = driver.findElement(By.xpath("//body/app-root[1]/app-top-navbar[1]/div[1]/nav[1]/div[1]/button[1]"));
-        logInBtn.click();
-        WebElement logoutBtn = driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
-        logoutBtn.click();
-    }
-    //--------------------BAP--------------------
-    public void enter_for_log_in_as_suneth(String name) throws Throwable{
-        WebElement pwdField = driver.findElement(By.xpath("//input[@id='mat-input-0']"));
-        pwdField.sendKeys(name);
-    }
-    public void enter_for_password_as_Test(String password) throws Throwable{
-        WebElement pwdField = driver.findElement(By.xpath("//input[@type='password']"));
-        pwdField.sendKeys(password);
-    }
-    public void click_on_the_signin_button() throws Throwable {
-        WebElement loginBtn = driver.findElement(By.xpath("//span[contains(text(),'Sign in')]"));
-        loginBtn.click();
-        Thread.sleep(3000);
-    }
-    public void navigate_to_the_home_page() throws Throwable {
-        boolean status = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav[1]/div/app-sidenav/mat-nav-list/h2/img")).isDisplayed();
-        Assert.assertEquals(true,status);
+            } catch (NoAlertPresentException e) {
+
+                e.printStackTrace();
+
+            }
+
+        }
     }
 
-    public void driver_Close() throws Throwable{
-        driver.close(); //closes the browser
+    public void enterComposeLoginData(String composeUsername,String composePassword)
+    {
+        WebElement elementUsername = driver.findElement(By.xpath("//body/app-root[1]/app-login[1]/div[1]/mat-card[1]/div[1]/div[2]/div[1]/form[1]/div[2]/div[1]/input[1]"));
+        elementUsername.sendKeys(composeUsername);
+        WebElement elementPassword = driver.findElement(By.xpath("//body/app-root[1]/app-login[1]/div[1]/mat-card[1]/div[1]/div[2]/div[1]/form[1]/div[3]/div[1]/input[1]"));
+        elementPassword.sendKeys(composePassword);
+    }
+
+    public void clickLogIn()
+    {
+        driver.findElement(By.xpath("//body/app-root[1]/app-login[1]/div[1]/mat-card[1]/div[1]/div[2]/div[1]/form[1]/div[4]/div[2]/button[1]")).click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    public void loadComposeHomePage()
+    {
+        boolean eleSelected= driver.findElement(By.xpath("//body/app-root[1]/app-shell[1]/div[1]/div[1]/div[1]/app-left-navbar[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]")).isDisplayed();
+    }
+
+    public void verifyErrorMessageInLogin()
+    {
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        //WebElement verifyMessage = driver.findElement(By.xpath("//div[contains(text(),'Username or password incorrect.')]"));
+        //Assert.assertEquals(true, verifyMessage.isDisplayed());
+        boolean eleSelected= driver.findElement(By.xpath("//div[contains(text(),'Username or password incorrect.')]")).isDisplayed();
+    }
+
+    public void checkLoginButton()
+    {
+        Assert.assertFalse(driver.findElement(By.xpath("//body/app-root[1]/app-login[1]/div[1]/mat-card[1]/div[1]/div[2]/div[1]/form[1]/div[4]/div[2]/button[1]")).isEnabled());
     }
 
 }

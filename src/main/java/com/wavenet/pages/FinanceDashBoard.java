@@ -24,7 +24,7 @@ public class FinanceDashBoard {
     String url = config.getUrl();
 
     private By FinanceMainMenu = By.xpath("//span[normalize-space()='Finance']"); //Finance Main menu xpath locator Xpath
-    private By FinanceDashBoard = By.xpath("//span[text()=\"Finance Dashboard\"]"); //Click on Finance Main menu and get Dropdown in Finance Dashboard Xpath
+    private By FinanceDashBoard = By.xpath("//span[normalize-space()='Finance Dashboard']"); //Click on Finance Main menu and get Dropdown in Finance Dashboard Xpath
     private By MedicalCenterListBox = By.xpath("//div[@class='mat-form-field-infix ng-tns-c68-53']"); //Select medical center in Finance Dashboard Xpath
     private By LebFinanceDashboard = By.xpath("//span[normalize-space()='Finance Dashboard']"); //Finance Dashboard top of label name Xpath
 
@@ -373,5 +373,21 @@ public class FinanceDashBoard {
         boolean FinancialYearTotalMedicalCentreFees = driver.findElement(FinancialYearTotalMedicalCenterFees).isDisplayed();
         Assert.assertEquals(true,FinancialYearTotalMedicalCentreFees);
     }
+
+    //--------------------Finance medical center Sync button------------------
+
+    public void click_on_Sync_Button() throws Throwable {
+        WebElement verifyFinanceSyncBtn = driver.findElement(By.xpath("//mat-icon[normalize-space()='update']"));
+        verifyFinanceSyncBtn.isDisplayed();
+        verifyFinanceSyncBtn.click();
+
+    }
+
+    public void click_on_Finance_Dashboard_Download_button() throws Throwable {
+        WebElement verifyFinanceDownloadBtn = driver.findElement(By.xpath("//button[@class='mat-focus-indicator d-flex align-items-center justify-content-center ms-2 mt-1 mt-md-0 mat-stroked-button mat-button-base mat-primary']//span[@class='mat-button-wrapper']"));
+        verifyFinanceDownloadBtn.isDisplayed();
+        verifyFinanceDownloadBtn.click();
+    }
 }
+
 

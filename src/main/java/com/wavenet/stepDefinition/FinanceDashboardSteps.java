@@ -148,4 +148,15 @@ public class FinanceDashboardSteps {
     public void verify_the_Total_Medical_Centre_fees() throws Throwable {
         financeDashBoard.verify_the_Total_Medical_Centre_fees();
     }
+
+    //------------------Verify the Finance Dashboard medical center sync button -----------------
+    @Then("^Click on Sync Button$")
+    public void click_on_Sync_Button() throws Throwable {
+        financeDashBoard.click_on_Sync_Button();
+    }
+
+    @Given("^Click on Finance Dashboard Download button$")
+    public void click_on_Finance_Dashboard_Download_button() throws Throwable {
+        financeDashBoard.click_on_Finance_Dashboard_Download_button();
+    }
 }

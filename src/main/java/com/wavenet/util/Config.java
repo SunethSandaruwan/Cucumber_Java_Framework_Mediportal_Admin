@@ -18,6 +18,16 @@ public class Config {
     private String NewRegistryPassword;
     private String NewRegistryCertificate;
 
+    private String loginUrl;
+    private String composeUrl;
+    private String composeUsername;
+    private String composePassword;
+
+    private String adminUser;
+    private String adminPassword;
+
+
+
     public Config() {
         try {
 
@@ -39,11 +49,65 @@ public class Config {
             this.setNewRegistryCertificate(prop.getProperty("NewRegistryCertificate"));
 
 
+            this.setLoginUrl(prop.getProperty("loginUrl"));
+            this.setComposeUrl(prop.getProperty("composeUrl"));
+            this.setAdminUser(prop.getProperty("adminUser"));
+            this.setAdminPassowrd(prop.getProperty("adminPassword"));
+            this.setComposeUsername(prop.getProperty("composeUsername"));
+            this.setComposePassword(prop.getProperty("composePassword"));
+
+
+
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
 
     }
+
+    public String getLoginUrl(){
+        return loginUrl;
+    }
+
+    public void setLoginUrl(String loginUrl){this.loginUrl = loginUrl;
+    }
+    public String getComposeUrl(){
+        return composeUrl;
+    }
+
+    public void setComposeUrl(String composeUrl){
+        this.composeUrl = composeUrl;
+    }
+
+    public String getComposeUsername(){return composeUsername;}
+    public void setComposeUsername(String composeUsername){
+        this.composeUsername = composeUsername;
+    }
+
+    public String getComposePassword(){
+        return composePassword;
+    }
+
+    public void setComposePassword(String composePassword){
+        this.composePassword = composePassword;
+    }
+
+    public String getAdminUser(){
+        return adminUser;
+    }
+
+    public void setAdminUser(String adminUser){
+        this.adminUser = adminUser;
+    }
+
+    public String getAdminPassword(){
+        return adminPassword;
+    }
+
+    public void setAdminPassowrd(String adminPassword){
+        this.adminPassword = adminPassword;
+    }
+
 
     public String getOsVersion() {
         return osVersion;

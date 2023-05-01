@@ -1,5 +1,6 @@
 package com.wavenet.stepDefinition;
 
+import com.wavenet.pages.Login;
 import com.wavenet.pages.Signup;
 import com.wavenet.util.Config;
 import cucumber.api.java.en.And;
@@ -10,13 +11,10 @@ import cucumber.api.java.en.When;
 public class SignupSteps {
     private Signup signup = new Signup();
     private Config config = new Config();
+
+    private Login login = new Login();
     String url = config.getUrl();
 
-        @Given("^Open the browser and launch the application$")
-    public void open_the_browser_and_launch_the_url() throws Throwable {
-            Thread.sleep(5000);
-            signup.loadURL(url);
-    }
 
     @When("^Click on Log In Drop down$")
     public void click_on_Log_In_Drop_down() throws Throwable {
