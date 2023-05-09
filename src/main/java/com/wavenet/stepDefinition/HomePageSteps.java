@@ -8,21 +8,19 @@ import cucumber.api.java.en.And;
 
 public class HomePageSteps {
 
-   // private Homepage hoempage = new HomePage();
+    private HomePage hoempage = new HomePage();
 
     @Given("^Verify the homepage title$")
     public void verify_the_homepage_title() throws Throwable {
 
     }
-    @Then("^Driver Quit$")
-    public void driver_Quit() throws Throwable {
-        driver_Quit();
-
-    }
-
     @Given("^Wait some time ImplicitlyWait$")
     public void wait_some_time_ImplicitlyWait() throws Throwable {
 
+    }
+    @Given("^Page Scroll Down$")
+    public void page_Scroll_Down() throws Throwable {
+        hoempage.page_Scroll_Down();
     }
 
 }

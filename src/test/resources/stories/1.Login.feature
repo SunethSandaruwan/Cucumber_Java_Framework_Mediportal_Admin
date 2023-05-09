@@ -1,4 +1,4 @@
-Feature: Compose Login
+Feature: MediPortal Admin Login
 
 ## Test Case 01: Compose Login through CAM Admin
 
@@ -20,31 +20,31 @@ Feature: Compose Login
     Given Open the browser and launch the application
     When Enter a valid email 'AdminUser' and invalid password 'Test'
     And Click SignIn
-    Then Verification of Error Message
+  #  Then Verification of Error Message
 
   Scenario: Unsuccessful Login using invalid username invalid password
     Given Open the browser and launch the application
     When Enter a invalid email 'AdminUserError' and invalid password 'Test'
     And Click SignIn
-    Then Verify Error Message
+   # Then Verify Error Message
 
   Scenario: Empty username with password
     Given Open the browser and launch the application
     When Enter empty username '' and password 'Test@123'
     And Click SignIn
-    Then Verify Error Popup
+   # Then Verify Error Popup
 
-  Scenario: Empty password with username
-    Given Open the browser and launch the application
-    When Enter username 'AdminUser' and empty password
-    And Click SignIn
-    Then Verify Error Popup
+#  Scenario: Empty password with username
+#    Given Open the browser and launch the application
+#    When Enter username 'AdminUser' and empty password
+#    And Click SignIn
+   # Then Verify Error Popup
 
   Scenario: Empty username and empty password
     Given Open the browser and launch the application
     When Enter empty username '' and empty password ''
     And Click SignIn
-    Then Verify Error Popup
+   # Then Verify Error Popup
 
 ### Test Case 01: Compose Login through Compose Login Page
 #

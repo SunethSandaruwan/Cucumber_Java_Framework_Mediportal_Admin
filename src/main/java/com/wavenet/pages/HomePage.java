@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.sql.Driver;
+import java.util.concurrent.TimeUnit;
 
 
 public class HomePage {
@@ -39,6 +40,7 @@ public class HomePage {
     }
     public void verify_the_Home_page_title() throws Throwable {
          String HomePageExpectedTitle = "MediPortal Dashboard";
+         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
          String actualHomepageTitle = driver.getTitle();
          if (actualHomepageTitle.contentEquals(HomePageExpectedTitle)) {
              System.out.println("Test Passed");
@@ -47,8 +49,18 @@ public class HomePage {
              System.out.println("Test Fails");
          }
     }
+
     public void driver_Quit() throws Throwable {
         driver_Quit();
+    }
+    public void page_Scroll_Down() throws Throwable {
+        //Page Scroll down in Finance DashBoard
+                driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("scroll(0, 450);");
+        //   driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.END);
+
+
     }
 
 

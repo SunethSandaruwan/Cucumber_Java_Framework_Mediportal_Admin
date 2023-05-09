@@ -159,4 +159,9 @@ public class FinanceDashboardSteps {
     public void click_on_Finance_Dashboard_Download_button() throws Throwable {
         financeDashBoard.click_on_Finance_Dashboard_Download_button();
     }
+
+    @When("^Click on Medical Center$")
+    public void click_on_Medical_Center() throws Throwable {
+        financeDashBoard.click_on_Medical_Center();
+    }
 }

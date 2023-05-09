@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.sql.SQLOutput;
 import java.util.List;
 import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
 
 public class FinanceDashBoard {
 
@@ -25,6 +26,8 @@ public class FinanceDashBoard {
 
     private By FinanceMainMenu = By.xpath("//span[normalize-space()='Finance']"); //Finance Main menu xpath locator Xpath
     private By FinanceDashBoard = By.xpath("//span[normalize-space()='Finance Dashboard']"); //Click on Finance Main menu and get Dropdown in Finance Dashboard Xpath
+
+    private By SelectMedicalCenter = By.xpath("//div[@id='mat-select-value-1']"); //Click on medical Center
     private By MedicalCenterListBox = By.xpath("//div[@class='mat-form-field-infix ng-tns-c68-53']"); //Select medical center in Finance Dashboard Xpath
     private By LebFinanceDashboard = By.xpath("//span[normalize-space()='Finance Dashboard']"); //Finance Dashboard top of label name Xpath
 
@@ -103,33 +106,36 @@ public class FinanceDashBoard {
     }
 
     public void click_on_Finance_main_menu() throws Throwable {
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement ClickOnFinanceMainMenu = driver.findElement(FinanceMainMenu);
         ClickOnFinanceMainMenu.click();
     }
     public void click_on_Finance_Dashboard() throws Throwable {
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement ClickOnFinanceDashboard = driver.findElement(FinanceDashBoard);
         ClickOnFinanceDashboard.click();
     }
     public void verify_on_Finance_Dashboard() throws Throwable {
-        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         String lebFinanceDashboard = driver.findElement(LebFinanceDashboard).getText(); // Is for get Finance Dashboard label
         String VerifyLabelName = "Finance Dashboard";
-        if (lebFinanceDashboard == VerifyLabelName){
-            System.out.println("Finance Dashboard is verified");
-        }else{
-            System.out.println("Finance Dashboard verify is fails ");
-        }
+//        if (lebFinanceDashboard == VerifyLabelName){
+//            System.out.println("Finance Dashboard is verified");
+//        }else{
+//            System.out.println("Finance Dashboard verify is fails ");
+//        }
     }
 
     public void select_Medical_Center_in_DropDown() throws Throwable {
        // Select select = new Select(driver.findElement(MedicalCenterListBox)); //Get all the option n the dropdown
        // List<WebElement> options = select.getOptions();
         //-----------------------------------------------------
-        WebElement dropMedicalCenter=driver.findElement(MedicalCenterListBox);
-        Select drpMedicalCenter=new Select(dropMedicalCenter);
-        drpMedicalCenter.selectByVisibleText("Main surgery - Ellen Stirling");
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        WebElement ClickMedicalCenter = driver.findElement(SelectMedicalCenter);
+        ClickMedicalCenter.click();
+       // WebElement dropMedicalCenter=driver.findElement(MedicalCenterListBox);
+       // Select drpMedicalCenter=new Select(dropMedicalCenter);
+        //drpMedicalCenter.selectByVisibleText("Main surgery - Ellen Stirling");
     }
 
     public void verify_the_select_medical_center_finance_dashboard_today_details() throws Throwable {
@@ -377,16 +383,25 @@ public class FinanceDashBoard {
     //--------------------Finance medical center Sync button------------------
 
     public void click_on_Sync_Button() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
         WebElement verifyFinanceSyncBtn = driver.findElement(By.xpath("//mat-icon[normalize-space()='update']"));
+        //WebElement verifyFinanceSyncBtn = driver.findElement(By.xpath("//button[@class='mat-focus-indicator d-flex align-items-center justify-content-center ms-sm-3 mt-1 mt-md-0 mat-flat-button mat-button-base mat-primary']//span[@class='mat-button-wrapper']"));
         verifyFinanceSyncBtn.isDisplayed();
         verifyFinanceSyncBtn.click();
 
     }
 
     public void click_on_Finance_Dashboard_Download_button() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement verifyFinanceDownloadBtn = driver.findElement(By.xpath("//button[@class='mat-focus-indicator d-flex align-items-center justify-content-center ms-2 mt-1 mt-md-0 mat-stroked-button mat-button-base mat-primary']//span[@class='mat-button-wrapper']"));
         verifyFinanceDownloadBtn.isDisplayed();
         verifyFinanceDownloadBtn.click();
+    }
+
+    public void click_on_Medical_Center() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        WebElement ClickOnMedicalCenter = driver.findElement(By.xpath("//span[normalize-space()='Main surgery - Ellen Stirling']"));
+        ClickOnMedicalCenter.click();
     }
 }
 

@@ -70,4 +70,14 @@ public class BillingSummarySteps {
         billingSummary.verify_the_Total_Column();
     }
 
+    @When("^Select Billing Summary Medical Center$")
+    public void select_Billing_Summary_Medical_Center() throws Throwable {
+        billingSummary.select_Billing_Summary_Medical_Center();
+    }
+
+    @When("^Verify the refresh Data in Billing Summary Table$")
+    public void verify_the_refresh_Data_in_Billing_Summary_Table() throws Throwable {
+
+    }
+
 }

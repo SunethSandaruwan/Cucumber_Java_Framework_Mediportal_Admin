@@ -22,8 +22,8 @@ public class BillingSummary {
 
     // Billing Summary UI Xpath
 
-    private By BillingSummaryMainManu = By.xpath("//h1[normalize-space()='Billing Summary'] ");
-    private By BillingSummarySearchMedicalCenter = By.xpath("//span[@class='mat-select-min-line ng-tns-c98-22 ng-star-inserted']");
+    private By BillingSummaryMainManu = By.xpath("//h1[normalize-space()='Billing Summary']");
+    private By BillingSummarySearchMedicalCenter = By.xpath("//div[@class='mat-form-field-infix ng-tns-c68-53']");
 
     private By BillingSummaryGlobalReportConfigurations = By.xpath("//span[normalize-space()='Report Configuration']");
 
@@ -49,6 +49,8 @@ public class BillingSummary {
 
     private By GlobalBillingSummaryTotalColumn = By.xpath("//td[normalize-space()='Total']");
 
+    private By GlobalBillingSummarySelectMedicalCenter = By.xpath("//div[@id='mat-select-value-17']");
+
 
     public BillingSummary(){
         driver = InitializeDriver.getInstance().getDriver();
@@ -62,28 +64,34 @@ public class BillingSummary {
     }
     public void verify_the_Finance_Billing_Summary_Title() throws Throwable {
 
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean BillingSummaryMainManuTitle = driver.findElement(BillingSummaryMainManu).isDisplayed();
         Assert.assertEquals(true,BillingSummaryMainManuTitle);
 
     }
     public void verify_the_Finance_medical_center_search_box() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean BillingSummarySearchBox = driver.findElement(BillingSummarySearchMedicalCenter).isDisplayed();
         Assert.assertEquals(true,BillingSummarySearchBox);
 
     }
     public void verify_the_Global_report_Configuration() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean BillingSummaryGlobalReportConfiguration = driver.findElement(BillingSummaryGlobalReportConfigurations).isDisplayed();
         Assert.assertEquals(true,BillingSummaryGlobalReportConfiguration);
     }
     public void verify_the_Finance_Export() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean BillingSummarySearchBox = driver.findElement(BillingSummaryExportButton).isDisplayed();
         Assert.assertEquals(true,BillingSummarySearchBox);
     }
     public void verify_the_Data_and_Time_Range() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean BillingSummaryVerifyDataAndTimeRange = driver.findElement(BillingSummarySelectTimeDuration).isDisplayed();
         Assert.assertEquals(true,BillingSummaryVerifyDataAndTimeRange);
     }
     public void verify_the_Search_practitioner() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean BillingSummaryVerifySearchPractitioner = driver.findElement(BillingSummarySearchPractitioner).isDisplayed();
         Assert.assertEquals(true,BillingSummaryVerifySearchPractitioner);
     }
@@ -121,6 +129,15 @@ public class BillingSummary {
 
         boolean GlobalBillingTotalColumn = driver.findElement(GlobalBillingSummaryTotalColumn).isDisplayed();
         Assert.assertEquals(true,GlobalBillingTotalColumn);
+
+    }
+    public void select_Billing_Summary_Medical_Center() throws Throwable {
+
+        WebElement SelectBillingSummaryMedicalCenter = driver.findElement(GlobalBillingSummarySelectMedicalCenter);
+        SelectBillingSummaryMedicalCenter.click();
+    }
+
+    public void verify_the_refresh_Data_in_Billing_Summary_Table() throws Throwable {
 
     }
 
