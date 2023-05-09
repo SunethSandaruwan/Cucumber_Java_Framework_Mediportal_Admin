@@ -14,17 +14,17 @@ public class Login {
     }
 
     public void loadUrl(String loginUrl){
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-       // driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         try {
-            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             driver.get(loginUrl);
             driver.manage().window().maximize();
 
         } catch (UnhandledAlertException f) {
 
             try {
-
+                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                 Alert alert = driver.switchTo().alert();
                 alert.accept();
 
