@@ -1,14 +1,11 @@
 Feature: MediPortal Admin Login
 
-## Test Case 01: Compose Login through CAM Admin
+## Test Case 01: MediPortal Admin Login
 
   Scenario: Verification for Successful Login
     Given Open the browser and launch the application
     When Enter a valid email and valid password
     When Click SignIn
-#    Then Load the CAM Admin Home Page
-#    And Click on Compose
-#    And Load the Compose Home Page
 
   Scenario: Unsuccessful Login using invalid username valid password
     Given Open the browser and launch the application
