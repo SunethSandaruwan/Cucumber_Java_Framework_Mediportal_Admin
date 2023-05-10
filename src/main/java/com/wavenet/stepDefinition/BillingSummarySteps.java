@@ -80,4 +80,19 @@ public class BillingSummarySteps {
 
     }
 
+    @Then("^Select Billing Summary Practitioner Search Box$")
+    public void select_Billing_Summary_Practitioner_Search_Box() throws Throwable {
+        billingSummary.select_Billing_Summary_Practitioner_Search_Box();
+    }
+
+    @Then("^Enter Valid Practitioner Name$")
+    public void enter_Valid_Practitioner_Name() throws Throwable {
+
+    }
+
+    @Then("^Verify the Practitioner vs Details$")
+    public void verify_the_Practitioner_vs_Details() throws Throwable {
+
+    }
+
 }

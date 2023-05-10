@@ -51,6 +51,8 @@ public class BillingSummary {
 
     private By GlobalBillingSummarySelectMedicalCenter = By.xpath("//div[@id='mat-select-value-17']");
 
+    private By BillingSummaryPractitionerSearchBox = By.id("doctorName");
+
 
     public BillingSummary(){
         driver = InitializeDriver.getInstance().getDriver();
@@ -58,7 +60,7 @@ public class BillingSummary {
         executor = (JavascriptExecutor) driver;
     }
     public void click_on_Billing_Summary() throws Throwable {
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         WebElement ClickBillingSummary = driver.findElement(By.xpath("//span[normalize-space()='Billing Summary']"));
         ClickBillingSummary.click();
     }
@@ -101,6 +103,7 @@ public class BillingSummary {
     }
     public void verify_the_Billing_Summary_Grid_Column_title() throws Throwable {
         //Verify the Billing summary table column's name
+
         boolean BillingSummaryPractitioner = driver.findElement(GlobalBillingSummaryTablePractitioner).isDisplayed();
         Assert.assertEquals(true,BillingSummaryPractitioner);
 
@@ -127,18 +130,27 @@ public class BillingSummary {
     }
     public void verify_the_Total_Column() throws Throwable {
 
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean GlobalBillingTotalColumn = driver.findElement(GlobalBillingSummaryTotalColumn).isDisplayed();
         Assert.assertEquals(true,GlobalBillingTotalColumn);
 
     }
     public void select_Billing_Summary_Medical_Center() throws Throwable {
 
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         WebElement SelectBillingSummaryMedicalCenter = driver.findElement(GlobalBillingSummarySelectMedicalCenter);
         SelectBillingSummaryMedicalCenter.click();
     }
 
     public void verify_the_refresh_Data_in_Billing_Summary_Table() throws Throwable {
 
+    }
+
+    public void select_Billing_Summary_Practitioner_Search_Box() throws Throwable {
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+        WebElement SelectBillingSummaryPractitionerSearchBox = driver.findElement(BillingSummaryPractitionerSearchBox);
+        SelectBillingSummaryPractitionerSearchBox.click();
     }
 
 }
