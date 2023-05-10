@@ -47,7 +47,7 @@ public class InitializeDriver {
                 break;
             case "linux":
               //  System.setProperty("webdriver.chrome.driver", userDir + "/src/main/resources/Drivers/linux/chromedriver");
-                System.setProperty("webdriver.chrome.driver","resources/Drivers/linux/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver","resources/Drivers/linux/chromedriverLinux.exe");
                 ChromeOptions chromeOption = new ChromeOptions();
                 chromeOption.addArguments("--headless");
                 driver = new ChromeDriver();
