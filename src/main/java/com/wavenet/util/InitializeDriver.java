@@ -31,11 +31,12 @@ public class InitializeDriver {
 
     private void getInitializeDriver(){
         String userDir = System.getProperty("user.dir");
-        System.setProperty("webdriver.chrome.driver",userDir + "/src/main/resources/Drivers/chromedriverLinux.exe");
+       // System.setProperty("webdriver.chrome.driver",userDir + "/src/main/resources/Drivers/chromedriverLinux.exe");
+        System.out.println("Test");
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("----headless");
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
         DesiredCapabilities dc = new DesiredCapabilities();
         dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
         driver = new ChromeDriver(dc);
