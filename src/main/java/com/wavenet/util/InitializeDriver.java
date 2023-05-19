@@ -31,9 +31,11 @@ public class InitializeDriver {
 
     private void getInitializeDriver(){
         String userDir = System.getProperty("user.dir");
+        //System.setProperty("webdriver.chrome.driver",userDir + "/src/main/resources/Drivers/chromedriver.exe");
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("----headless");
+        //driver = new ChromeDriver();
         DesiredCapabilities dc = new DesiredCapabilities();
         dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
         driver = new ChromeDriver(dc);
@@ -47,6 +49,8 @@ public class InitializeDriver {
     @Before
     public void openBrowser() {
 
+
+        // driver.get(url);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         System.out.println("openBrowser: Browser is opened");
@@ -59,6 +63,3 @@ public class InitializeDriver {
     }
 
 }
-
-
-
