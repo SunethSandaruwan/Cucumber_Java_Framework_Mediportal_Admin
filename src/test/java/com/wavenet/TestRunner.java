@@ -13,9 +13,9 @@ import org.junit.runner.RunWith;
         overviewReport = true,
         coverageReport = true,
         featureOverviewChart = true,
-//        jsonUsageReport = "target2/cucumber-usage.json",
+        jsonUsageReport = "target2/cucumber-usage.json",
 //        jsonUsageReport = "target/cucumber-reports/cucumber.json",
-//        usageReport = true,
+        usageReport = true,
         screenShotLocation = "/screenshots/",
         screenShotSize = "300px",
         toPDF = true,
@@ -33,13 +33,4 @@ import org.junit.runner.RunWith;
 
 public class TestRunner {
 
-
 }
-
-//@RunWith(Cucumber.class)
-//@CucumberOptions(features="src/test/resources/stories/",glue={"com.wavenet.stepDefinition"},plugin = { "pretty", "html:target/cucumber-reports/cucumber.html","json:target/cucumber-reports/cucumber.json"},
-//        monochrome = true)
-//
-//public class TestRunner{
-//
-//}
