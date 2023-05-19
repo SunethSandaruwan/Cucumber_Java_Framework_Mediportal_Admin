@@ -313,17 +313,13 @@ public class FinanceDashBoard {
     }
 
     public void check_on_Weekly_Chart_button() throws Throwable {
-       // boolean WeeklyChartButton = driver.findElement(WeeklyChartButtonXpath).isDisplayed();
-       // Assert.assertEquals(true,WeeklyChartButton);
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+        boolean WeeklyChartButton = driver.findElement(WeeklyChartButtonXpath).isDisplayed();
+        Assert.assertEquals(true,WeeklyChartButton);
         WebElement ClickWeeklyButton = driver.findElement(WeeklyChartButtonXpath);
         ClickWeeklyButton.click();
     }
 
     public void check_on_Monthly_Chart_button() throws Throwable {
-
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-        Thread.sleep(10000);
         boolean MonthlyChartButton = driver.findElement(MonthlyChartButtonXpath).isDisplayed();
         Assert.assertEquals(true,MonthlyChartButton);
         WebElement ClickMonthlyCHartButton = driver.findElement(MonthlyChartButtonXpath);
@@ -331,17 +327,12 @@ public class FinanceDashBoard {
     }
 
     public void check_on_Yearly_Chart_button() throws Throwable {
-
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-        Thread.sleep(10000);
         boolean YearlyChartButton = driver.findElement(YearlyChartButtonXpath).isDisplayed();
         Assert.assertEquals(true,YearlyChartButton);
         WebElement ClickYearlyChartButton = driver.findElement(YearlyChartButtonXpath);
         ClickYearlyChartButton.click();
     }
     public void check_on_Previous_Year_Monthly() throws Throwable {
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-        Thread.sleep(10000);
         boolean PreviousYearMonthly = driver.findElement(PreviousYearMonthlyXpath).isDisplayed();
         Assert.assertEquals(true,PreviousYearMonthly);
         WebElement ClickPreviousYearMonthly = driver.findElement(PreviousYearMonthlyXpath);
@@ -397,7 +388,6 @@ public class FinanceDashBoard {
         //WebElement verifyFinanceSyncBtn = driver.findElement(By.xpath("//button[@class='mat-focus-indicator d-flex align-items-center justify-content-center ms-sm-3 mt-1 mt-md-0 mat-flat-button mat-button-base mat-primary']//span[@class='mat-button-wrapper']"));
         verifyFinanceSyncBtn.isDisplayed();
         verifyFinanceSyncBtn.click();
-        driver.manage().timeouts().setScriptTimeout(5,TimeUnit.SECONDS);
 
     }
 

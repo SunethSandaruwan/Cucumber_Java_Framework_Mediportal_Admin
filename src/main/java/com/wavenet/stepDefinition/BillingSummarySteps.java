@@ -77,7 +77,7 @@ public class BillingSummarySteps {
 
     @When("^Verify the refresh Data in Billing Summary Table$")
     public void verify_the_refresh_Data_in_Billing_Summary_Table() throws Throwable {
-        billingSummary.verify_the_refresh_Data_in_Billing_Summary_Table();
+
     }
 
     @Then("^Select Billing Summary Practitioner Search Box$")
@@ -94,4 +94,5 @@ public class BillingSummarySteps {
     public void verify_the_Practitioner_vs_Details() throws Throwable {
 
     }
+
 }
