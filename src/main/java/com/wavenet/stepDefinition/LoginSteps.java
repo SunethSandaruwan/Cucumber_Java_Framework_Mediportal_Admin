@@ -181,10 +181,4 @@ public class LoginSteps {
         login.enterComposeLoginData(username,password);
     }
 
-    @Then("^Driver Quit$")
-    public void driver_Quit() throws Throwable {
-        login.driver_Quit();
-
-    }
-
 }

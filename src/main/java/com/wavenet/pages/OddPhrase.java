@@ -4,8 +4,6 @@ import com.wavenet.util.InitializeDriver;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 
-import java.util.concurrent.TimeUnit;
-
 public class OddPhrase {
 
     public static WebDriver driver;
@@ -14,32 +12,6 @@ public class OddPhrase {
 
     public OddPhrase() {
         driver = InitializeDriver.getInstance().getDriver();
-    }
-
-    public void selectCreatedWorkspace(String workspaceName) throws InterruptedException {
-
-        WebElement selectAgent = driver.findElement(By.xpath("//body/app-root[1]/app-shell[1]/div[1]/div[1]/div[1]/app-left-navbar[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/a[1]"));
-        JavascriptExecutor executor4 = (JavascriptExecutor)driver;
-        executor4.executeScript("arguments[0].click()", selectAgent);
-
-        WebElement agentDropDown = driver.findElement(By.id("agent-dropdown"));
-        JavascriptExecutor executor1 = (JavascriptExecutor)driver;
-        executor1.executeScript("arguments[0].click()", agentDropDown);
-
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
-        WebElement selectMore = driver.findElement(By.id("mnu-compose-test-automation-agent3"));
-        JavascriptExecutor executor2 = (JavascriptExecutor)driver;
-        executor2.executeScript("arguments[0].click()", selectMore);
-
-        WebElement clickSelectAgent = driver.findElement(By.xpath("//span[contains(text(),'Select Workspace')]"));
-        JavascriptExecutor executor3 = (JavascriptExecutor)driver;
-        executor3.executeScript("arguments[0].click()", clickSelectAgent);
-
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("//button[contains(text(),'Yes')]")).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
     }
 
     public void clickOnTrainingTab()

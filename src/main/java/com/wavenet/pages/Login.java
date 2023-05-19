@@ -14,9 +14,6 @@ public class Login {
     }
 
     public void loadUrl(String loginUrl){
-        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        //driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(15, TimeUnit.SECONDS);
         try {
             driver.get(loginUrl);
             driver.manage().window().maximize();
@@ -24,6 +21,7 @@ public class Login {
         } catch (UnhandledAlertException f) {
 
             try {
+
                 Alert alert = driver.switchTo().alert();
                 alert.accept();
 
@@ -36,50 +34,15 @@ public class Login {
         }
     }
 
-    public void enterLoginData(String username,String password) throws InterruptedException {
-//        WebElement elementUsername = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'userName')]"));
-//        elementUsername.sendKeys(username);
-//        WebElement elementPassword = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'password')]"));
-//        elementPassword.sendKeys(password);
-
-        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-        Thread.sleep(10000);
-
-        String current_url = driver.getCurrentUrl();
-
-        if(!current_url.equals("https://admin.mediportal.com.au/#/sign-in")){
-
-            driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-            Thread.sleep(2000);
-            WebElement exit = driver.findElement(By.xpath("//mat-icon[@class='mat-icon notranslate mdi mdi-power material-icons mat-icon-no-color']"));
-            JavascriptExecutor jse = (JavascriptExecutor)driver;
-            jse.executeScript("arguments[0].click()", exit);
-
-            driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-            Thread.sleep(5000);
-            WebElement elementName = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'userName')]"));
-            driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-            elementName.sendKeys(username);
-            Thread.sleep(2000);
-            WebElement elementPass = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'password')]"));
-            driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-            elementPass.sendKeys(password);
-
-        }else {
-
-            driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-            Thread.sleep(5000);
-            WebElement elementName = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'userName')]"));
-            elementName.sendKeys(username);
-            driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-            Thread.sleep(5000);
-            WebElement elementPass = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'password')]"));
-            elementPass.sendKeys(password);
-        }
+    public void enterLoginData(String username,String password){
+        WebElement elementUsername = driver.findElement(By.name("user_id_log"));
+        elementUsername.sendKeys(username);
+        WebElement elementPassword = driver.findElement(By.name("password"));
+        elementPassword.sendKeys(password);
     }
 
     public void clickSignIn(){
-        driver.findElement(By.xpath("//span[@class='mat-button-wrapper']")).click();
+        driver.findElement(By.xpath("//body/div[2]/div[2]/div[2]/form[1]/div[3]/div[1]/button[1]")).click();
     }
 
     public void clickCompose() throws InterruptedException {
@@ -98,7 +61,7 @@ public class Login {
 
     public void verifyUnsuccessfulLogin(){
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        WebElement verifyMessage = driver.findElement(By.xpath("//*[contains(text(),'We cannot find an account with this username, please check and try again')]"));
+        WebElement verifyMessage = driver.findElement(By.xpath("//*[contains(text(),'Login failed. Incorrect User Name or Password')]"));
         Assert.assertEquals(true, verifyMessage.isDisplayed());
     }
 
@@ -172,11 +135,6 @@ public class Login {
     public void checkLoginButton()
     {
         Assert.assertFalse(driver.findElement(By.xpath("//body/app-root[1]/app-login[1]/div[1]/mat-card[1]/div[1]/div[2]/div[1]/form[1]/div[4]/div[2]/button[1]")).isEnabled());
-    }
-
-    public void driver_Quit() throws Throwable {
-        driver.quit();
-
     }
 
 }
