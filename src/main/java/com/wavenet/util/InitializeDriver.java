@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 
+import javax.swing.text.html.Option;
 import java.util.concurrent.TimeUnit;
 
 public class InitializeDriver {
@@ -31,15 +32,18 @@ public class InitializeDriver {
 
     private void getInitializeDriver(){
         String userDir = System.getProperty("user.dir");
-       // System.setProperty("webdriver.chrome.driver",userDir + "/src/main/resources/Drivers/chromedriverLinux.exe");
-        System.out.println("Test");
+         //System.setProperty("webdriver.chrome.driver",userDir + "/src/main/resources/Drivers/chromedriverMacM1.exe");
+
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("----headless");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("disable-gpu");
+        driver = new ChromeDriver(chromeOptions);
         //driver = new ChromeDriver();
         DesiredCapabilities dc = new DesiredCapabilities();
         dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
-        driver = new ChromeDriver(dc);
+        driver = new ChromeDriver(chromeOptions);
         System.out.println("Initialize Browser : Browser is initialized");
     }
 
@@ -62,4 +66,5 @@ public class InitializeDriver {
     }
 
 }
+
 
