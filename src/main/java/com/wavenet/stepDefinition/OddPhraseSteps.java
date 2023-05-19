@@ -10,6 +10,10 @@ public class OddPhraseSteps {
     private Config config = new Config();
     private OddPhrase phrase = new OddPhrase();
 
+    @And("^Select Workspace from Workspace Drop Down List as '(.*?)'$")
+    public void select_workspace_created_before(String workspaceName) throws InterruptedException {
+        phrase.selectCreatedWorkspace(workspaceName);
+    }
     @And("^Click on Training Tab$")
     public void click_on_training_tab()
     {
