@@ -39,7 +39,7 @@ public class InitializeDriver {
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("disable-gpu");
-        driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver(chromeOptions); //headless run code
         //driver = new ChromeDriver();
         DesiredCapabilities dc = new DesiredCapabilities();
         dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);

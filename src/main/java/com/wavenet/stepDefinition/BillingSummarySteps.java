@@ -85,14 +85,25 @@ public class BillingSummarySteps {
         billingSummary.select_Billing_Summary_Practitioner_Search_Box();
     }
 
-    @Then("^Enter Valid Practitioner Name$")
-    public void enter_Valid_Practitioner_Name() throws Throwable {
-
-    }
-
     @Then("^Verify the Practitioner vs Details$")
     public void verify_the_Practitioner_vs_Details() throws Throwable {
 
     }
+
+    @Then("^Enter Valid Practitioner Name '(.*?)'$")
+    public void enter_Valid_Practitioner_Name(String PractitionerName) throws Throwable{
+        billingSummary.enter_Valid_Practitioner_Name(PractitionerName);
+    }
+
+    @Then("^Select Yesterday in filter by date Field$")
+    public void select_Yesterday_in_filter_by_date_Field() throws Throwable {
+
+    }
+
+    @Then("^Verify the Practitioner vs Yesterday Details$")
+    public void verify_the_Practitioner_vs_Yesterday_Details() throws Throwable {
+
+    }
+
 
 }

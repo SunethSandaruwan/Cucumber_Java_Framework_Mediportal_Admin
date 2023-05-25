@@ -23,7 +23,7 @@ public class BillingSummary {
     // Billing Summary UI Xpath
 
     private By BillingSummaryMainManu = By.xpath("//h1[normalize-space()='Billing Summary']");
-    private By BillingSummarySearchMedicalCenter = By.xpath("//div[@class='mat-form-field-infix ng-tns-c68-53']");
+    private By BillingSummarySearchMedicalCenter = By.xpath("//div[@id='mat-select-value-3']");
 
     private By BillingSummaryGlobalReportConfigurations = By.xpath("//span[normalize-space()='Report Configuration']");
 
@@ -33,7 +33,7 @@ public class BillingSummary {
 
     private By BillingSummarySearchPractitioner = By.id("doctorName");
 
-    private By BillingSummaryFilterByData = By.xpath("//div[@class='mat-form-field-infix ng-tns-c68-25']");
+    private By BillingSummaryFilterByData = By.xpath("//input[@id='txt_duration']");
 
     private By GlobalBillingSummaryTablePractitioner = By.xpath("//div[contains(text(),'Practitioner Name')]");
 
@@ -51,7 +51,8 @@ public class BillingSummary {
 
     private By GlobalBillingSummarySelectMedicalCenter = By.xpath("//div[@id='mat-select-value-17']");
 
-    private By BillingSummaryPractitionerSearchBox = By.id("doctorName");
+    private By SelectPractitionerFirstValue = By.xpath("//span[@class='mat-option-text']");
+
 
 
     public BillingSummary(){
@@ -60,7 +61,7 @@ public class BillingSummary {
         executor = (JavascriptExecutor) driver;
     }
     public void click_on_Billing_Summary() throws Throwable {
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement ClickBillingSummary = driver.findElement(By.xpath("//span[normalize-space()='Billing Summary']"));
         ClickBillingSummary.click();
     }
@@ -98,59 +99,69 @@ public class BillingSummary {
         Assert.assertEquals(true,BillingSummaryVerifySearchPractitioner);
     }
     public void verify_the_Filter_by_Day() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean BillingSummaryVerifyFilterByDay = driver.findElement(BillingSummaryFilterByData).isDisplayed();
         Assert.assertEquals(true,BillingSummaryVerifyFilterByDay);
     }
     public void verify_the_Billing_Summary_Grid_Column_title() throws Throwable {
         //Verify the Billing summary table column's name
-
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean BillingSummaryPractitioner = driver.findElement(GlobalBillingSummaryTablePractitioner).isDisplayed();
         Assert.assertEquals(true,BillingSummaryPractitioner);
 
         //Verify the Billing Summary Number of Patients
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean BillingSummaryNumberOfPatients = driver.findElement(GlobalBillingSummaryTableNumberOfPatients).isDisplayed();
         Assert.assertEquals(true,BillingSummaryNumberOfPatients);
 
         //Verify the Table Invoice Count
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean GlobalBillingSummaryVerifyTableInvoiceCount = driver.findElement(GlobalBillingSummaryTableInvoiceCount).isDisplayed();
         Assert.assertEquals(true,GlobalBillingSummaryVerifyTableInvoiceCount);
 
         //Verify the Global Billing Summary Table Service Count
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean GlobalBillingSummaryVerifyTableServiceCount = driver.findElement(GlobalBillingSummaryTableServiceCount).isDisplayed();
         Assert.assertEquals(true,GlobalBillingSummaryVerifyTableServiceCount);
 
         //Verify the Global Billing Summary Table total fee
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean GlobalBillingSummaryVerifyTableTotalFee = driver.findElement(GlobalBillingSummaryTableTotalFee).isDisplayed();
         Assert.assertEquals(true,GlobalBillingSummaryVerifyTableTotalFee);
 
         //Verify the Global Billing Table Total Fee
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         boolean GlobalBillingSummaryVerifyTableAction = driver.findElement(GlobalBillingSummaryTableAction).isDisplayed();
         Assert.assertEquals(true,GlobalBillingSummaryVerifyTableAction);
 
     }
     public void verify_the_Total_Column() throws Throwable {
 
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+        // Verify the DisPlay Total Column value
         boolean GlobalBillingTotalColumn = driver.findElement(GlobalBillingSummaryTotalColumn).isDisplayed();
         Assert.assertEquals(true,GlobalBillingTotalColumn);
 
     }
     public void select_Billing_Summary_Medical_Center() throws Throwable {
-
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
         WebElement SelectBillingSummaryMedicalCenter = driver.findElement(GlobalBillingSummarySelectMedicalCenter);
         SelectBillingSummaryMedicalCenter.click();
     }
 
     public void verify_the_refresh_Data_in_Billing_Summary_Table() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 
     }
 
     public void select_Billing_Summary_Practitioner_Search_Box() throws Throwable {
-
         driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-        WebElement SelectBillingSummaryPractitionerSearchBox = driver.findElement(BillingSummaryPractitionerSearchBox);
-        SelectBillingSummaryPractitionerSearchBox.click();
+        WebElement ClickOnSearchPractitioner = driver.findElement(BillingSummarySearchPractitioner);
+        ClickOnSearchPractitioner.click();
+        WebElement ClickOnSearchPractitionerFirstValue = driver.findElement(SelectPractitionerFirstValue);
+        ClickOnSearchPractitionerFirstValue.click();
+    }
+    public void enter_Valid_Practitioner_Name(String PractitionerName) throws Throwable{
+
     }
 
 }
