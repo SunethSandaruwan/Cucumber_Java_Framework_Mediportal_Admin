@@ -18,7 +18,7 @@ Feature: MediPortal Admin Login
 
   Scenario: Unsuccessful Login using valid username invalid password
     Given Open the browser and launch the application
-    When Enter a valid email 'AdminUser' and invalid password 'Test'
+    When Enter a valid email 'adminUser' and invalid password 'Test'
     And Click SignIn
   #  Then Verification of Error Message
 

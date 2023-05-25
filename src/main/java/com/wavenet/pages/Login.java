@@ -47,7 +47,7 @@ public class Login {
 
         String current_url = driver.getCurrentUrl();
 
-        if(!current_url.equals("https://admin.mediportal.com.au/#/sign-in")){
+        if(!current_url.equals("http://137.184.155.132:82/sign-in")){
 
             driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
             Thread.sleep(2000);

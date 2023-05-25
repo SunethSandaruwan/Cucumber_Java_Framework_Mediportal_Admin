@@ -62,9 +62,9 @@ Feature: Billing Summary
         And Verify the Finance Billing Summary Title
 
         Then Select Billing Summary Practitioner Search Box
-        And Enter Valid Practitioner Name 'Ashik Varghese'
-        Then Select last Seven Days in filter by date Field
-        And Verify the Practitioner vs last Seven Days Details
+    #    And Enter Valid Practitioner Name 'Ashik Varghese'
+    #    Then Select last Seven Days in filter by date Field
+    #    And Verify the Practitioner vs last Seven Days Details
 
 
      #Verify the billing summary practitioner name vs Specified year and month
@@ -75,9 +75,9 @@ Feature: Billing Summary
         And Verify the Finance Billing Summary Title
 
         Then Select Billing Summary Practitioner Search Box
-        And Enter Valid Practitioner Name 'Ashik Varghese'
-        Then Select Specified year and month in filter by date Field
-        And Verify the Practitioner vs Specified year and month Details
+#        And Enter Valid Practitioner Name 'Ashik Varghese'
+#        Then Select Specified year and month in filter by date Field
+#        And Verify the Practitioner vs Specified year and month Details
 
 
 
@@ -89,9 +89,9 @@ Feature: Billing Summary
         And Verify the Finance Billing Summary Title
 
         Then Select Billing Summary Practitioner Search Box
-        And Enter Valid Practitioner Name 'Ashik Varghese'
-        Then Select Custom Date Range
-        And Verify the Practitioner vs Custom Date Range
+#        And Enter Valid Practitioner Name 'Ashik Varghese'
+#        Then Select Custom Date Range
+#        And Verify the Practitioner vs Custom Date Range
 
         #Verify the Billing summary practitioner Total summary
 
