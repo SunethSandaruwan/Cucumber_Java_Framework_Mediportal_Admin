@@ -47,7 +47,7 @@ public class Login {
 
         String current_url = driver.getCurrentUrl();
 
-        if(!current_url.equals("http://137.184.155.132:82/sign-in")){
+        if(!current_url.equals("https://admin.mediportal.com.au/sign-in")){
 
             driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
             Thread.sleep(2000);
@@ -144,15 +144,17 @@ public class Login {
 
     public void enterComposeLoginData(String composeUsername,String composePassword)
     {
-        WebElement elementUsername = driver.findElement(By.xpath("//body/app-root[1]/app-login[1]/div[1]/mat-card[1]/div[1]/div[2]/div[1]/form[1]/div[2]/div[1]/input[1]"));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        WebElement elementUsername = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'userName')]"));
         elementUsername.sendKeys(composeUsername);
-        WebElement elementPassword = driver.findElement(By.xpath("//body/app-root[1]/app-login[1]/div[1]/mat-card[1]/div[1]/div[2]/div[1]/form[1]/div[3]/div[1]/input[1]"));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        WebElement elementPassword = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'password')]"));
         elementPassword.sendKeys(composePassword);
     }
 
     public void clickLogIn()
     {
-        driver.findElement(By.xpath("//body/app-root[1]/app-login[1]/div[1]/mat-card[1]/div[1]/div[2]/div[1]/form[1]/div[4]/div[2]/button[1]")).click();
+        driver.findElement(By.xpath("//span[@class='mat-button-wrapper']")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 

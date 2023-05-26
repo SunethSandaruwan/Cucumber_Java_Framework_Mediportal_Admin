@@ -3,22 +3,20 @@ Feature: Finance Dashboard
 ## Test Case 01: Finance Dashboard in Select medical Center
 
   Scenario: Finance Dashboard in Select medical Center
-    Given Open the browser and launch the application
-    When Enter a valid email and valid password
-    When Click SignIn
-#    And Verify the Home page title
-#    And Click on Finance main menu
-  #  And Click on Finance Dashboard
-  #  And Verify on Finance Dashboard
+
+    Given Login to Admin Successfully
     And Select Medical Center in DropDown
     And Click on Medical Center
-    And Page Scroll Down
+   # And Page Scroll Down
   #  And Driver Quit
 
 
   #Verify the Finance Dashboard Download Button
   Scenario: Verify the Finance Dashboard Download button
 
+    Given Login to Admin Successfully
+#    And Select Medical Center in DropDown
+#    And Click on Medical Center
     And Verify the Financial Year Title
     And Select Medical Center in DropDown
     And Click on Finance Dashboard Download button
@@ -26,8 +24,10 @@ Feature: Finance Dashboard
 
        #Verify the Finance Dashboard Sync Button
     Scenario: Verify the Finance Dashboard Sync button
-
-     And Click on Sync Button
+      Given Login to Admin Successfully
+#      And Select Medical Center in DropDown
+#      And Click on Medical Center
+      And Click on Sync Button
 
 
 ## Test Case 02: Verify the select medical center finance dashboard in today yesterday last week last month details
@@ -40,6 +40,9 @@ Feature: Finance Dashboard
    # And Verify the Home page title
    # And Click on Finance main menu
    # And Click on Finance Dashboard
+    Given Login to Admin Successfully
+#    And Select Medical Center in DropDown
+#    And Click on Medical Center
     Then Verify the select medical center finance dashboard today details
     And Verify the select medical center finance dashboard yesterday details
     And Verify the select last week medical center finance dashboard last week details
@@ -65,6 +68,9 @@ Feature: Finance Dashboard
 #    Then Verify the Home page title
 #    And Click on Finance main menu
 #    And Click on Finance Dashboard
+      Given Login to Admin Successfully
+#      And Select Medical Center in DropDown
+#      And Click on Medical Center
       And Page Scroll Down
       And Verify the Highest Billed Today Details
       And Verify the Highest Billed Yesterday Details
@@ -82,6 +88,9 @@ Feature: Finance Dashboard
     #Verify the Financial Year Details
     Scenario: Verify the Financial Year Details
 
+      Given Login to Admin Successfully
+#      And Select Medical Center in DropDown
+#      And Click on Medical Center
       And Verify the Total Appointments details
       And Verify the Total Billed details
       And Verify the Group Average details

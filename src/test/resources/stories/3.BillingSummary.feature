@@ -7,6 +7,7 @@ Feature: Billing Summary
 #    When Click SignIn
 #    And Verify the Home page title
 #    And Click on Finance main menu
+    Given Login to Admin Successfully
     And Click on Billing Summary
    # And Verify the Finance Billing Summary Title
     And Verify the Finance medical center search box
@@ -23,6 +24,8 @@ Feature: Billing Summary
     #Verify the Billing summary medical center drop down
     Scenario: Select medical center in billing summary dropdown
 
+      Given Login to Admin Successfully
+      And Click on Billing Summary
       And Verify the Finance Billing Summary Title
      # And Verify the Finance medical center search box
       And Select Billing Summary Medical Center
@@ -32,6 +35,8 @@ Feature: Billing Summary
       #Verify the practitioner Search Box and Selection
     Scenario: Verify the practitioner Search Box
 
+      Given Login to Admin Successfully
+      And Click on Billing Summary
       And Verify the Finance Billing Summary Title
      # And Verify the Finance medical center search box
       And Select Billing Summary Medical Center
@@ -42,8 +47,7 @@ Feature: Billing Summary
 
 #      #Verify the billing summary practitioner name vs Yesterday
       Scenario: Verify the billing summary practitioner vs Yesterday
-        When Enter a valid email and valid password
-        When Click SignIn
+        Given Login to Admin Successfully
         And Click on Billing Summary
         And Verify the Finance Billing Summary Title
 
@@ -69,8 +73,7 @@ Feature: Billing Summary
 
      #Verify the billing summary practitioner name vs Specified year and month
       Scenario: Verify the billing summary practitioner name vs Specified year and month
-        When Enter a valid email and valid password
-        When Click SignIn
+        Given Login to Admin Successfully
         And Click on Billing Summary
         And Verify the Finance Billing Summary Title
 
@@ -83,8 +86,7 @@ Feature: Billing Summary
 
       #Verify the billing summary practitioner Name vs Custom Date Range
       Scenario: Verify the billing summary practitioner Name vs Custom Date Range
-        When Enter a valid email and valid password
-        When Click SignIn
+        Given Login to Admin Successfully
         And Click on Billing Summary
         And Verify the Finance Billing Summary Title
 
