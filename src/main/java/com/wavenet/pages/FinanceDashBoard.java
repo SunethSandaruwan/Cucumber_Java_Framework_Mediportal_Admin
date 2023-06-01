@@ -27,7 +27,7 @@ public class FinanceDashBoard {
     private By FinanceMainMenu = By.xpath("//span[normalize-space()='Finance']"); //Finance Main menu xpath locator Xpath
     private By FinanceDashBoard = By.xpath("//span[normalize-space()='Finance Dashboard']"); //Click on Finance Main menu and get Dropdown in Finance Dashboard Xpath
 
-    private By SelectMedicalCenter = By.xpath("//div[@class='mat-select-arrow-wrapper ng-tns-c98-50']"); //Click on medical Center
+    private By SelectMedicalCenter = By.xpath("//div[@id='mat-select-value-1']"); //Click on medical Center
     private By MedicalCenterListBox = By.xpath("//div[@class='mat-form-field-infix ng-tns-c68-53']"); //Select medical center in Finance Dashboard Xpath
     private By LebFinanceDashboard = By.xpath("//span[normalize-space()='Finance Dashboard']"); //Finance Dashboard top of label name Xpath
 
@@ -106,6 +106,7 @@ public class FinanceDashBoard {
     }
 
     public void click_on_Finance_main_menu() throws Throwable {
+        Thread.sleep(5000);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement ClickOnFinanceMainMenu = driver.findElement(FinanceMainMenu);
         ClickOnFinanceMainMenu.click();
@@ -131,6 +132,7 @@ public class FinanceDashBoard {
        // List<WebElement> options = select.getOptions();
         //-----------------------------------------------------
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        Thread.sleep(5000);
         WebElement ClickMedicalCenter = driver.findElement(SelectMedicalCenter);
         ClickMedicalCenter.click();
        // WebElement dropMedicalCenter=driver.findElement(MedicalCenterListBox);
@@ -313,35 +315,35 @@ public class FinanceDashBoard {
     }
 
     public void check_on_Weekly_Chart_button() throws Throwable {
-//        boolean WeeklyChartButton = driver.findElement(WeeklyChartButtonXpath).isDisplayed();
-//        Assert.assertEquals(true,WeeklyChartButton);
+        boolean WeeklyChartButton = driver.findElement(WeeklyChartButtonXpath).isDisplayed();
+        Assert.assertEquals(true,WeeklyChartButton);
         WebElement ClickWeeklyButton = driver.findElement(WeeklyChartButtonXpath);
         ClickWeeklyButton.click();
     }
 
     public void check_on_Monthly_Chart_button() throws Throwable {
-//        boolean MonthlyChartButton = driver.findElement(MonthlyChartButtonXpath).isDisplayed();
-//        Assert.assertEquals(true,MonthlyChartButton);
+        boolean MonthlyChartButton = driver.findElement(MonthlyChartButtonXpath).isDisplayed();
+        Assert.assertEquals(true,MonthlyChartButton);
         WebElement ClickMonthlyCHartButton = driver.findElement(MonthlyChartButtonXpath);
         ClickMonthlyCHartButton.click();
     }
 
     public void check_on_Yearly_Chart_button() throws Throwable {
-//        boolean YearlyChartButton = driver.findElement(YearlyChartButtonXpath).isDisplayed();
-//        Assert.assertEquals(true,YearlyChartButton);
+        boolean YearlyChartButton = driver.findElement(YearlyChartButtonXpath).isDisplayed();
+        Assert.assertEquals(true,YearlyChartButton);
         WebElement ClickYearlyChartButton = driver.findElement(YearlyChartButtonXpath);
         ClickYearlyChartButton.click();
     }
     public void check_on_Previous_Year_Monthly() throws Throwable {
-//        boolean PreviousYearMonthly = driver.findElement(PreviousYearMonthlyXpath).isDisplayed();
-//        Assert.assertEquals(true,PreviousYearMonthly);
+        boolean PreviousYearMonthly = driver.findElement(PreviousYearMonthlyXpath).isDisplayed();
+        Assert.assertEquals(true,PreviousYearMonthly);
         WebElement ClickPreviousYearMonthly = driver.findElement(PreviousYearMonthlyXpath);
         ClickPreviousYearMonthly.click();
     }
 
     public void check_on_Previous_Year_Weekly() throws Throwable {
-//        boolean PreviousYearWeekly = driver.findElement(PreviousYearWeeklyXpath).isDisplayed();
-//        Assert.assertEquals(true,PreviousYearWeekly);
+        boolean PreviousYearWeekly = driver.findElement(PreviousYearWeeklyXpath).isDisplayed();
+        Assert.assertEquals(true,PreviousYearWeekly);
         WebElement ClickPreviousYearWeekly = driver.findElement(PreviousYearWeeklyXpath);
         ClickPreviousYearWeekly.click();
     }
@@ -384,24 +386,25 @@ public class FinanceDashBoard {
 
     public void click_on_Sync_Button() throws Throwable {
         driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-        WebElement verifyFinanceSyncBtn = driver.findElement(By.xpath("//button[@class='mat-focus-indicator d-flex align-items-center justify-content-center ms-sm-3 mt-1 mt-md-0 mat-flat-button mat-button-base mat-primary']//span[@class='mat-button-wrapper']"));
+        Thread.sleep(10000);
+        WebElement verifyFinanceSyncBtn = driver.findElement(By.xpath("//mat-icon[normalize-space()='update']"));
         //WebElement verifyFinanceSyncBtn = driver.findElement(By.xpath("//button[@class='mat-focus-indicator d-flex align-items-center justify-content-center ms-sm-3 mt-1 mt-md-0 mat-flat-button mat-button-base mat-primary']//span[@class='mat-button-wrapper']"));
-        verifyFinanceSyncBtn.isDisplayed();
+        //verifyFinanceSyncBtn.isDisplayed();
         verifyFinanceSyncBtn.click();
 
     }
 
     public void click_on_Finance_Dashboard_Download_button() throws Throwable {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        WebElement verifyFinanceDownloadBtn = driver.findElement(By.xpath("//button[@class='mat-focus-indicator d-flex align-items-center justify-content-center ms-2 mt-1 mt-md-0 mat-stroked-button mat-button-base mat-primary cdk-focused cdk-mouse-focused']//span[@class='mat-button-wrapper']"));
+        Thread.sleep(10000);
+        WebElement verifyFinanceDownloadBtn = driver.findElement(By.xpath("//button[@class='mat-focus-indicator d-flex align-items-center justify-content-center ms-2 mt-1 mt-md-0 mat-stroked-button mat-button-base mat-primary']//span[@class='mat-button-wrapper']"));
         verifyFinanceDownloadBtn.isDisplayed();
         verifyFinanceDownloadBtn.click();
     }
 
     public void click_on_Medical_Center() throws Throwable {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        //WebElement ClickOnMedicalCenter = driver.findElement(By.xpath("//span[normalize-space()='Main surgery - Ellen Stirling']"));
-        WebElement ClickOnMedicalCenter = driver.findElement(By.xpath("//div[@class='mat-form-field-infix ng-tns-c68-49']"));
+        WebElement ClickOnMedicalCenter = driver.findElement(By.xpath("//span[normalize-space()='Main surgery - Ellen Stirling']"));
         ClickOnMedicalCenter.click();
     }
 }
