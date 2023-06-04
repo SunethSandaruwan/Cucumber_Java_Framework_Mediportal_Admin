@@ -34,6 +34,8 @@ public class Login {
     }
 
     public void enterLoginData(String username,String password) throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        Thread.sleep(3000);
         WebElement elementUsername = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'userName')]"));
         elementUsername.sendKeys(username);
         WebElement elementPassword = driver.findElement(By.xpath("//input[contains(@formcontrolname, 'password')]"));

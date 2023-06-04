@@ -20,6 +20,7 @@ public class Intent {
 
     public void composeLogin(String composeUrl, String composeUsername, String composePassword)
     {
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
         login.loadComposeLogin(composeUrl);
         login.enterComposeLoginData(composeUsername,composePassword);
         login.clickLogIn();
