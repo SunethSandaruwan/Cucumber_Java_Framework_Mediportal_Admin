@@ -32,13 +32,4 @@ public class RecallManagerSteps {
     public void select_Dropdown_in_hospital_name() throws Throwable {
         recallManager.select_Dropdown_in_hospital_name();
     }
-    @Given("^Click on Sync Recalls$")
-    public void click_on_Sync_Recalls() throws Throwable {
-
-    }
-
-    @Given("^Validate in Sync$")
-    public void validate_in_Sync() throws Throwable {
-
-    }
 }

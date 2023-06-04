@@ -22,4 +22,9 @@ public class IntentSteps {
         intent.composeLogin(composeUrl,composeUsername,composePassword);
     }
 
+    @Given("^Login to Admin Successfully$")
+    public void login_to_Admin_Successfully() throws Throwable {
+        intent.login_to_Admin_Successfully(composeUrl,composeUsername,composePassword);
+    }
+
 }

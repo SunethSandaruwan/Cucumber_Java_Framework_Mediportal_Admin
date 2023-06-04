@@ -9,23 +9,19 @@ import cucumber.api.java.en.When;
 public class HospitalsSteps {
     private Hospitals hospitals = new Hospitals();
 
-    @Given("^Click on Main manu Medical Center$")
-    public void click_on_Main_manu_Medical_Center() throws Throwable {
-        hospitals.click_on_Main_manu_Medical_Center();
-    }
     @Given("^Click on Hospitals$")
     public void click_on_Hospitals() throws Throwable {
         hospitals.click_on_Hospitals();
     }
 
-    @Given("^Click on All Medical Center$")
-    public void click_on_All_Medical_Center() throws Throwable {
-        hospitals.click_on_All_Medical_Center();
+    @Given("^Click on All hospitals$")
+    public void click_on_All_hospitals() throws Throwable {
+        hospitals.click_on_All_hospitals();
     }
 
-    @Given("^Click on Add New Medical Center$")
-    public void click_on_Add_New_Medical_Center() throws Throwable {
-        hospitals.click_on_Add_New_Medical_Center();
+    @Given("^Click on Add new hospitals$")
+    public void click_on_Add_new_hospitals() throws Throwable {
+        hospitals.click_on_Add_new_hospitals();
     }
 
     @Given("^Click on Create new organization group button$")

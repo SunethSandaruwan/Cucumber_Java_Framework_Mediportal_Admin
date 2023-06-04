@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.Driver;
 import java.util.concurrent.TimeUnit;
 
 public class BillingSummary {
@@ -24,9 +23,6 @@ public class BillingSummary {
     // Billing Summary UI Xpath
 
     private By BillingSummaryMainManu = By.xpath("//h1[normalize-space()='Billing Summary']");
-
-    private By MainManuBillingSummary = By.xpath("//span[normalize-space()='Billing Summary']");
-
     private By BillingSummarySearchMedicalCenter = By.xpath("//div[@id='mat-select-value-3']");
 
     private By BillingSummaryGlobalReportConfigurations = By.xpath("//span[normalize-space()='Report Configuration']");
@@ -35,7 +31,7 @@ public class BillingSummary {
 
     private By BillingSummarySelectTimeDuration = By.xpath("//span[@class='fw-medium me-2']");
 
-    private By BillingSummarySearchPractitioner = By.xpath("//input[@id='doctorName']");
+    private By BillingSummarySearchPractitioner = By.id("doctorName");
 
     private By BillingSummaryFilterByData = By.xpath("//input[@id='txt_duration']");
 
@@ -53,23 +49,9 @@ public class BillingSummary {
 
     private By GlobalBillingSummaryTotalColumn = By.xpath("//td[normalize-space()='Total']");
 
-    private  By ClickOnMedicalCenter = By.xpath("//mat-select[@id=\"slct_hospital\"]");
-
-    private By GlobalBillingSummarySelectMedicalCenter = By.xpath("//span[@class='mat-option-text'][normalize-space()='Main surgery - Ellen Stirling']");
+    private By GlobalBillingSummarySelectMedicalCenter = By.xpath("//div[@id='mat-select-value-17']");
 
     private By SelectPractitionerFirstValue = By.xpath("//span[@class='mat-option-text']");
-
-    private By SelectTheRegularPractitioner = By.xpath("//span[normalize-space()='Ashik Varghese']");
-
-    private By BillingSummaryPractitioner = By.xpath("//span[@class='mat-option-text']");
-
-    private By ClickOnFilterDateFieldTxt = By.id("txt_duration");
-
-    private By SelectBillingSummaryFilterByYesterday = By.xpath("//span[@class='text-dark fw-medium me-2'][normalize-space()='Yesterday']");
-
-    private By VerifyThePractitionerNameInTable = By.xpath("//table[@role='table']//tbody[@role=\"rowgroup\"]//td[@role='cell'][1]");
-
-    private By SelectBillingSummaryFilterBySevenDay = By.xpath("//label[@for='rbtn_lastSevenDays-input']//span[@class='mat-radio-inner-circle']");
 
 
 
@@ -80,8 +62,7 @@ public class BillingSummary {
     }
     public void click_on_Billing_Summary() throws Throwable {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        Thread.sleep(10000);
-        WebElement ClickBillingSummary = driver.findElement(MainManuBillingSummary);
+        WebElement ClickBillingSummary = driver.findElement(By.xpath("//span[normalize-space()='Billing Summary']"));
         ClickBillingSummary.click();
     }
     public void verify_the_Finance_Billing_Summary_Title() throws Throwable {
@@ -156,17 +137,13 @@ public class BillingSummary {
     }
     public void verify_the_Total_Column() throws Throwable {
 
-        Thread.sleep(10000);
         // Verify the DisPlay Total Column value
         boolean GlobalBillingTotalColumn = driver.findElement(GlobalBillingSummaryTotalColumn).isDisplayed();
         Assert.assertEquals(true,GlobalBillingTotalColumn);
 
     }
     public void select_Billing_Summary_Medical_Center() throws Throwable {
-      //  driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-        Thread.sleep(5000);
-        WebElement ClickOnBillingSummaryMedicalCenter = driver.findElement(ClickOnMedicalCenter);
-        ClickOnBillingSummaryMedicalCenter.click();
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
         WebElement SelectBillingSummaryMedicalCenter = driver.findElement(GlobalBillingSummarySelectMedicalCenter);
         SelectBillingSummaryMedicalCenter.click();
     }
@@ -177,81 +154,14 @@ public class BillingSummary {
     }
 
     public void select_Billing_Summary_Practitioner_Search_Box() throws Throwable {
-        //Select the Billing Summary Practitioner Search Box
         driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-        Thread.sleep(10000);
-        //Click on Practitioner Search Box
         WebElement ClickOnSearchPractitioner = driver.findElement(BillingSummarySearchPractitioner);
         ClickOnSearchPractitioner.click();
-        //Select Practitioner First Value (Don't delete below commented code base)
         WebElement ClickOnSearchPractitionerFirstValue = driver.findElement(SelectPractitionerFirstValue);
         ClickOnSearchPractitionerFirstValue.click();
-
-       // String typeValue=ClickOnSearchPractitionerFirstValue.getAttribute("type");
-       // System.out.println("Value of type attribute: "+typeValue);
-
-        //Regular Doctor name "Ashik Varghese"
-        //WebElement RegularPractitioner = driver.findElement(SelectTheRegularPractitioner);
-        //RegularPractitioner.click();
-
     }
-    public void enter_Valid_Practitioner_Name() throws Throwable{
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-        Thread.sleep(15000);
-        WebElement EnterValidPractitionerName = driver.findElement(BillingSummaryPractitioner);
-        EnterValidPractitionerName.sendKeys("Ashik Varghese");
-        //PractitionerName
-    }
-    public void click_on_filter_by_date_Field() throws Throwable {
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-        Thread.sleep(5000);
-        WebElement ClickOnFilterByDateField = driver.findElement(ClickOnFilterDateFieldTxt);
-        ClickOnFilterByDateField.click();
+    public void enter_Valid_Practitioner_Name(String PractitionerName) throws Throwable{
 
     }
 
-    public void select_Yesterday_in_filter_by_date_Field() throws Throwable {
-        Thread.sleep(5000);
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-        WebElement SelectInDayFilterByYesterday = driver.findElement(SelectBillingSummaryFilterByYesterday);
-        SelectInDayFilterByYesterday.click();
-    }
-
-    //Write a code in Verify the Select practitioner yesterday details
-    public void verify_the_Practitioner_vs_Yesterday_Details(String PractitionerName, String NoOfPatients, String InvoiceCount, String ServiceCount, String TotalFee) throws Throwable {
-        Thread.sleep(10000);
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-        WebElement VerifyThePractitionerName = driver.findElement(VerifyThePractitionerNameInTable);
-
-    }
-    public void select_last_Seven_Days_in_filter_by_date_Field() throws Throwable {
-        Thread.sleep(10000);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        WebElement SelectInDayFilterBySevenDays = driver.findElement(SelectBillingSummaryFilterBySevenDay);
-        SelectInDayFilterBySevenDays.click();
-    }
-
-    //Write a code in Verify the Select practitioner Seven Day details
-    public void verify_the_Practitioner_vs_last_Seven_Days_Details() throws Throwable {
-       Thread.sleep(10000);
-        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-
-
-    }
-
-    public void select_Specified_year_and_month_in_filter_by_date_Field() throws Throwable {
-
-    }
-
-    public void verify_the_Practitioner_vs_Specified_year_and_month_Details() throws Throwable {
-
-    }
-
-    public void select_Custom_Date_Range() throws Throwable {
-
-    }
-
-    public void verify_the_Practitioner_vs_Custom_Date_Range() throws Throwable {
-
-    }
 }

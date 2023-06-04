@@ -91,52 +91,17 @@ public class BillingSummarySteps {
     }
 
     @Then("^Enter Valid Practitioner Name '(.*?)'$")
-    public void enter_Valid_Practitioner_Name() throws Throwable{
-        billingSummary.enter_Valid_Practitioner_Name();
-       // PractitionerName
-    }
-
-    @Then("^Click on filter by date Field$")
-    public void click_on_filter_by_date_Field() throws Throwable {
-        billingSummary.click_on_filter_by_date_Field();
+    public void enter_Valid_Practitioner_Name(String PractitionerName) throws Throwable{
+        billingSummary.enter_Valid_Practitioner_Name(PractitionerName);
     }
 
     @Then("^Select Yesterday in filter by date Field$")
     public void select_Yesterday_in_filter_by_date_Field() throws Throwable {
-        billingSummary.select_Yesterday_in_filter_by_date_Field();
-    }
-
-    @Then("^Verify the Practitioner vs Yesterday Details '(.*?)', '(.*?)', '(.*?)', '(.*?)', '(.*?)'$")
-    public void verify_the_Practitioner_vs_Yesterday_Details(String PractitionerName,String NoOfPatients,String InvoiceCount,String ServiceCount,String TotalFee) throws Throwable {
-        billingSummary.verify_the_Practitioner_vs_Yesterday_Details(PractitionerName,NoOfPatients,InvoiceCount,ServiceCount,TotalFee);
-    }
-
-    @Then("^Select last Seven Days in filter by date Field$")
-    public void select_last_Seven_Days_in_filter_by_date_Field() throws Throwable {
-        billingSummary.select_last_Seven_Days_in_filter_by_date_Field();
-    }
-
-    @Then("^Verify the Practitioner vs last Seven Days Details$")
-    public void verify_the_Practitioner_vs_last_Seven_Days_Details() throws Throwable {
-
-    }
-    @Then("^Select Specified year and month in filter by date Field$")
-    public void select_Specified_year_and_month_in_filter_by_date_Field() throws Throwable {
 
     }
 
-    @Then("^Verify the Practitioner vs Specified year and month Details$")
-    public void verify_the_Practitioner_vs_Specified_year_and_month_Details() throws Throwable {
-
-    }
-
-    @Then("^Select Custom Date Range$")
-    public void select_Custom_Date_Range() throws Throwable {
-
-    }
-
-    @Then("^Verify the Practitioner vs Custom Date Range$")
-    public void verify_the_Practitioner_vs_Custom_Date_Range() throws Throwable {
+    @Then("^Verify the Practitioner vs Yesterday Details$")
+    public void verify_the_Practitioner_vs_Yesterday_Details() throws Throwable {
 
     }
 

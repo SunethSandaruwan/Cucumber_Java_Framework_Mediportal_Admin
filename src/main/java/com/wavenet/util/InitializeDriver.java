@@ -39,12 +39,12 @@ public class InitializeDriver {
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("disable-gpu");
-        driver = new ChromeDriver(chromeOptions);
-        //driver = new ChromeDriver();
+        //driver = new ChromeDriver(chromeOptions); //headless run code
+
         DesiredCapabilities dc = new DesiredCapabilities();
         dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
-       // driver = new ChromeDriver(dc);
-       // driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver(chromeOptions);
+        //driver = new ChromeDriver(dc);
         System.out.println("Initialize Browser : Browser is initialized");
     }
 

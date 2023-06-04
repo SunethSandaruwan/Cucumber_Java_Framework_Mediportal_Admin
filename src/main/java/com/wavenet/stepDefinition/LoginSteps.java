@@ -1,6 +1,5 @@
 package com.wavenet.stepDefinition;
 
-import com.wavenet.pages.Intent;
 import com.wavenet.pages.Login;
 import com.wavenet.util.Config;
 import cucumber.api.java.en.And;
@@ -13,8 +12,6 @@ public class LoginSteps {
     private Login login = new Login();
     private Config config = new Config();
 
-    private Intent intent = new Intent();
-
     String loginUrl = config.getLoginUrl();
     String adminUser = config.getAdminUser();
     String adminPassword = config.getAdminPassword();
@@ -22,11 +19,6 @@ public class LoginSteps {
     String composeUsername = config.getComposeUsername();
     String composePassword = config.getComposePassword();
 
-    @Given("^Login to Admin Successfully$")
-    public void login_to_Admin_Successfully() throws Throwable
-    {
-        intent.composeLogin(composeUrl,composeUsername,composePassword);
-    }
     @Given("^Open the browser and launch the application$")
     public void Open_the_browser_and_launch_the_application() throws Throwable
     {
@@ -191,7 +183,7 @@ public class LoginSteps {
 
     @Then("^Driver Quit$")
     public void driver_Quit() throws Throwable {
-        //login.driver_Quit();
+        login.driver_Quit();
 
     }
 
