@@ -72,15 +72,15 @@ Feature: DDH Hospitals
     Then Display the added template on the page
 
 # TestCase 4164: Verification of Successful View when having more than 10/50 records (View receipt templates)
-#  Scenario:TestCase 4164: Verification of Successful View when having more than 10/50 records (View receipt templates)
-#    Given Open the browser and launch the application
-#    And Click on Hospitals
-#    And Click on All hospitals
-#    And Click on Update button for the hospital
-#    And Click on configurations for the hospital
-#    And Click on print configurations for the hospital
-##      Then Display table of templates available
-#    And Change the number of pages to twenty
+  Scenario:TestCase 4164: Verification of Successful View when having more than 10/50 records (View receipt templates)
+    Given Login to Admin Successfully
+    And Click on Main manu Medical Center
+    And Click on All Medical Center
+    And Click on Update button for the hospital
+    And Click on configurations for the hospital
+    And Click on print configurations for the hospital
+#      Then Display table of templates available
+    And Change the number of pages to twenty
       Then Display the twenty or less than twenty entries for the templates
 #    And Click on next button
       Then Display the twenty or less than twenty entries for the templates
@@ -95,8 +95,8 @@ Feature: DDH Hospitals
   # TestCase : BAP 815 Hospital Profile Create - When trying to validating in requires field for full name
   Scenario: TestCase BAP 815 Hospital Profile Create When trying to validating in requires field for full name
     Given Login to Admin Successfully
-    And Click on Hospitals
-    And Click on Medical Center
+    And Click on Main manu Medical Center
+    And Click on All Medical Center
     And Verify the Hospital Locations page title
     And Click on Add New Medical Center
     And Select organization group as '.*'
@@ -105,4 +105,9 @@ Feature: DDH Hospitals
     And Enter hospital code as '.*'
     And Click on Save Button
 
-   #Testcase : Verify the
+   #Testcase : Verify the Medical Center Details
+    Scenario: Verify the Medical Center Details
+      Given Login to Admin Successfully
+      And Click on Main manu Medical Center
+      And Click on All Medical Center
+

@@ -43,8 +43,8 @@ public class InitializeDriver {
         //driver = new ChromeDriver();
         DesiredCapabilities dc = new DesiredCapabilities();
         dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
-        //driver = new ChromeDriver(dc);
-        driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver(dc);
+       // driver = new ChromeDriver(chromeOptions);
         System.out.println("Initialize Browser : Browser is initialized");
     }
 
