@@ -32,19 +32,19 @@ public class InitializeDriver {
 
     private void getInitializeDriver(){
         String userDir = System.getProperty("user.dir");
-         //System.setProperty("webdriver.chrome.driver",userDir + "/src/main/resources/Drivers/chromedriverMacM1.exe");
+        //System.setProperty("webdriver.chrome.driver",userDir + "/src/main/resources/Drivers/chromedriver.exe");
 
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("disable-gpu");
-        //driver = new ChromeDriver(chromeOptions); //headless run code
 
+        //driver = new ChromeDriver();
         DesiredCapabilities dc = new DesiredCapabilities();
         dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
         driver = new ChromeDriver(chromeOptions);
-        //driver = new ChromeDriver(dc);
+        driver.manage().window().maximize();
         System.out.println("Initialize Browser : Browser is initialized");
     }
 

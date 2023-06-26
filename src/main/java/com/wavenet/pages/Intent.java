@@ -20,20 +20,13 @@ public class Intent {
 
     public void composeLogin(String composeUrl, String composeUsername, String composePassword)
     {
-        login.loadComposeLogin(composeUrl);
-        login.enterComposeLoginData(composeUsername,composePassword);
-       // login.ClickLogIn();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-
-    }
-
-    public void login_to_Admin_Successfully(String composeUrl, String composeUsername, String composePassword ) throws Throwable {
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
         login.loadComposeLogin(composeUrl);
         login.enterComposeLoginData(composeUsername,composePassword);
         login.clickLogIn();
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        WebElement verifyLocation = driver.findElement(By.xpath("//h1[contains(text(),'Finance Dashboard')]"));
+        WebElement verifyLocation = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav[1]/div/app-sidenav/mat-nav-list/h2/img"));
         verifyLocation.isDisplayed();
-        Thread.sleep(20000);
+
     }
 }

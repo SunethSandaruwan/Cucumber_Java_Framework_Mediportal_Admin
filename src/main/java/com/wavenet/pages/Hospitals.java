@@ -24,6 +24,13 @@ public class Hospitals {
         executor = (JavascriptExecutor) driver;
     }
 
+
+    public void click_on_Main_manu_Medical_Center() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Thread.sleep(3000);
+        WebElement ClickOnMainManuMedicalCenter = driver.findElement(By.xpath("//span[normalize-space()='Medical Centre']"));
+        ClickOnMainManuMedicalCenter.click();
+    }
     public void click_on_Hospitals() throws Throwable {
         Thread.sleep(5000);
         WebElement hospitalsElement = driver.findElement(By.xpath("//body/app-root[1]/mat-sidenav-container[1]/mat-sidenav[1]/div[1]/app-sidenav[1]/mat-nav-list[1]/div[1]/mat-accordion[1]/app-menu-panel[4]/mat-expansion-panel[1]"));
@@ -32,29 +39,35 @@ public class Hospitals {
         hospitalsElement.click();
     }
 
-    public void click_on_All_hospitals() throws Throwable {
-        WebElement allHospitalsBtn = driver.findElement(By.xpath("//span[normalize-space()='All institutes']"));
+    public void click_on_All_Medical_Center() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        Thread.sleep(3000);
+        WebElement allHospitalsBtn = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav[1]/div/app-sidenav/mat-nav-list/div/mat-accordion/app-menu-panel[5]/mat-expansion-panel/div/div/app-menu-panel[1]/span/mat-list-item/span/span[3]"));
         allHospitalsBtn.click();
+        Thread.sleep(4000);
     }
 
-    public void click_on_Add_new_hospitals() throws Throwable {
-        WebElement addHospitalBtn = driver.findElement(By.xpath("//body/app-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/div[1]/all-hospitals-selector[1]/div[1]/button[1]"));
+    public void click_on_Add_New_Medical_Center() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        Thread.sleep(5000);
+        WebElement addHospitalBtn = driver.findElement(By.xpath("//span[normalize-space()='Add New Medical Centre']"));
         addHospitalBtn.click();
     }
 
     public void click_on_Create_new_organization_group_button() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
         Thread.sleep(3000);
-        WebElement createOrganizationBtn = driver.findElement(By.xpath("//body/app-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/div[1]/all-hospitals-selector[1]/div[1]/mat-sidenav[1]/div[1]/app-sidebar-right[1]/div[2]/div[1]/div[1]/div[3]/button[1]"));
+        WebElement createOrganizationBtn = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/all-hospitals-selector/div[1]/mat-sidenav-container/mat-sidenav/div/app-sidebar-right/div[2]/div/div/div[3]/button/span[1]"));
         createOrganizationBtn.click();
     }
 
     public void enter_name_for_the_organization(String name) throws Throwable {
-        WebElement nameElement = driver.findElement(By.xpath("//body/app-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/div[1]/all-hospitals-selector[1]/div[1]/mat-sidenav[1]/div[1]/app-sidebar-right[1]/div[2]/form[1]/div[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]/input[1]"));
+        WebElement nameElement = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/all-hospitals-selector/div[1]/mat-sidenav-container/mat-sidenav/div/app-sidebar-right/div[2]/form[1]/div/div/div[1]/mat-form-field/div/div[1]/div[3]/input"));
         nameElement.sendKeys(name);
     }
 
     public void upload_logo_image_for_organization() throws Throwable {
-        WebElement uploadBtn = driver.findElement(By.xpath("//body/app-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/div[1]/all-hospitals-selector[1]/div[1]/mat-sidenav[1]/div[1]/app-sidebar-right[1]/div[2]/form[1]/div[1]/div[1]/div[2]"));
+        WebElement uploadBtn = driver.findElement(By.xpath("//label[@for='uploadOrganizationLogo']"));
         uploadBtn.click();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
@@ -62,7 +75,7 @@ public class Hospitals {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         WebElement scrollbar = driver.findElement(By.xpath("//body/ngb-modal-window[1]"));
         scrollbar.sendKeys(Keys.PAGE_DOWN);
-        WebElement applyBtn = driver.findElement(By.xpath("//button[contains(text(),'Apply')]"));
+        WebElement applyBtn = driver.findElement(By.xpath("//span[normalize-space()='Save & Proceed']"));
         applyBtn.click();
         Thread.sleep(6000);
     }
@@ -142,7 +155,7 @@ public class Hospitals {
 
 
     public void select_a_organization_from_dropdown() throws Throwable {
-        WebElement dropdown = driver.findElement(By.xpath("//body/app-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/div[1]/all-hospitals-selector[1]/div[1]/mat-sidenav[1]/div[1]/app-sidebar-right[1]/div[2]/div[1]/div[1]/div[1]/mat-form-field[1]/div[1]/div[1]/div[3]"));
+        WebElement dropdown = driver.findElement(By.xpath("//html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/app-organization-groups/div[2]/div[1]/mat-form-field/div/div[1]/div[3]/input"));
         dropdown.click();
         WebElement organization = driver.findElement(By.xpath("//span[contains(text(),'ABCD')]"));
         organization.click();

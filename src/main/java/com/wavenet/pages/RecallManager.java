@@ -61,5 +61,12 @@ public class RecallManager {
 
         
     }
+    public void click_on_Sync_Recalls() throws Throwable {
+
+    }
+
+    public void validate_in_Sync() throws Throwable {
+
+    }
 
 }

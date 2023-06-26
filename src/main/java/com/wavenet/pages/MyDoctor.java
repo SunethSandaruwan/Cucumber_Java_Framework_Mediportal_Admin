@@ -26,22 +26,22 @@ public class MyDoctor {
         wait = new WebDriverWait(driver, 30);
         executor = (JavascriptExecutor) driver;
     }
-    public void click_on_Doctors () throws Throwable{
+    public void click_on_Practitioners () throws Throwable{
         Thread.sleep(5000);
-        WebElement ClickDoctors = driver.findElement(By.xpath("//mat-icon[normalize-space()='perm_contact_calendar']"));
-        ClickDoctors.click();
+        WebElement ClickPractitioners = driver.findElement(By.xpath("//mat-icon[normalize-space()='perm_contact_calendar']"));
+        ClickPractitioners.click();
     }
 
-     public void click_on_My_Doctors () throws Throwable{
+     public void click_on_AllPractitioners () throws Throwable{
         Thread.sleep(5000);
-        WebElement ClickMyDoctors = driver.findElement(By.xpath("//span[normalize-space()='My doctors']"));
-        ClickMyDoctors.click();
+        WebElement ClickAllPractitioners = driver.findElement(By.xpath("//span[normalize-space()='All Practitioners']"));
+         ClickAllPractitioners.click();
      }
 
-     public void verify_the_My_Doctors_page () throws Throwable{
+     public void verify_the_AllPractitioners_page () throws Throwable{
         Thread.sleep(5000);
-        boolean VerifyMyDoctor = driver.findElement(By.xpath("//h1[normalize-space()='My Doctors']")).isDisplayed();
-         Assert.assertEquals(true,VerifyMyDoctor);
+        boolean VerifyAllPractitioners = driver.findElement(By.xpath("//h1[normalize-space()='All Practitioners']")).isDisplayed();
+         Assert.assertEquals(true,VerifyAllPractitioners);
 
      }
      //Select on MyDoctor Field hospital search bar

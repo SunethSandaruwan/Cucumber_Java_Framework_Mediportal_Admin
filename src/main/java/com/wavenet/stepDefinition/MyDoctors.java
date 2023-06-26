@@ -14,20 +14,20 @@ public class MyDoctors {
     String url = config.getUrl();
 
     //Click on main menu in Doctors element
-    @When("^Click on Doctors$")
-    public void click_on_Doctors() throws Throwable {
-        mydoctor.click_on_Doctors();
+    @When("^Click on Practitioners$")
+    public void click_on_Practitioners() throws Throwable {
+        mydoctor.click_on_Practitioners();
     }
 
     //Click on My Doctors
-    @When("^Click on My Doctors$")
-    public void click_on_My_Doctors() throws Throwable {
-        mydoctor.click_on_My_Doctors();
+    @When("^Click on AllPractitioners$")
+    public void click_on_AllPractitioners() throws Throwable {
+        mydoctor.click_on_AllPractitioners();
     }
 
-    @When("^Verify the My Doctors page$")
-    public void verify_the_My_Doctors_page() throws Throwable {
-        mydoctor.verify_the_My_Doctors_page();
+    @When("^Verify the AllPractitioners page$")
+    public void verify_the_AllPractitioners_page() throws Throwable {
+        mydoctor.verify_the_AllPractitioners_page();
     }
 
     @When("^Select the Hospital Search Field '(.*?)'$")
