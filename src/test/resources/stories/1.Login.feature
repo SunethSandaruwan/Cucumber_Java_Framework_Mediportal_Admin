@@ -10,41 +10,42 @@ Feature: MediPortal Admin Login
 #    And Click on Compose
 #    And Load the Compose Home Page
 
-#  Scenario: Unsuccessful Login using invalid username valid password
+  Scenario: Unsuccessful Login using invalid username valid password
+    Given Open the browser and launch the application
+    When Enter a invalid email 'AdminUserError' and valid password 'Test@123'
+    And Click SignIn
+    Then Verify Error Message
+
+  Scenario: Unsuccessful Login using valid username invalid password
+    Given Open the browser and launch the application
+    When Enter a valid email 'AdminUser' and invalid password 'Test'
+    And Click SignIn
+  #  Then Verification of Error Message
+
+  Scenario: Unsuccessful Login using invalid username invalid password
+    Given Open the browser and launch the application
+    When Enter a invalid email 'AdminUserError' and invalid password 'Test'
+    And Click SignIn
+   # Then Verify Error Message
+
+  Scenario: Empty username with password
+    Given Open the browser and launch the application
+    When Enter empty username '' and password 'Test@123'
+    And Click SignIn
+   # Then Verify Error Popup
+
+#  Scenario: Empty password with username
 #    Given Open the browser and launch the application
-#    When Enter a invalid email 'AdminUserError' and valid password 'Test@123'
+#    When Enter username 'AdminUser' and empty password
 #    And Click SignIn
-#    Then Verify Error Message
-#
-#  Scenario: Unsuccessful Login using valid username invalid password
-#    Given Open the browser and launch the application
-#    When Enter a valid email 'AdminUser' and invalid password 'Test'
-#    And Click SignIn
-#  #  Then Verification of Error Message
-#
-#  Scenario: Unsuccessful Login using invalid username invalid password
-#    Given Open the browser and launch the application
-#    When Enter a invalid email 'AdminUserError' and invalid password 'Test'
-#    And Click SignIn
-#   # Then Verify Error Message
-#
-#  Scenario: Empty username with password
-#    Given Open the browser and launch the application
-#    When Enter empty username '' and password 'Test@123'
-#    And Click SignIn
-#   # Then Verify Error Popup
-#
-##  Scenario: Empty password with username
-##    Given Open the browser and launch the application
-##    When Enter username 'AdminUser' and empty password
-##    And Click SignIn
-#   # Then Verify Error Popup
-#
-#  Scenario: Empty username and empty password
-#    Given Open the browser and launch the application
-#    When Enter empty username '' and empty password ''
-#    And Click SignIn
-#   # Then Verify Error Popup
+   # Then Verify Error Popup
+
+  Scenario: Empty username and empty password
+    Given Open the browser and launch the application
+    When Enter empty username '' and empty password ''
+    And Click SignIn
+   # Then Verify Error Popup
+    Then Driver Quit
 
 ### Test Case 01: Compose Login through Compose Login Page
 #

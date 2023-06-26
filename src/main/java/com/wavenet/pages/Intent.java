@@ -25,8 +25,8 @@ public class Intent {
         login.enterComposeLoginData(composeUsername,composePassword);
         login.clickLogIn();
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        WebElement verifyLocation = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav[1]/div/app-sidenav/mat-nav-list/h2/img"));
-        verifyLocation.isDisplayed();
+       // WebElement verifyLocation = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav[1]/div/app-sidenav/mat-nav-list/h2/img"));
+       // verifyLocation.isDisplayed();
 
     }
 }

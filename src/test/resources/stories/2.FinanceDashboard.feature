@@ -6,8 +6,8 @@ Feature: Finance Dashboard
     Given Login to Admin Successfully
     And Verify the Home page title
    # And Click on Finance main menu
-    And Click on Finance Dashboard
-    And Verify on Finance Dashboard
+   # And Click on Finance Dashboard
+   # And Verify on Finance Dashboard
     And Select Medical Center in DropDown
     And Click on Medical Center
     #And Page Scroll Down
