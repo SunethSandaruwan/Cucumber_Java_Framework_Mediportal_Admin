@@ -25,7 +25,7 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         plugin= {"pretty", "html:target/cucumber-reports", "json:target/cucumber-reports/cucumber.json"},
-        features = {"src/test/resources/stories/1.Login.feature"},
+        features = {"src/test/resources/stories/2.FinanceDashboard.feature"},
         glue = {"com.wavenet.stepDefinition"},
         strict = true
         //    tags = "@regression"

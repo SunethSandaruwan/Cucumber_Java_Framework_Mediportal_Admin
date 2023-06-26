@@ -191,7 +191,7 @@ public class LoginSteps {
 
     @Then("^Driver Quit$")
     public void driver_Quit() throws Throwable {
-        //login.driver_Quit();
+        login.driver_Quit();
 
     }
 

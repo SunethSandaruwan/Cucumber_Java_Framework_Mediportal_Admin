@@ -175,4 +175,8 @@ public class Login {
         Assert.assertFalse(driver.findElement(By.xpath("//body/app-root[1]/app-login[1]/div[1]/mat-card[1]/div[1]/div[2]/div[1]/form[1]/div[4]/div[2]/button[1]")).isEnabled());
     }
 
+    public void driver_Quit() throws Throwable {
+        driver.quit();
+
+    }
 }

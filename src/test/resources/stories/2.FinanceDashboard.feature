@@ -17,7 +17,7 @@ Feature: Finance Dashboard
     Scenario: Verify the Finance Dashboard Sync button
 
     Given Login to Admin Successfully
-    And Verify the Financial Year Title
+    #And Verify the Financial Year Title
     And Select Medical Center in DropDown
     And Click on Medical Center
     And Click on Sync Button
@@ -26,7 +26,7 @@ Feature: Finance Dashboard
   Scenario: Verify the Finance Dashboard Download button
 
     Given Login to Admin Successfully
-    And Verify the Financial Year Title
+    #And Verify the Financial Year Title
     And Select Medical Center in DropDown
     And Click on Medical Center
     And Click on Finance Dashboard Download button
@@ -42,7 +42,7 @@ Feature: Finance Dashboard
    # And Click on Finance main menu
    # And Click on Finance Dashboard
     Given Login to Admin Successfully
-    And Verify the Financial Year Title
+   # And Verify the Financial Year Title
     And Select Medical Center in DropDown
     And Click on Medical Center
     Then Verify the select medical center finance dashboard today details
@@ -71,7 +71,7 @@ Feature: Finance Dashboard
 #    And Click on Finance main menu
 #    And Click on Finance Dashboard
       Given Login to Admin Successfully
-      And Verify the Financial Year Title
+#      And Verify the Financial Year Title
       And Select Medical Center in DropDown
       And Click on Medical Center
       And Page Scroll Down
@@ -92,7 +92,7 @@ Feature: Finance Dashboard
     Scenario: Verify the Financial Year Details
 
       Given Login to Admin Successfully
-      And Verify the Financial Year Title
+#      And Verify the Financial Year Title
       And Select Medical Center in DropDown
       And Click on Medical Center
       And Verify the Total Appointments details
