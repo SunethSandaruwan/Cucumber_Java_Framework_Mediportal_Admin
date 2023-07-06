@@ -62,7 +62,8 @@ public class Hospitals {
     }
 
     public void enter_name_for_the_organization(String name) throws Throwable {
-        WebElement nameElement = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/all-hospitals-selector/div[1]/mat-sidenav-container/mat-sidenav/div/app-sidebar-right/div[2]/form[1]/div/div/div[1]/mat-form-field/div/div[1]/div[3]/input"));
+        Thread.sleep(5000);
+        WebElement nameElement = driver.findElement(By.xpath("//input[@id='mat-input-239']"));
         nameElement.sendKeys(name);
     }
 
@@ -81,6 +82,7 @@ public class Hospitals {
     }
 
     public void click_on_save_and_proceed_button() throws Throwable {
+        Thread.sleep(3000);
         WebElement saveProceedBtn = driver.findElement(By.xpath("//body/app-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/div[1]/all-hospitals-selector[1]/div[1]/mat-sidenav[1]/div[1]/app-sidebar-right[1]/div[2]/form[1]/div[1]/div[1]/div[4]/button[1]"));
         saveProceedBtn.click();
         Thread.sleep(3000);

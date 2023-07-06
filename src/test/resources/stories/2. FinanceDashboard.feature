@@ -100,6 +100,71 @@ Feature: Finance Dashboard
       And Verify the Group Average details
       And Verify the Total Medical Centre fees
 
+    #Verify the Today  select medical center financial statements Calculation values
+  Scenario: Verify the Today Select medical center financial statements
+
+    Given Login to Admin Successfully
+    When Verify the Financial Year Title
+    And Select Medical Center in DropDown
+    And Click on Medical Center
+    Then Verify the Finance Dashboard Total Billed Today
+    And Verify the Finance Dashboard Group Average
+    And Validating in the Financial DashBoard Today Medical Center Fee
+
+   #Verify the Yesterday select medical center financial statements Calculation values
+  Scenario: Verify the Yesterday select medical center financial statements
+    Given Login to Admin Successfully
+    When Verify the Financial Year Title
+    And Select Medical Center in DropDown
+    And Click on Medical Center
+    Then Verify the Finance Dashboard Total Billed in Yesterday
+    And Verify the Finance Dashboard Group Average in Yesterday
+
+    #Verify the Last Week select medical center financial statements Calculation values
+  Scenario: Verify the Last Week select medical center financial statements
+    Given Login to Admin Successfully
+    When Verify the Financial Year Title
+    And Select Medical Center in DropDown
+    And Click on Medical Center
+    Then Validating in the Financial DashBoard Last Week Total Billed Values
+    And Validating in the Financial DashBoard Last Week Group Average Values
+
+    #Verify the Last Month select medical center financial statements calculation values
+  Scenario: Verify the Last month select medical center financial statements
+    Given Login to Admin Successfully
+    When Verify the Financial Year Title
+    And Select Medical Center in DropDown
+    And Click on Medical Center
+    Then Validating in the Financial DashBoard Last Month Total Billed Values
+    And Validating in the Financial DashBoard Last Month Group Average Values
+
+    #Verify the Financial Year (July - June) Total billed
+  Scenario: Verify the Financial Year Total Values
+    Given Login to Admin Successfully
+#    When Verify the Financial Year Title
+#    And Select Medical Center in DropDown
+#    And Click on Medical Center
+    Then Page Scroll Down
+    When Financial Year Total Billed Values Validating
+
+    #Verify the Financial Year (July - June) Total Appointments
+  Scenario: Verify the Financial Year Total Appointments
+    Given Login to Admin Successfully
+#    When Verify the Financial Year Title
+#    And Select Medical Center in DropDown
+#    And Click on Medical Center
+    Then Page Scroll Down
+    When Financial Year Total Appointments Values Validating
+
+    #Verify the Financial Year (July - June) Patient Average
+  Scenario: Verify the Financial Year Patient Average
+    Given Login to Admin Successfully
+   # When Verify the Financial Year Title
+   # And Select Medical Center in DropDown
+   # And Click on Medical Center
+    Then Page Scroll Down
+    When Financial Year Patient Average Values Validating
+
 
 
 

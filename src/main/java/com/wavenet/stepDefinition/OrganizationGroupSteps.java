@@ -50,6 +50,11 @@ public class OrganizationGroupSteps {
         organizationGroup.verify_the_Organization_Title();
     }
 
+    @Then("^Click on Action Button for organization$")
+    public void click_on_Action_Button_for_organization() throws Throwable {
+        organizationGroup.click_on_Action_Button_for_organization();
+    }
+
     @Then("^Verify the Search Organization Search Box '(.*?)'$")
     public void verify_the_Search_Organization_Search_Box(String Organization) throws Throwable {
         organizationGroup.verify_the_Search_Organization_Search_Box(Organization);

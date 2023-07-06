@@ -18,6 +18,8 @@ public class OrganizationGroup {
     private WebDriverWait wait;
     private JavascriptExecutor executor;
 
+    private By OrganizationGroupButtonXpath = By.xpath("//span[contains(text(),'Organizations/ Groups')]");
+
 
     public OrganizationGroup() {
         driver = InitializeDriver.getInstance().getDriver();
@@ -28,7 +30,7 @@ public class OrganizationGroup {
     public void click_on_Organization_Group() throws Throwable {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Thread.sleep(3000);
-        WebElement organizationBtn = driver.findElement(By.xpath("//span[contains(text(),'Organizations/ Groups')]"));
+        WebElement organizationBtn = driver.findElement(OrganizationGroupButtonXpath);
         JavascriptExecutor je = (JavascriptExecutor) driver;
         je.executeScript("arguments[0].scrollIntoView();", organizationBtn);
         Thread.sleep(3000);
@@ -70,7 +72,7 @@ public class OrganizationGroup {
     public void click_on_update_button_for_organization() throws Throwable {
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         Thread.sleep(8000);
-        WebElement updateBtn = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/app-organization-groups/table/tbody/tr[1]/td[2]/button[2]/span[1]/mat-icon"));
+        WebElement updateBtn = driver.findElement(By.xpath("//menu[normalize-space()='Edit']"));
         updateBtn.click();
         Thread.sleep(3000);
     }
@@ -91,11 +93,19 @@ public class OrganizationGroup {
         Assert.assertEquals(true,VerifyTheOrganizationTitle);
     }
 
-    public void verify_the_Search_Organization_Search_Box(String Organization) throws Throwable {
+    public void click_on_Action_Button_for_organization() throws Throwable {
+        Thread.sleep(5000);
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        WebElement ClickOnSearchOrganizationSearchBox = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/app-organization-groups/div[2]/div[1]/mat-form-field/div/div[1]/div[3]/input"));
+        WebElement ClickOnOrganizationActionBtn = driver.findElement(By.xpath("//mat-icon[normalize-space()='more_vert']"));
+        ClickOnOrganizationActionBtn.click();
+    }
+
+    public void verify_the_Search_Organization_Search_Box(String Organization) throws Throwable {
+        Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        WebElement ClickOnSearchOrganizationSearchBox = driver.findElement(By.xpath("//input[@formcontrolname=\"orgGroupName\"]"));
         ClickOnSearchOrganizationSearchBox.click();
-        WebElement EnterOrganizationName = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/app-organization-groups/div[2]/div[1]/mat-form-field/div/div[1]/div[3]/input"));
+        WebElement EnterOrganizationName = driver.findElement(By.xpath("//input[@formcontrolname=\"orgGroupName\"]"));
         EnterOrganizationName.sendKeys(Organization);
 
     }
@@ -107,6 +117,7 @@ public class OrganizationGroup {
         ClickOnSaveAndProceedButton.click();
     }
     public void verify_the_Item_per_page() throws Throwable {
+        Thread.sleep(5000);
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         WebElement ClickTheItemPerPage = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/app-organization-groups/div[2]/div[2]/mat-paginator/div/div/div[1]/mat-form-field/div/div[1]/div/mat-select/div/div[1]"));
         ClickTheItemPerPage.click();
@@ -121,12 +132,14 @@ public class OrganizationGroup {
     }
 
     public void verify_the_Table_Name_Column_Title() throws Throwable {
+        Thread.sleep(5000);
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         boolean VerifyName = driver.findElement(By.xpath("//th[normalize-space()='Name']")).isDisplayed();
         Assert.assertEquals(true,VerifyName);
 
     }
     public void verify_the_Table_Action_Column_Title() throws Throwable {
+        Thread.sleep(3000);
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         boolean VerifyTableAction = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/app-organization-groups/table/thead/tr/th[2]")).isDisplayed();
         Assert.assertEquals(true,VerifyTableAction);
@@ -135,7 +148,7 @@ public class OrganizationGroup {
     public void delete_On_default_Value_in_Text_Box() throws Throwable {
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         Thread.sleep(5000);
-        WebElement DefaultValuesDelete = driver.findElement(By.xpath("//*[@id=\"mat-input-4\"]"));
+        WebElement DefaultValuesDelete = driver.findElement(By.xpath("//input[@id='mat-input-239']"));
         DefaultValuesDelete.clear();
     }
 
@@ -149,7 +162,7 @@ public class OrganizationGroup {
     public void enter_Name_of_the_organization_group(String EnterOrganizationGroup) throws Throwable {
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         Thread.sleep(3000);
-        WebElement EnterNameOrganizationGroup = driver.findElement(By.xpath("//*[@id=\"organizationFormGroup\"]/div/div/div[1]/mat-form-field/div/div[1]/div[3]"));
+        WebElement EnterNameOrganizationGroup = driver.findElement(By.xpath("//input[ @formcontrolname=\"newOrganizationGroup\"]"));
         EnterNameOrganizationGroup.sendKeys(EnterOrganizationGroup);
 
     }

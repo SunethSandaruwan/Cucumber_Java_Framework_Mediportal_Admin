@@ -98,6 +98,49 @@ public class FinanceDashBoard {
     private By FinancialYearGroupAverage = By.xpath("//div[@class='card static-card static-flat-card blue']//div[@class='card-title']");
     private By FinancialYearTotalMedicalCenterFees = By.xpath("//div[@class='card static-card static-flat-card purple']//div[@class='card-title']");
 
+    //Finance Dashboard Today Xpath Values
+
+    private By TodayPatientSeenValues = By.xpath("/html[1]/body[1]/app-root[1]/mat-sidenav-container[1]/mat-sidenav-content[1]/div[1]/app-home[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]");
+    private By TodayPatientAverage = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[1]/div/div[2]/div/div[3]/div/span");
+    private By TodayTotalBilledValue = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[1]/div/div[2]/div/div[2]/div/span");
+
+    //Finance Dashboard Yesterday Xpath values
+
+    private By YesterdayPatientsSeenValuesXpath = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[2]/div/div[2]/div/div[1]/div/span");
+
+    private By YesterdayPatientAverageValuesXpath = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[2]/div/div[2]/div/div[3]/div/span");
+
+    private By YesterdayTotalBilledValueXpath = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[2]/div/div[2]/div/div[2]/div/span");
+
+    private By TodayMedicalCenterFeeXpath = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[1]/div/div[2]/div/div[4]/div/span");
+
+    //Finance DashBoard Last week Field Xpath
+
+    private By LastWeekPatientsSeenXpath = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[3]/div/div[2]/div/div[1]/div/span");
+
+    private By LastWeekPatinetAverageXpath = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[3]/div/div[2]/div/div[3]/div/span");
+
+    private By LastWeekTotalBilledValuesXpath = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[3]/div/div[2]/div/div[2]/div/span");
+
+    //Finance DashBoard Last month Field Xpath
+
+    private By LastMonthPatientsSeenXpath = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[4]/div/div[2]/div/div[1]/div/span");
+
+    private By LastMonthPatientAverageXpath = By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[4]/div/div[2]/div/div[3]/div/span");
+
+    private By LastMonthTotalBilledValuesXpath =By.xpath("//*[@id=\"contentToConvert\"]/section[1]/div/div[4]/div/div[2]/div/div[2]/div/span");
+
+    //Financial year (July - June)
+
+    private By FinancialYearTotalAppointmentsValuesXpath = By.xpath("//*[@id=\"contentToConvert\"]/div[2]/div[1]/div/div[2]/span");
+
+    private By FinancialYearTotalBilledValuesXpath = By.xpath("//*[@id=\"contentToConvert\"]/div[2]/div[2]/div/div[2]/span");
+
+    private By FinancialYearPatientAverageValuesXpath = By.xpath("//*[@id=\"contentToConvert\"]/div[2]/div[3]/div/div[2]/span");
+
+    //Scroll in your page Down
+
+    private By FinanceYearScrollDown = By.xpath("//h2[@class='mb-0']");
 
     public FinanceDashBoard(){
         driver = InitializeDriver.getInstance().getDriver();
@@ -406,6 +449,686 @@ public class FinanceDashBoard {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement ClickOnMedicalCenter = driver.findElement(By.xpath("//span[normalize-space()='Main surgery - Ellen Stirling']"));
         ClickOnMedicalCenter.click();
+    }
+
+    //-----------------------------Calculating Finance Dashboard Today Values-------------------------------------------
+
+    //Today Patients seen Calculating and stored the Values
+    public void verify_the_Finance_Dashboard_Total_Billed_Today() throws Throwable{
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+        // Patient Seen Count store the "StoreTheTodayPatientSeen" Object
+
+        WebElement StoreTheTodayPatientsSeen = driver.findElement(TodayPatientSeenValues);
+
+        // System.out.println("Values enters: " +StoreTheTodayPatientsSeen.getAttribute("values"));
+
+        String TodayPatientSeen = StoreTheTodayPatientsSeen.getText();
+
+        double TdayPatientSeen = Double.parseDouble(TodayPatientSeen); //returns double primitive in Today Patient seen
+
+        System.out.println("Patient Seen Test Double Date : "+TdayPatientSeen);
+
+        System.out.println("Today Patient seen Text attribute value is : "+ TodayPatientSeen);
+
+        //Patient Average Values store the "StoreTheTodayPatientAverage " object
+
+        WebElement StoreTheTodayPatientAverage = driver.findElement(TodayPatientAverage);
+
+        String PatientAverage = StoreTheTodayPatientAverage.getText();
+
+        double TdayPatientAverage = Double.parseDouble(PatientAverage); //returns double primitive in Today Patient Average
+
+        System.out.println("Patient Average Test Double Data : "+TdayPatientAverage);
+
+        System.out.println("Today Patient Average Text attribute values is : "+PatientAverage);
+
+        //Total Billed Values on Today
+
+        WebElement TodayTotalBilled = driver.findElement(TodayTotalBilledValue);
+
+        String SelectMedicalCenterTotalBilled = TodayTotalBilled.getText();
+
+        double TDayTotalBilled = Double.parseDouble(SelectMedicalCenterTotalBilled); //returns double primitive in Today Total Billed
+
+        System.out.println("Patient Total Bill Text attribute values is : "+SelectMedicalCenterTotalBilled);
+
+        System.out.println("Total Billed double values is : "+TDayTotalBilled);
+
+        if(TdayPatientSeen*TdayPatientAverage == TDayTotalBilled){
+            System.out.println("Total Values is successfully ");
+        }
+    }
+
+    //Today Patients Average Calculating and stored the Values
+    public void verify_the_Finance_Dashboard_Group_Average() throws Throwable {
+
+        //Today
+
+        Thread.sleep(3000);
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement TodayPatientsValues = driver.findElement(TodayPatientsSeen);
+
+        String SelectTodayPatientsValues = TodayPatientsValues.getText();
+
+        float TDayPatientsValues = Float.parseFloat(SelectTodayPatientsValues);
+
+        System.out.println("Patients Seen Test attribute values is : "+SelectTodayPatientsValues);
+
+        System.out.println("Patients Seen double values is : "+TDayPatientsValues);
+
+        //Today
+
+        WebElement TotalBilledValues = driver.findElement(TodayTotalBilledValue);
+
+        String SelectTotalBillingValues = TotalBilledValues.getText();
+
+        float TDayTotalBilled = Float.parseFloat(SelectTotalBillingValues);
+
+        System.out.println("Total Billed Test attribute values is : "+SelectTotalBillingValues);
+
+        System.out.println("Total Billed double values is : "+TDayTotalBilled);
+
+        //
+
+        WebElement PatientAverageValues = driver.findElement(TodayPatientAverage);
+
+        String SelectPatientAverageValues = PatientAverageValues.getText();
+
+        float TDayPatientAverageValues = Float.parseFloat(SelectPatientAverageValues);
+
+        System.out.println("Patient Average Values attribute values is : "+SelectPatientAverageValues);
+
+        System.out.println("Patients Average float values is : "+TDayPatientAverageValues);
+
+        if (TDayTotalBilled / TDayPatientsValues == TDayPatientAverageValues){
+            System.out.println("patient Averages Values is successfully ");
+        }
+
+    }
+
+    //Calculating the Financial Dashboard Today Medical center Fees
+    public void validating_in_the_Financial_DashBoard_Today_Medical_Center_Fee() throws Throwable {
+
+        //Store the Today Total Billed
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement TodayTotalBilledValues = driver.findElement(TodayTotalBilledValue);
+
+        String SelectTodayBilledValues = TodayTotalBilledValues.getText();
+
+        float TDayBilledValues = Float.parseFloat(SelectTodayBilledValues);
+
+        System.out.println("Verify the Today Billed Values : "+SelectTodayBilledValues);
+
+        System.out.println("Total Billed Values float values is"+TDayBilledValues);
+
+        //Store the Medical Center Fee
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement TodayMedicalCenterFeeValues = driver.findElement(TodayMedicalCenterFeeXpath);
+
+        String SelectTodayMedicalCenterFeeValues = TodayMedicalCenterFeeValues.getText();
+
+        float TDayMedicalCenterValues = Float.parseFloat(SelectTodayMedicalCenterFeeValues);
+
+        System.out.println("Verify the Medical Center Values : "+SelectTodayMedicalCenterFeeValues);
+
+        System.out.println(" Values float values is"+TDayBilledValues);
+
+
+    }
+    //---------------------------Yesterday Patients seen Calculating and stored the Values------------------------------
+
+    public void verify_the_Finance_Dashboard_Total_Billed_in_Yesterday() throws Throwable {
+
+        //Yesterday Patient seen Values
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement YesterdayPatientsSeenValues = driver.findElement(YesterdayPatientsSeenValuesXpath);
+
+        String SelectYesterdayPatientSeenValues = YesterdayPatientsSeenValues.getText();
+
+        float YDayPatientSeenValues = Float.parseFloat(SelectYesterdayPatientSeenValues);
+
+        System.out.println("Yesterday Patient Seen Values is : "+SelectYesterdayPatientSeenValues);
+
+        System.out.println("Yesterday Patient float values is : "+YDayPatientSeenValues);
+
+        //Yesterday Patient Average Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement YesterdayPatientsAverageValues = driver.findElement(YesterdayPatientAverageValuesXpath);
+
+        String SelectYesterdayPatientAverageValues = YesterdayPatientsAverageValues.getText();
+
+        float YDayPatientAverageValues = Float.parseFloat(SelectYesterdayPatientAverageValues);
+
+        System.out.println("Yesterday Patient Average Values is : "+SelectYesterdayPatientAverageValues);
+
+        System.out.println("Yesterday Patient Average float values is : "+YDayPatientAverageValues);
+
+        //Yesterday Total billed Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement YesterdayTotalBilledValues = driver.findElement(YesterdayTotalBilledValueXpath);
+
+        String SelectYesterdayTotalBilledValues = YesterdayTotalBilledValues.getText();
+
+        float YDayTotalBilledValues = Float.parseFloat(SelectYesterdayTotalBilledValues);
+
+        System.out.println("Yesterday Total billed Values is : "+SelectYesterdayTotalBilledValues);
+
+        System.out.println("Yesterday Total billed float values is : "+YDayTotalBilledValues);
+
+        if (YDayPatientSeenValues*YDayPatientAverageValues == YDayTotalBilledValues) {
+            System.out.println("Yesterday total Values is successfully ");
+        }
+    }
+
+    //---------------------------Yesterday Patient Average Calculating and stored the Values----------------------------
+    public void verify_the_Finance_Dashboard_Group_Average_in_Yesterday() throws Throwable {
+
+        //Yesterday Patients Seen Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement YesterdayPatientsSeenValues = driver.findElement(YesterdayPatientsSeenValuesXpath);
+
+        String SelectYesterdayPatientSeenValues = YesterdayPatientsSeenValues.getText();
+
+        float YDayPatientsSeenValues = Float.parseFloat(SelectYesterdayPatientSeenValues);
+
+        System.out.println("Yesterday Patient Seen Values is : "+SelectYesterdayPatientSeenValues);
+
+        System.out.println("Yesterday Patient Seen float values is : "+YDayPatientsSeenValues);
+
+        //Yesterday Patient Average Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement YesterdayPatientAverageValues = driver.findElement(YesterdayPatientAverageValuesXpath);
+
+        String SelectYesterdayPatientAverageValues = YesterdayPatientAverageValues.getText();
+
+        float YDayPatientAverageValues = Float.parseFloat(SelectYesterdayPatientAverageValues);
+
+        System.out.println("Yesterday Patient Average Values is : "+SelectYesterdayPatientAverageValues);
+
+        System.out.println("Yesterday Patient Average float values is : "+YDayPatientAverageValues);
+
+        //Yesterday Total Billed Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement YesterdayTotalBilledValues = driver.findElement(YesterdayTotalBilledValueXpath);
+
+        String SelectYesterdayTotalBilledValues = YesterdayTotalBilledValues.getText();
+
+        float YDayTotalBilledValues = Float.parseFloat(SelectYesterdayTotalBilledValues);
+
+        System.out.println("Yesterday Total Billed Values is : "+SelectYesterdayTotalBilledValues);
+
+        System.out.println("Yesterday Total Billed float Values is : "+YDayTotalBilledValues);
+
+        if (YDayTotalBilledValues % YDayPatientsSeenValues == YDayPatientAverageValues){
+            System.out.println("Yesterday Patient Average Values is successfully");
+        }
+    }
+
+    //---------------------------Last Week Patient Average Calculating and stored the Values----------------------------
+
+    public void validating_in_the_Financial_DashBoard_Last_Week_Total_Billed_Values() throws Throwable {
+
+        //Store the Last week Patients Seen
+
+        Thread.sleep(10000);
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement LastWeekPatientSeen = driver.findElement(LastWeekPatientsSeenXpath);
+
+        String SelectLastWeekPatientSeenValues = LastWeekPatientSeen.getText();
+
+        float LWeekPatientSeenValues = Float.parseFloat(SelectLastWeekPatientSeenValues);
+
+        System.out.println("Last Week Patient Seen Values is : "+SelectLastWeekPatientSeenValues);
+
+        System.out.println("Last Week Patient Seen float Values is : "+LWeekPatientSeenValues);
+
+        //Store the Last Week Patient Average
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement LastWeekPatientAverage = driver.findElement(LastWeekPatinetAverageXpath);
+
+        String SelectLastWeekPatientAverageValues = LastWeekPatientAverage.getText();
+
+        float LWeekPatientAverageValues = Float.parseFloat(SelectLastWeekPatientAverageValues);
+
+        System.out.println("Last Week Patient Average Values is : "+ SelectLastWeekPatientAverageValues);
+
+        System.out.println("Last Week Patient Average float Values is : "+ LWeekPatientAverageValues);
+
+        //Store the Last Week Total Billed Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        Thread.sleep(5000);
+
+        WebElement LastWeekTotalBilled = driver.findElement(LastWeekTotalBilledValuesXpath);
+
+        String SelectLastWeekTotalBilledValues = LastWeekTotalBilled.getText();
+
+        float LWeekTotalBilledValues = Float.parseFloat(SelectLastWeekTotalBilledValues);
+
+        System.out.println("Last Week Total Billed Values is :  "+ SelectLastWeekTotalBilledValues);
+
+        System.out.println("Last Week Total Billed float Values is : "+ LWeekTotalBilledValues);
+
+        if (LWeekPatientSeenValues * LWeekPatientAverageValues == LWeekTotalBilledValues) {
+            System.out.println("Last Week Total Billed Values is Successfully correct ");
+        }
+    }
+
+    //-------------------------------Last Week Group Average Values ----------------------------------------------------
+    public void validating_in_the_Financial_DashBoard_Last_Week_Group_Average_Values() throws Throwable {
+
+        //Store the Last week Group Average
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement LastWeekPatientsSeenValues = driver.findElement(LastWeekPatientsSeenXpath);
+
+        String SelectLastWeekPatientSeenValues = LastWeekPatientsSeenValues.getText();
+
+        float LWeekPatientsSeenValues = Float.parseFloat(SelectLastWeekPatientSeenValues);
+
+        System.out.println("Last Week Patient Seen Values is : "+SelectLastWeekPatientSeenValues);
+
+        System.out.println("Last Week Patient Seen float values is : "+LWeekPatientsSeenValues);
+
+        //Last Week Patient Average Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement LastWeekPatientAverageValues = driver.findElement(LastWeekPatinetAverageXpath);
+
+        String SelectLastWeekPatientAverageValues = LastWeekPatientAverageValues.getText();
+
+        float LWeekPatientAverageValues = Float.parseFloat(SelectLastWeekPatientAverageValues);
+
+        System.out.println("Last Week Patient Average Values is : "+SelectLastWeekPatientAverageValues);
+
+        System.out.println("Last Week Patient Average float values is : "+LWeekPatientAverageValues);
+
+        //Store the Last Week Total Billed Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        Thread.sleep(5000);
+
+        WebElement LastWeekTotalBilled = driver.findElement(LastWeekTotalBilledValuesXpath);
+
+        String SelectLastWeekTotalBilledValues = LastWeekTotalBilled.getText();
+
+        float LWeekTotalBilledValues = Float.parseFloat(SelectLastWeekTotalBilledValues);
+
+        System.out.println("Last Week Total Billed Values is :  "+ SelectLastWeekTotalBilledValues);
+
+        System.out.println("Last Week Total Billed float Values is : "+ LWeekTotalBilledValues);
+
+        if (LWeekPatientsSeenValues % LWeekPatientAverageValues == LWeekTotalBilledValues){
+            System.out.println("Last Week Patient Average Values is successfully");
+        }
+    }
+
+    //-------------------------Validating in the Finance Dashboard last month Values------------------------------------
+    public void validating_in_the_Financial_DashBoard_Last_Month_Total_Billed_Values() throws Throwable {
+
+        //Store the Last Month Patients Seen
+
+        Thread.sleep(5000);
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement LastMonthPatientSeen = driver.findElement(LastMonthPatientsSeenXpath);
+
+        String SelectLastMonthPatientSeenValues = LastMonthPatientSeen.getText();
+
+        float LMonthPatientSeenValues = Float.parseFloat(SelectLastMonthPatientSeenValues);
+
+        System.out.println("Last Month Patient Seen Values is : "+SelectLastMonthPatientSeenValues);
+
+        System.out.println("Last Month Patient Seen float Values is : "+LMonthPatientSeenValues);
+
+        //Store the Last Month Patient Average
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement LastMonthPatientAverage = driver.findElement(LastMonthPatientAverageXpath);
+
+        String SelectLastMonthPatientAverageValues = LastMonthPatientAverage.getText();
+
+        float LMonthPatientAverageValues = Float.parseFloat(SelectLastMonthPatientAverageValues);
+
+        System.out.println("Last Month Patient Average Values is : "+ SelectLastMonthPatientAverageValues);
+
+        System.out.println("Last Month Patient Average float Values is : "+ LMonthPatientAverageValues);
+
+        //Store the Last Month Total Billed Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        Thread.sleep(5000);
+
+        WebElement LastMonthTotalBilled = driver.findElement(LastMonthTotalBilledValuesXpath);
+
+        String SelectLastMonthTotalBilledValues = LastMonthTotalBilled.getText();
+
+        String cleanedString = SelectLastMonthTotalBilledValues.replace(",","");
+
+        //double LMonthTotalBilledValues = Double.parseDouble(SelectLastMonthTotalBilledValues);
+
+        float LMonthTotalBilledValues = Float.parseFloat(cleanedString);
+
+        System.out.println("Last Month Total Billed Values is :  "+ SelectLastMonthTotalBilledValues);
+
+        System.out.println("Last Month Total Billed float Values is : "+ SelectLastMonthTotalBilledValues);
+
+        double CalculatingValuesInBilledValues = LMonthPatientSeenValues * LMonthPatientAverageValues;
+
+        String formattedNumber = String.format("%.2f",CalculatingValuesInBilledValues);
+
+        float LastMonthInBilledValuesAnswer = Float.parseFloat(formattedNumber);
+
+        if (LastMonthInBilledValuesAnswer == LMonthTotalBilledValues) {
+            System.out.println("Last Month Total Billed Values is Successfully correct ");
+        }
+        else {
+            System.out.println("failed");
+        }
+
+    }
+
+    //------------------------Validating in the Finance Dashboard last month Group Average Values-----------------------
+
+    public void validating_in_the_Financial_DashBoard_Last_Month_Group_Average_Values() throws Throwable {
+
+        //Store the Last Month Group Average
+
+        Thread.sleep(5000);
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement LastMonthPatientsSeenValues = driver.findElement(LastMonthPatientsSeenXpath);
+
+        String SelectLastMonthPatientSeenValues = LastMonthPatientsSeenValues.getText();
+
+        float LMonthPatientsSeenValues = Float.parseFloat(SelectLastMonthPatientSeenValues);
+        //LMonthPatientsSeenValues
+
+        System.out.println("Last Month Patient Seen Values is : "+SelectLastMonthPatientSeenValues);
+
+        System.out.println("Last Month Patient Seen float values is : "+LMonthPatientsSeenValues);
+
+        //Last Month Patient Average Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement LastMonthPatientAverageValues = driver.findElement(LastMonthPatientAverageXpath);
+
+        String SelectLastMonthPatientAverageValues = LastMonthPatientAverageValues.getText();
+
+        float LMonthPatientAverageValues = Float.parseFloat(SelectLastMonthPatientAverageValues);
+        //LMonthPatientAverageValues
+
+        System.out.println("Last Month Patient Average Values is : "+SelectLastMonthPatientAverageValues);
+
+        System.out.println("Last Month Patient Average float values is : "+LMonthPatientAverageValues);
+
+        //Store the Last Month Total Billed Values
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        Thread.sleep(5000);
+
+        WebElement LastMonthTotalBilled = driver.findElement(LastMonthTotalBilledValuesXpath);
+
+        String SelectLastMonthTotalBilledValues = LastMonthTotalBilled.getText();
+
+        String cleanedString = SelectLastMonthTotalBilledValues.replace(",", "");
+
+        float LMonthTotalBilledValues = Float.parseFloat(cleanedString);
+        //LMonthTotalBilledValues
+
+        System.out.println("Last Month Total Billed Values is :  "+ SelectLastMonthTotalBilledValues);
+
+        System.out.println("Last Month Total Billed float Values is : "+ LMonthTotalBilledValues);
+
+        double CalculatingValuesInLastMonth = LMonthTotalBilledValues / LMonthPatientsSeenValues;
+
+        String formattedNumber = String.format("%.2f",CalculatingValuesInLastMonth);
+
+        float LastMonthCalculatingAnswer = Float.parseFloat(formattedNumber);
+
+        if (LastMonthCalculatingAnswer == LMonthPatientAverageValues){
+            System.out.println("Last Month Patient Average Values is successfully");
+        }
+    }
+
+    //--------------------------Validating Financial Year Total Billed--------------------------------------------------
+    public void financial_Year_Total_Billed_Values_Validating() throws Throwable {
+
+        //Store the Financial Year Total Appointments
+
+        Thread.sleep(5000);
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement FinanceYearTotalAppointmentsValues = driver.findElement(FinancialYearTotalAppointmentsValuesXpath);
+
+        String SelectFinancialYearTotalAppointments = FinanceYearTotalAppointmentsValues.getText();
+
+        String cleanedStringTotalAppointments = SelectFinancialYearTotalAppointments.replace(",", "");
+
+        float FinancialYearTotalAppointments = Float.parseFloat(cleanedStringTotalAppointments);
+
+        System.out.println("Financial Year Total Appointments Values is :  "+ SelectFinancialYearTotalAppointments);
+
+        System.out.println("Financial Year Total Appointments float Values is : "+ FinancialYearTotalAppointments);
+
+        //Store the Financial year Total Billed
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement FinancialYearTotalBilledValues = driver.findElement(FinancialYearTotalBilledValuesXpath);
+
+        String SelectFinancialYearTotalBilled = FinancialYearTotalBilledValues.getText();
+
+        String cleanedStringTotalBilled= SelectFinancialYearTotalBilled.replace(",","");
+
+        float FinancialYearTotalBilled = Float.parseFloat(cleanedStringTotalBilled);
+
+        System.out.println("Financial Year Total Billed Values is :  "+ SelectFinancialYearTotalBilled);
+
+        System.out.println("Financial Year Total Billed float Values is : "+ FinancialYearTotalBilled);
+
+        //Store the Financial Year Patient Average
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement FinancialYearPatientAverageValues = driver.findElement(FinancialYearPatientAverageValuesXpath);
+
+        String SelectFinancialYearPatientAverage =  FinancialYearPatientAverageValues.getText();
+
+        String cleanedStringPatientAverage= SelectFinancialYearPatientAverage.replace(",","");
+
+        float FinancialYearPatientAverage = Float.parseFloat(cleanedStringPatientAverage);
+
+        System.out.println("Financial Year Patient Average Values is :  "+ SelectFinancialYearPatientAverage);
+
+        System.out.println("Financial Year Patient Average float Values is : "+ FinancialYearPatientAverage);
+
+        //Calculation in Total billed
+
+        double CalculatingValuesInFinancialYearTotalBilled =  FinancialYearTotalAppointments * FinancialYearPatientAverage;
+
+        String formattedNumber = String.format("%.2f",CalculatingValuesInFinancialYearTotalBilled);
+
+        float FinancialYearTotalBilledCalculatingAnswer = Float.parseFloat(formattedNumber);
+
+        if (FinancialYearTotalBilledCalculatingAnswer == FinancialYearTotalBilled){
+            System.out.println("FinancialYearTotalBilled Values is successfully!!!!!!");
+        }
+//        else {
+//            System.out.println("FinancialYearTotalBilled Values is Mismatch!!!!!!!!");
+//        }
+    }
+
+    //-----------------------------Validating Finance Year Total Appointment--------------------------------------------
+    public void financial_Year_Total_Appointments_Values_Validating() throws Throwable {
+
+        //Store the Financial Year Total Appointments
+
+        Thread.sleep(5000);
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement FinanceYearTotalAppointmentsValues = driver.findElement(FinancialYearTotalAppointmentsValuesXpath);
+
+        String SelectFinancialYearTotalAppointments = FinanceYearTotalAppointmentsValues.getText();
+
+        String cleanedStringTotalAppointments = SelectFinancialYearTotalAppointments.replace(",", "");
+
+        float FinancialYearTotalAppointments = Float.parseFloat(cleanedStringTotalAppointments);
+
+        System.out.println("Financial Year Total Appointments Values is :  "+ SelectFinancialYearTotalAppointments);
+
+        System.out.println("Financial Year Total Appointments float Values is : "+ FinancialYearTotalAppointments);
+
+        //Store the Financial year Total Billed
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement FinancialYearTotalBilledValues = driver.findElement(FinancialYearTotalBilledValuesXpath);
+
+        String SelectFinancialYearTotalBilled = FinancialYearTotalBilledValues.getText();
+
+        String cleanedStringTotalBilled= SelectFinancialYearTotalBilled.replace(",","");
+
+        float FinancialYearTotalBilled = Float.parseFloat(cleanedStringTotalBilled);
+
+        System.out.println("Financial Year Total Billed Values is :  "+ SelectFinancialYearTotalBilled);
+
+        System.out.println("Financial Year Total Billed float Values is : "+ FinancialYearTotalBilled);
+
+        //Store the Financial Year Patient Average
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement FinancialYearPatientAverageValues = driver.findElement(FinancialYearPatientAverageValuesXpath);
+
+        String SelectFinancialYearPatientAverage =  FinancialYearPatientAverageValues.getText();
+
+        String cleanedStringPatientAverage= SelectFinancialYearPatientAverage.replace(",","");
+
+        float FinancialYearPatientAverage = Float.parseFloat(cleanedStringPatientAverage);
+
+        System.out.println("Financial Year Patient Average Values is :  "+ SelectFinancialYearPatientAverage);
+
+        System.out.println("Financial Year Patient Average float Values is : "+ FinancialYearPatientAverage);
+
+        //----------------------------Calculating the Total Appointments------------------------------------------------
+
+        double CalculatingValuesInFinancialYearTotalAppointments =  FinancialYearTotalBilled / FinancialYearPatientAverage;
+
+        String formattedNumber = String.format("%.2f",CalculatingValuesInFinancialYearTotalAppointments);
+
+        float FinancialYearTotalAppointmentsCalculatingAnswer = Float.parseFloat(formattedNumber);
+
+        if (FinancialYearTotalAppointmentsCalculatingAnswer == FinancialYearTotalAppointments){
+            System.out.println("FinancialYearTotalBilled Values is successfully!!!!!!");
+        }
+        else {
+            System.out.println("FinancialYearTotalBilled Values is Mismatch!!!!!!!!");
+        }
+    }
+
+    //--------------------------------Validating Finance Year Patient Average-------------------------------------------
+    public void financial_Year_Patient_Average_Values_Validating() throws Throwable {
+
+        //Store the Financial Year Patient Average
+
+        Thread.sleep(5000);
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement FinanceYearTotalAppointmentsValues = driver.findElement(FinancialYearTotalAppointmentsValuesXpath);
+
+        String SelectFinancialYearTotalAppointments = FinanceYearTotalAppointmentsValues.getText();
+
+        String cleanedStringTotalAppointments = SelectFinancialYearTotalAppointments.replace(",", "");
+
+        float FinancialYearTotalAppointments = Float.parseFloat(cleanedStringTotalAppointments);
+
+        System.out.println("Financial Year Total Appointments Values is :  "+ SelectFinancialYearTotalAppointments);
+
+        System.out.println("Financial Year Total Appointments float Values is : "+ FinancialYearTotalAppointments);
+
+        //Store the Financial year Total Billed
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement FinancialYearTotalBilledValues = driver.findElement(FinancialYearTotalBilledValuesXpath);
+
+        String SelectFinancialYearTotalBilled = FinancialYearTotalBilledValues.getText();
+
+        String cleanedStringTotalBilled= SelectFinancialYearTotalBilled.replace(",","");
+
+        float FinancialYearTotalBilled = Float.parseFloat(cleanedStringTotalBilled);
+
+        System.out.println("Financial Year Total Billed Values is :  "+ SelectFinancialYearTotalBilled);
+
+        System.out.println("Financial Year Total Billed float Values is : "+ FinancialYearTotalBilled);
+
+        //Store the Financial Year Patient Average
+
+        driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+
+        WebElement FinancialYearPatientAverageValues = driver.findElement(FinancialYearPatientAverageValuesXpath);
+
+        String SelectFinancialYearPatientAverage =  FinancialYearPatientAverageValues.getText();
+
+        String cleanedStringPatientAverage= SelectFinancialYearPatientAverage.replace(",","");
+
+        float FinancialYearPatientAverage = Float.parseFloat(cleanedStringPatientAverage);
+
+        System.out.println("Financial Year Patient Average Values is :  "+ SelectFinancialYearPatientAverage);
+
+        System.out.println("Financial Year Patient Average float Values is : "+ FinancialYearPatientAverage);
+
+        //----------------------------Calculating the Patient Average------------------------------------------------
+
+        double CalculatingValuesInFinancialYearPatientAverage =  FinancialYearTotalBilled / FinancialYearTotalAppointments;
+
+        String formattedNumber = String.format("%.2f",CalculatingValuesInFinancialYearPatientAverage);
+
+        float FinancialYearPatientAverageCalculatingAnswer = Float.parseFloat(formattedNumber);
+
+        if (FinancialYearPatientAverageCalculatingAnswer == FinancialYearPatientAverage){
+            System.out.println("FinancialYearPatientAverage Values is successfully!!!!!!");
+        }
+        else {
+            System.out.println("FinancialYearPatientAverage Values is Mismatch!!!!!!!!");
+        }
+
     }
 }
 

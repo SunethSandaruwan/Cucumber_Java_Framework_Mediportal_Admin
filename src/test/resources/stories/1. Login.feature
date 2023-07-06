@@ -6,7 +6,6 @@ Feature: MediPortal Admin Login
     Given Open the browser and launch the application
     When Enter a valid email 'AdminUser' and invalid password 'Test@123'
     And Click SignIn
-    Then Driver Quit
 #    Then Load the CAM Admin Home Page
 #    And Click on Compose
 #    And Load the Compose Home Page

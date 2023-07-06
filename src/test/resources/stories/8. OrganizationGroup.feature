@@ -14,7 +14,7 @@ Feature: Organization or Group Hospitals
     Then Click on Add New Medical Center
     And Click on Create new organization group button
     Then Verify the Add New Organization Group Title
-    And Enter Name of the organization group 'AutomationTestOrganization'
+    And Enter Name of the organization group 'AutomationTestOrganizationA'
       # And Upload logo image for organization
     And Click on Add organization group Save and proceed Button
     And Display the success message for Added new organization group as 'Organization has been successfully created'
@@ -26,7 +26,7 @@ Feature: Organization or Group Hospitals
     Given Login to Admin Successfully
     And Click on Organization Group
     Then Verify the Organization Title
-    And Verify the Search Organization Search Box 'AutomationTestOrganization'
+    And Verify the Search Organization Search Box 'AutomationTestOrganizationA'
     And Verify the Item per page
    # Then Verify the Navigation Button
     And Verify the Table Name Column Title
@@ -37,7 +37,9 @@ Feature: Organization or Group Hospitals
     Given Login to Admin Successfully
     And Click on Organization Group
     And Verify the Organization Title
-    And Verify the Search Organization Search Box 'AutomationTestOrganization'
+   # And Verify the Search Organization Search Box 'AutomationTestOrganizationA'
+    And Verify the Search Organization Search Box 'AutomationTestB'
+    Then Click on Action Button for organization
     And Click on update button for organization
     And Delete On default Value in Text Box
     And Enter name for the organization as 'AutomationTestOrganizationOne'
@@ -50,7 +52,7 @@ Feature: Organization or Group Hospitals
     Given Login to Admin Successfully
     And Click on Organization Group
    # And Verify the Search Organization Search Box 'AutomationTestOrganizationOne'
-    And Verify the Search Organization Search Box 'AutomationTestOrganization'
+    And Verify the Search Organization Search Box 'AutomationTestOrganizationOne'
    # And Select organization group as 'AutomationTestOrganizationOne'
     And Click on delete button
     And Verify the organization Group Delete Conformation PopUp Box Title

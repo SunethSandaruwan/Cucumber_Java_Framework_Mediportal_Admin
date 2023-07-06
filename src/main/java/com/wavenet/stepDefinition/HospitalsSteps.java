@@ -53,9 +53,6 @@ public class HospitalsSteps {
         hospitals.select_language_for_hospital();
     }
 
-
-
-
     @Given("^Enter hospital name as '(.*?)'$")
     public void enter_hospital_name(String name) throws Throwable {
         hospitals.enter_hospital_name(name);

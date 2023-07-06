@@ -164,4 +164,66 @@ public class FinanceDashboardSteps {
     public void click_on_Medical_Center() throws Throwable {
         financeDashBoard.click_on_Medical_Center();
     }
+
+    // ---------- Calculating Finance Dashboard Values--------------
+
+    @When("^Verify the Finance Dashboard Total Billed Today$")
+    public void verify_the_Finance_Dashboard_Total_Billed_Today() throws Throwable {
+        financeDashBoard.verify_the_Finance_Dashboard_Total_Billed_Today();
+    }
+
+    @Then("^Verify the Finance Dashboard Group Average$")
+    public void verify_the_Finance_Dashboard_Group_Average() throws Throwable {
+        financeDashBoard.verify_the_Finance_Dashboard_Group_Average();
+    }
+
+    @Then("^Validating in the Financial DashBoard Today Medical Center Fee$")
+    public void validating_in_the_Financial_DashBoard_Today_Medical_Center_Fee() throws Throwable {
+
+    }
+
+    @Then("^Verify the Finance Dashboard Total Billed in Yesterday$")
+    public void verify_the_Finance_Dashboard_Total_Billed_in_Yesterday() throws Throwable {
+        financeDashBoard.verify_the_Finance_Dashboard_Total_Billed_in_Yesterday();
+    }
+
+    @Then("^Verify the Finance Dashboard Group Average in Yesterday$")
+    public void verify_the_Finance_Dashboard_Group_Average_in_Yesterday() throws Throwable {
+        financeDashBoard.verify_the_Finance_Dashboard_Group_Average_in_Yesterday();
+    }
+
+    @Then("^Validating in the Financial DashBoard Last Week Total Billed Values$")
+    public void validating_in_the_Financial_DashBoard_Last_Week_Total_Billed_Values() throws Throwable {
+        financeDashBoard.validating_in_the_Financial_DashBoard_Last_Week_Total_Billed_Values();
+    }
+
+    @Then("^Validating in the Financial DashBoard Last Week Group Average Values$")
+    public void validating_in_the_Financial_DashBoard_Last_Week_Group_Average_Values() throws Throwable {
+        financeDashBoard.validating_in_the_Financial_DashBoard_Last_Week_Group_Average_Values();
+    }
+
+    @Then("^Validating in the Financial DashBoard Last Month Total Billed Values$")
+    public void validating_in_the_Financial_DashBoard_Last_Month_Total_Billed_Values() throws Throwable {
+        financeDashBoard.validating_in_the_Financial_DashBoard_Last_Month_Total_Billed_Values();
+    }
+
+    @Then("^Validating in the Financial DashBoard Last Month Group Average Values$")
+    public void validating_in_the_Financial_DashBoard_Last_Month_Group_Average_Values() throws Throwable {
+        financeDashBoard.validating_in_the_Financial_DashBoard_Last_Month_Group_Average_Values();
+    }
+
+    @When("^Financial Year Total Billed Values Validating$")
+    public void financial_Year_Total_Billed_Values_Validating() throws Throwable {
+        financeDashBoard.financial_Year_Total_Billed_Values_Validating();
+    }
+    @When("^Financial Year Total Appointments Values Validating$")
+    public void financial_Year_Total_Appointments_Values_Validating() throws Throwable {
+        financeDashBoard.financial_Year_Total_Appointments_Values_Validating();
+    }
+
+    @When("^Financial Year Patient Average Values Validating$")
+    public void financial_Year_Patient_Average_Values_Validating() throws Throwable {
+        financeDashBoard.financial_Year_Patient_Average_Values_Validating();
+    }
+
 }
